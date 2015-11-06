@@ -1,0 +1,522 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CA0B96501BEC4C0900E97070 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0B964F1BEC4C0900E97070 /* AppDelegate.swift */; };
+		CA0B96521BEC4C0900E97070 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0B96511BEC4C0900E97070 /* ViewController.swift */; };
+		CA0B96551BEC4C0900E97070 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA0B96531BEC4C0900E97070 /* Main.storyboard */; };
+		CA0B96581BEC4C0900E97070 /* iOS_Colorimeter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CA0B96561BEC4C0900E97070 /* iOS_Colorimeter.xcdatamodeld */; };
+		CA0B965A1BEC4C0A00E97070 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA0B96591BEC4C0A00E97070 /* Assets.xcassets */; };
+		CA0B965D1BEC4C0A00E97070 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA0B965B1BEC4C0A00E97070 /* LaunchScreen.storyboard */; };
+		CA0B96681BEC4C0A00E97070 /* iOS_ColorimeterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0B96671BEC4C0A00E97070 /* iOS_ColorimeterTests.swift */; };
+		CA0B96731BEC4C0A00E97070 /* iOS_ColorimeterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0B96721BEC4C0A00E97070 /* iOS_ColorimeterUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CA0B96641BEC4C0A00E97070 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA0B96441BEC4C0900E97070 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA0B964B1BEC4C0900E97070;
+			remoteInfo = iOS_Colorimeter;
+		};
+		CA0B966F1BEC4C0A00E97070 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA0B96441BEC4C0900E97070 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA0B964B1BEC4C0900E97070;
+			remoteInfo = iOS_Colorimeter;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CA0B964C1BEC4C0900E97070 /* iOS_Colorimeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Colorimeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA0B964F1BEC4C0900E97070 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CA0B96511BEC4C0900E97070 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CA0B96541BEC4C0900E97070 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CA0B96571BEC4C0900E97070 /* iOS_Colorimeter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iOS_Colorimeter.xcdatamodel; sourceTree = "<group>"; };
+		CA0B96591BEC4C0A00E97070 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CA0B965C1BEC4C0A00E97070 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CA0B965E1BEC4C0A00E97070 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA0B96631BEC4C0A00E97070 /* iOS_ColorimeterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOS_ColorimeterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA0B96671BEC4C0A00E97070 /* iOS_ColorimeterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_ColorimeterTests.swift; sourceTree = "<group>"; };
+		CA0B96691BEC4C0A00E97070 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA0B966E1BEC4C0A00E97070 /* iOS_ColorimeterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOS_ColorimeterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA0B96721BEC4C0A00E97070 /* iOS_ColorimeterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_ColorimeterUITests.swift; sourceTree = "<group>"; };
+		CA0B96741BEC4C0A00E97070 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CA0B96491BEC4C0900E97070 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA0B96601BEC4C0A00E97070 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA0B966B1BEC4C0A00E97070 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CA0B96431BEC4C0900E97070 = {
+			isa = PBXGroup;
+			children = (
+				CA0B964E1BEC4C0900E97070 /* iOS_Colorimeter */,
+				CA0B96661BEC4C0A00E97070 /* iOS_ColorimeterTests */,
+				CA0B96711BEC4C0A00E97070 /* iOS_ColorimeterUITests */,
+				CA0B964D1BEC4C0900E97070 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CA0B964D1BEC4C0900E97070 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CA0B964C1BEC4C0900E97070 /* iOS_Colorimeter.app */,
+				CA0B96631BEC4C0A00E97070 /* iOS_ColorimeterTests.xctest */,
+				CA0B966E1BEC4C0A00E97070 /* iOS_ColorimeterUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CA0B964E1BEC4C0900E97070 /* iOS_Colorimeter */ = {
+			isa = PBXGroup;
+			children = (
+				CA0B964F1BEC4C0900E97070 /* AppDelegate.swift */,
+				CA0B96511BEC4C0900E97070 /* ViewController.swift */,
+				CA0B96531BEC4C0900E97070 /* Main.storyboard */,
+				CA0B96591BEC4C0A00E97070 /* Assets.xcassets */,
+				CA0B965B1BEC4C0A00E97070 /* LaunchScreen.storyboard */,
+				CA0B965E1BEC4C0A00E97070 /* Info.plist */,
+				CA0B96561BEC4C0900E97070 /* iOS_Colorimeter.xcdatamodeld */,
+			);
+			path = iOS_Colorimeter;
+			sourceTree = "<group>";
+		};
+		CA0B96661BEC4C0A00E97070 /* iOS_ColorimeterTests */ = {
+			isa = PBXGroup;
+			children = (
+				CA0B96671BEC4C0A00E97070 /* iOS_ColorimeterTests.swift */,
+				CA0B96691BEC4C0A00E97070 /* Info.plist */,
+			);
+			path = iOS_ColorimeterTests;
+			sourceTree = "<group>";
+		};
+		CA0B96711BEC4C0A00E97070 /* iOS_ColorimeterUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CA0B96721BEC4C0A00E97070 /* iOS_ColorimeterUITests.swift */,
+				CA0B96741BEC4C0A00E97070 /* Info.plist */,
+			);
+			path = iOS_ColorimeterUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CA0B964B1BEC4C0900E97070 /* iOS_Colorimeter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA0B96771BEC4C0A00E97070 /* Build configuration list for PBXNativeTarget "iOS_Colorimeter" */;
+			buildPhases = (
+				CA0B96481BEC4C0900E97070 /* Sources */,
+				CA0B96491BEC4C0900E97070 /* Frameworks */,
+				CA0B964A1BEC4C0900E97070 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iOS_Colorimeter;
+			productName = iOS_Colorimeter;
+			productReference = CA0B964C1BEC4C0900E97070 /* iOS_Colorimeter.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CA0B96621BEC4C0A00E97070 /* iOS_ColorimeterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA0B967A1BEC4C0A00E97070 /* Build configuration list for PBXNativeTarget "iOS_ColorimeterTests" */;
+			buildPhases = (
+				CA0B965F1BEC4C0A00E97070 /* Sources */,
+				CA0B96601BEC4C0A00E97070 /* Frameworks */,
+				CA0B96611BEC4C0A00E97070 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CA0B96651BEC4C0A00E97070 /* PBXTargetDependency */,
+			);
+			name = iOS_ColorimeterTests;
+			productName = iOS_ColorimeterTests;
+			productReference = CA0B96631BEC4C0A00E97070 /* iOS_ColorimeterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CA0B966D1BEC4C0A00E97070 /* iOS_ColorimeterUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA0B967D1BEC4C0A00E97070 /* Build configuration list for PBXNativeTarget "iOS_ColorimeterUITests" */;
+			buildPhases = (
+				CA0B966A1BEC4C0A00E97070 /* Sources */,
+				CA0B966B1BEC4C0A00E97070 /* Frameworks */,
+				CA0B966C1BEC4C0A00E97070 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CA0B96701BEC4C0A00E97070 /* PBXTargetDependency */,
+			);
+			name = iOS_ColorimeterUITests;
+			productName = iOS_ColorimeterUITests;
+			productReference = CA0B966E1BEC4C0A00E97070 /* iOS_ColorimeterUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CA0B96441BEC4C0900E97070 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Remcho Research";
+				TargetAttributes = {
+					CA0B964B1BEC4C0900E97070 = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					CA0B96621BEC4C0A00E97070 = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = CA0B964B1BEC4C0900E97070;
+					};
+					CA0B966D1BEC4C0A00E97070 = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = CA0B964B1BEC4C0900E97070;
+					};
+				};
+			};
+			buildConfigurationList = CA0B96471BEC4C0900E97070 /* Build configuration list for PBXProject "iOS_Colorimeter" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CA0B96431BEC4C0900E97070;
+			productRefGroup = CA0B964D1BEC4C0900E97070 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CA0B964B1BEC4C0900E97070 /* iOS_Colorimeter */,
+				CA0B96621BEC4C0A00E97070 /* iOS_ColorimeterTests */,
+				CA0B966D1BEC4C0A00E97070 /* iOS_ColorimeterUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CA0B964A1BEC4C0900E97070 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA0B965D1BEC4C0A00E97070 /* LaunchScreen.storyboard in Resources */,
+				CA0B965A1BEC4C0A00E97070 /* Assets.xcassets in Resources */,
+				CA0B96551BEC4C0900E97070 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA0B96611BEC4C0A00E97070 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA0B966C1BEC4C0A00E97070 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CA0B96481BEC4C0900E97070 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA0B96521BEC4C0900E97070 /* ViewController.swift in Sources */,
+				CA0B96581BEC4C0900E97070 /* iOS_Colorimeter.xcdatamodeld in Sources */,
+				CA0B96501BEC4C0900E97070 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA0B965F1BEC4C0A00E97070 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA0B96681BEC4C0A00E97070 /* iOS_ColorimeterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA0B966A1BEC4C0A00E97070 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA0B96731BEC4C0A00E97070 /* iOS_ColorimeterUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CA0B96651BEC4C0A00E97070 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CA0B964B1BEC4C0900E97070 /* iOS_Colorimeter */;
+			targetProxy = CA0B96641BEC4C0A00E97070 /* PBXContainerItemProxy */;
+		};
+		CA0B96701BEC4C0A00E97070 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CA0B964B1BEC4C0900E97070 /* iOS_Colorimeter */;
+			targetProxy = CA0B966F1BEC4C0A00E97070 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CA0B96531BEC4C0900E97070 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA0B96541BEC4C0900E97070 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CA0B965B1BEC4C0A00E97070 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA0B965C1BEC4C0A00E97070 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CA0B96751BEC4C0A00E97070 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CA0B96761BEC4C0A00E97070 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CA0B96781BEC4C0A00E97070 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = iOS_Colorimeter/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "RemchoResearch.iOS-Colorimeter";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CA0B96791BEC4C0A00E97070 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = iOS_Colorimeter/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "RemchoResearch.iOS-Colorimeter";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		CA0B967B1BEC4C0A00E97070 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = iOS_ColorimeterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "RemchoResearch.iOS-ColorimeterTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOS_Colorimeter.app/iOS_Colorimeter";
+			};
+			name = Debug;
+		};
+		CA0B967C1BEC4C0A00E97070 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = iOS_ColorimeterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "RemchoResearch.iOS-ColorimeterTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOS_Colorimeter.app/iOS_Colorimeter";
+			};
+			name = Release;
+		};
+		CA0B967E1BEC4C0A00E97070 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = iOS_ColorimeterUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "RemchoResearch.iOS-ColorimeterUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = iOS_Colorimeter;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		CA0B967F1BEC4C0A00E97070 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = iOS_ColorimeterUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "RemchoResearch.iOS-ColorimeterUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = iOS_Colorimeter;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CA0B96471BEC4C0900E97070 /* Build configuration list for PBXProject "iOS_Colorimeter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA0B96751BEC4C0A00E97070 /* Debug */,
+				CA0B96761BEC4C0A00E97070 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CA0B96771BEC4C0A00E97070 /* Build configuration list for PBXNativeTarget "iOS_Colorimeter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA0B96781BEC4C0A00E97070 /* Debug */,
+				CA0B96791BEC4C0A00E97070 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CA0B967A1BEC4C0A00E97070 /* Build configuration list for PBXNativeTarget "iOS_ColorimeterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA0B967B1BEC4C0A00E97070 /* Debug */,
+				CA0B967C1BEC4C0A00E97070 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CA0B967D1BEC4C0A00E97070 /* Build configuration list for PBXNativeTarget "iOS_ColorimeterUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA0B967E1BEC4C0A00E97070 /* Debug */,
+				CA0B967F1BEC4C0A00E97070 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CA0B96561BEC4C0900E97070 /* iOS_Colorimeter.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CA0B96571BEC4C0900E97070 /* iOS_Colorimeter.xcdatamodel */,
+			);
+			currentVersion = CA0B96571BEC4C0900E97070 /* iOS_Colorimeter.xcdatamodel */;
+			path = iOS_Colorimeter.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = CA0B96441BEC4C0900E97070 /* Project object */;
+}
