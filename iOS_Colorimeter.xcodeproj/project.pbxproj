@@ -8,13 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		CA0B96501BEC4C0900E97070 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0B964F1BEC4C0900E97070 /* AppDelegate.swift */; };
-		CA0B96521BEC4C0900E97070 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0B96511BEC4C0900E97070 /* ViewController.swift */; };
 		CA0B96551BEC4C0900E97070 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA0B96531BEC4C0900E97070 /* Main.storyboard */; };
 		CA0B96581BEC4C0900E97070 /* iOS_Colorimeter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CA0B96561BEC4C0900E97070 /* iOS_Colorimeter.xcdatamodeld */; };
 		CA0B965A1BEC4C0A00E97070 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA0B96591BEC4C0A00E97070 /* Assets.xcassets */; };
 		CA0B965D1BEC4C0A00E97070 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA0B965B1BEC4C0A00E97070 /* LaunchScreen.storyboard */; };
 		CA0B96681BEC4C0A00E97070 /* iOS_ColorimeterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0B96671BEC4C0A00E97070 /* iOS_ColorimeterTests.swift */; };
 		CA0B96731BEC4C0A00E97070 /* iOS_ColorimeterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0B96721BEC4C0A00E97070 /* iOS_ColorimeterUITests.swift */; };
+		CA0B968A1BEC4EA300E97070 /* CreatePanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0B96891BEC4EA300E97070 /* CreatePanelViewController.swift */; };
+		CA0B968C1BEC539F00E97070 /* StructData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0B968B1BEC539F00E97070 /* StructData.swift */; };
+		CA0B968E1BEC58C000E97070 /* PanelNumberOfTestAreasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0B968D1BEC58C000E97070 /* PanelNumberOfTestAreasViewController.swift */; };
+		CA0B96921BEC649100E97070 /* PanelTestAreaNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0B96911BEC649100E97070 /* PanelTestAreaNameViewController.swift */; };
+		CA0B96951BEC71CC00E97070 /* PanelTypeOfTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0B96941BEC71CC00E97070 /* PanelTypeOfTestViewController.swift */; };
+		CA307E2D1BF43E62002F2101 /* LayoutDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA307E2C1BF43E62002F2101 /* LayoutDisplayViewController.swift */; };
+		CA8175241BFD2F0200890436 /* PerformTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8175231BFD2F0200890436 /* PerformTestViewController.swift */; };
+		CA96E30C1BF1BB86005CAD5A /* PanelTestOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA96E30B1BF1BB86005CAD5A /* PanelTestOverviewViewController.swift */; };
+		CA96E30F1BF1BE6B005CAD5A /* LayoutCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA96E30E1BF1BE6B005CAD5A /* LayoutCreateViewController.swift */; };
+		CA96E3141BF43287005CAD5A /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA96E3131BF43287005CAD5A /* PreviewView.swift */; };
+		CA96E3161BF434AF005CAD5A /* CameraTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA96E3151BF434AF005CAD5A /* CameraTwo.swift */; };
+		CA96E3181BF4352D005CAD5A /* AVCamPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA96E3171BF4352D005CAD5A /* AVCamPreviewView.swift */; };
+		CA96E31A1BF4357D005CAD5A /* AVCaptureView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA96E3191BF4357D005CAD5A /* AVCaptureView2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +49,6 @@
 /* Begin PBXFileReference section */
 		CA0B964C1BEC4C0900E97070 /* iOS_Colorimeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Colorimeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA0B964F1BEC4C0900E97070 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CA0B96511BEC4C0900E97070 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CA0B96541BEC4C0900E97070 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CA0B96571BEC4C0900E97070 /* iOS_Colorimeter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iOS_Colorimeter.xcdatamodel; sourceTree = "<group>"; };
 		CA0B96591BEC4C0A00E97070 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +60,19 @@
 		CA0B966E1BEC4C0A00E97070 /* iOS_ColorimeterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOS_ColorimeterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA0B96721BEC4C0A00E97070 /* iOS_ColorimeterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_ColorimeterUITests.swift; sourceTree = "<group>"; };
 		CA0B96741BEC4C0A00E97070 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA0B96891BEC4EA300E97070 /* CreatePanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePanelViewController.swift; sourceTree = "<group>"; };
+		CA0B968B1BEC539F00E97070 /* StructData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StructData.swift; sourceTree = "<group>"; };
+		CA0B968D1BEC58C000E97070 /* PanelNumberOfTestAreasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelNumberOfTestAreasViewController.swift; sourceTree = "<group>"; };
+		CA0B96911BEC649100E97070 /* PanelTestAreaNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelTestAreaNameViewController.swift; sourceTree = "<group>"; };
+		CA0B96941BEC71CC00E97070 /* PanelTypeOfTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelTypeOfTestViewController.swift; sourceTree = "<group>"; };
+		CA307E2C1BF43E62002F2101 /* LayoutDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LayoutDisplayViewController.swift; path = ../LayoutDisplayViewController.swift; sourceTree = "<group>"; };
+		CA8175231BFD2F0200890436 /* PerformTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformTestViewController.swift; sourceTree = "<group>"; };
+		CA96E30B1BF1BB86005CAD5A /* PanelTestOverviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelTestOverviewViewController.swift; sourceTree = "<group>"; };
+		CA96E30E1BF1BE6B005CAD5A /* LayoutCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutCreateViewController.swift; sourceTree = "<group>"; };
+		CA96E3131BF43287005CAD5A /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreviewView.swift; path = ../PreviewView.swift; sourceTree = "<group>"; };
+		CA96E3151BF434AF005CAD5A /* CameraTwo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraTwo.swift; path = ../CameraTwo.swift; sourceTree = "<group>"; };
+		CA96E3171BF4352D005CAD5A /* AVCamPreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AVCamPreviewView.swift; path = ../AVCamPreviewView.swift; sourceTree = "<group>"; };
+		CA96E3191BF4357D005CAD5A /* AVCaptureView2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVCaptureView2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +123,17 @@
 		CA0B964E1BEC4C0900E97070 /* iOS_Colorimeter */ = {
 			isa = PBXGroup;
 			children = (
-				CA0B964F1BEC4C0900E97070 /* AppDelegate.swift */,
-				CA0B96511BEC4C0900E97070 /* ViewController.swift */,
+				CA8175251BFD2F1100890436 /* TestViewControllers */,
+				CA96E3101BF43227005CAD5A /* CameraFiles */,
+				CA96E30D1BF1BE46005CAD5A /* LayoutViewControlers */,
+				CA0B96931BEC6DB200E97070 /* PanelViewControllers */,
 				CA0B96531BEC4C0900E97070 /* Main.storyboard */,
 				CA0B96591BEC4C0A00E97070 /* Assets.xcassets */,
 				CA0B965B1BEC4C0A00E97070 /* LaunchScreen.storyboard */,
 				CA0B965E1BEC4C0A00E97070 /* Info.plist */,
 				CA0B96561BEC4C0900E97070 /* iOS_Colorimeter.xcdatamodeld */,
+				CA0B968B1BEC539F00E97070 /* StructData.swift */,
+				CA0B964F1BEC4C0900E97070 /* AppDelegate.swift */,
 			);
 			path = iOS_Colorimeter;
 			sourceTree = "<group>";
@@ -126,6 +154,46 @@
 				CA0B96741BEC4C0A00E97070 /* Info.plist */,
 			);
 			path = iOS_ColorimeterUITests;
+			sourceTree = "<group>";
+		};
+		CA0B96931BEC6DB200E97070 /* PanelViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CA0B96941BEC71CC00E97070 /* PanelTypeOfTestViewController.swift */,
+				CA0B96911BEC649100E97070 /* PanelTestAreaNameViewController.swift */,
+				CA0B968D1BEC58C000E97070 /* PanelNumberOfTestAreasViewController.swift */,
+				CA0B96891BEC4EA300E97070 /* CreatePanelViewController.swift */,
+				CA96E30B1BF1BB86005CAD5A /* PanelTestOverviewViewController.swift */,
+			);
+			name = PanelViewControllers;
+			sourceTree = "<group>";
+		};
+		CA8175251BFD2F1100890436 /* TestViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CA8175231BFD2F0200890436 /* PerformTestViewController.swift */,
+			);
+			name = TestViewControllers;
+			sourceTree = "<group>";
+		};
+		CA96E30D1BF1BE46005CAD5A /* LayoutViewControlers */ = {
+			isa = PBXGroup;
+			children = (
+				CA96E30E1BF1BE6B005CAD5A /* LayoutCreateViewController.swift */,
+				CA307E2C1BF43E62002F2101 /* LayoutDisplayViewController.swift */,
+			);
+			name = LayoutViewControlers;
+			sourceTree = "<group>";
+		};
+		CA96E3101BF43227005CAD5A /* CameraFiles */ = {
+			isa = PBXGroup;
+			children = (
+				CA96E3171BF4352D005CAD5A /* AVCamPreviewView.swift */,
+				CA96E3191BF4357D005CAD5A /* AVCaptureView2.swift */,
+				CA96E3151BF434AF005CAD5A /* CameraTwo.swift */,
+				CA96E3131BF43287005CAD5A /* PreviewView.swift */,
+			);
+			name = CameraFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,6 +264,7 @@
 				TargetAttributes = {
 					CA0B964B1BEC4C0900E97070 = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = 2J423R9UT2;
 					};
 					CA0B96621BEC4C0A00E97070 = {
 						CreatedOnToolsVersion = 7.1;
@@ -259,9 +328,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA0B96521BEC4C0900E97070 /* ViewController.swift in Sources */,
+				CA96E3161BF434AF005CAD5A /* CameraTwo.swift in Sources */,
+				CA0B968C1BEC539F00E97070 /* StructData.swift in Sources */,
+				CA0B96921BEC649100E97070 /* PanelTestAreaNameViewController.swift in Sources */,
 				CA0B96581BEC4C0900E97070 /* iOS_Colorimeter.xcdatamodeld in Sources */,
+				CA0B968E1BEC58C000E97070 /* PanelNumberOfTestAreasViewController.swift in Sources */,
+				CA8175241BFD2F0200890436 /* PerformTestViewController.swift in Sources */,
+				CA0B96951BEC71CC00E97070 /* PanelTypeOfTestViewController.swift in Sources */,
+				CA96E3141BF43287005CAD5A /* PreviewView.swift in Sources */,
 				CA0B96501BEC4C0900E97070 /* AppDelegate.swift in Sources */,
+				CA96E30F1BF1BE6B005CAD5A /* LayoutCreateViewController.swift in Sources */,
+				CA96E31A1BF4357D005CAD5A /* AVCaptureView2.swift in Sources */,
+				CA96E30C1BF1BB86005CAD5A /* PanelTestOverviewViewController.swift in Sources */,
+				CA96E3181BF4352D005CAD5A /* AVCamPreviewView.swift in Sources */,
+				CA0B968A1BEC4EA300E97070 /* CreatePanelViewController.swift in Sources */,
+				CA307E2D1BF43E62002F2101 /* LayoutDisplayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +473,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -401,10 +483,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = iOS_Colorimeter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "RemchoResearch.iOS-Colorimeter";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -412,10 +498,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = iOS_Colorimeter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "RemchoResearch.iOS-Colorimeter";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -486,6 +576,7 @@
 				CA0B96791BEC4C0A00E97070 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CA0B967A1BEC4C0A00E97070 /* Build configuration list for PBXNativeTarget "iOS_ColorimeterTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +585,7 @@
 				CA0B967C1BEC4C0A00E97070 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CA0B967D1BEC4C0A00E97070 /* Build configuration list for PBXNativeTarget "iOS_ColorimeterUITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +594,7 @@
 				CA0B967F1BEC4C0A00E97070 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
