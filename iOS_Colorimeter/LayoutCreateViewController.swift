@@ -62,7 +62,7 @@ class LayoutCreateViewController: UIViewController {
             var videoDeviceInput: AVCaptureDeviceInput?
             do {
                 videoDeviceInput = try AVCaptureDeviceInput(device: videoDevice)
-            } catch let error1 as NSError {
+            } catch _ as NSError {
                 //error = error1
                 videoDeviceInput = nil
             } catch {

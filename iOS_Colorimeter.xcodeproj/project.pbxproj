@@ -21,6 +21,10 @@
 		CA0B96951BEC71CC00E97070 /* PanelTypeOfTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0B96941BEC71CC00E97070 /* PanelTypeOfTestViewController.swift */; };
 		CA307E2D1BF43E62002F2101 /* LayoutDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA307E2C1BF43E62002F2101 /* LayoutDisplayViewController.swift */; };
 		CA8175241BFD2F0200890436 /* PerformTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8175231BFD2F0200890436 /* PerformTestViewController.swift */; };
+		CA8175281BFD355000890436 /* TestAreaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8175271BFD355000890436 /* TestAreaData.swift */; };
+		CA81752B1BFD360000890436 /* RGBA.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA81752A1BFD360000890436 /* RGBA.swift */; };
+		CA81752D1BFD362F00890436 /* HSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA81752C1BFD362F00890436 /* HSV.swift */; };
+		CA81752F1BFD366000890436 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA81752E1BFD366000890436 /* ModelData.swift */; };
 		CA96E30C1BF1BB86005CAD5A /* PanelTestOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA96E30B1BF1BB86005CAD5A /* PanelTestOverviewViewController.swift */; };
 		CA96E30F1BF1BE6B005CAD5A /* LayoutCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA96E30E1BF1BE6B005CAD5A /* LayoutCreateViewController.swift */; };
 		CA96E3141BF43287005CAD5A /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA96E3131BF43287005CAD5A /* PreviewView.swift */; };
@@ -67,6 +71,10 @@
 		CA0B96941BEC71CC00E97070 /* PanelTypeOfTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelTypeOfTestViewController.swift; sourceTree = "<group>"; };
 		CA307E2C1BF43E62002F2101 /* LayoutDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LayoutDisplayViewController.swift; path = ../LayoutDisplayViewController.swift; sourceTree = "<group>"; };
 		CA8175231BFD2F0200890436 /* PerformTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformTestViewController.swift; sourceTree = "<group>"; };
+		CA8175271BFD355000890436 /* TestAreaData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestAreaData.swift; sourceTree = "<group>"; };
+		CA81752A1BFD360000890436 /* RGBA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGBA.swift; sourceTree = "<group>"; };
+		CA81752C1BFD362F00890436 /* HSV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSV.swift; sourceTree = "<group>"; };
+		CA81752E1BFD366000890436 /* ModelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		CA96E30B1BF1BB86005CAD5A /* PanelTestOverviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelTestOverviewViewController.swift; sourceTree = "<group>"; };
 		CA96E30E1BF1BE6B005CAD5A /* LayoutCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutCreateViewController.swift; sourceTree = "<group>"; };
 		CA96E3131BF43287005CAD5A /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreviewView.swift; path = ../PreviewView.swift; sourceTree = "<group>"; };
@@ -123,6 +131,8 @@
 		CA0B964E1BEC4C0900E97070 /* iOS_Colorimeter */ = {
 			isa = PBXGroup;
 			children = (
+				CA8175291BFD35D000890436 /* ColorFunctions */,
+				CA8175261BFD352600890436 /* Data */,
 				CA8175251BFD2F1100890436 /* TestViewControllers */,
 				CA96E3101BF43227005CAD5A /* CameraFiles */,
 				CA96E30D1BF1BE46005CAD5A /* LayoutViewControlers */,
@@ -132,7 +142,6 @@
 				CA0B965B1BEC4C0A00E97070 /* LaunchScreen.storyboard */,
 				CA0B965E1BEC4C0A00E97070 /* Info.plist */,
 				CA0B96561BEC4C0900E97070 /* iOS_Colorimeter.xcdatamodeld */,
-				CA0B968B1BEC539F00E97070 /* StructData.swift */,
 				CA0B964F1BEC4C0900E97070 /* AppDelegate.swift */,
 			);
 			path = iOS_Colorimeter;
@@ -174,6 +183,25 @@
 				CA8175231BFD2F0200890436 /* PerformTestViewController.swift */,
 			);
 			name = TestViewControllers;
+			sourceTree = "<group>";
+		};
+		CA8175261BFD352600890436 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				CA0B968B1BEC539F00E97070 /* StructData.swift */,
+				CA8175271BFD355000890436 /* TestAreaData.swift */,
+				CA81752E1BFD366000890436 /* ModelData.swift */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		CA8175291BFD35D000890436 /* ColorFunctions */ = {
+			isa = PBXGroup;
+			children = (
+				CA81752A1BFD360000890436 /* RGBA.swift */,
+				CA81752C1BFD362F00890436 /* HSV.swift */,
+			);
+			name = ColorFunctions;
 			sourceTree = "<group>";
 		};
 		CA96E30D1BF1BE46005CAD5A /* LayoutViewControlers */ = {
@@ -328,7 +356,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA8175281BFD355000890436 /* TestAreaData.swift in Sources */,
 				CA96E3161BF434AF005CAD5A /* CameraTwo.swift in Sources */,
+				CA81752F1BFD366000890436 /* ModelData.swift in Sources */,
 				CA0B968C1BEC539F00E97070 /* StructData.swift in Sources */,
 				CA0B96921BEC649100E97070 /* PanelTestAreaNameViewController.swift in Sources */,
 				CA0B96581BEC4C0900E97070 /* iOS_Colorimeter.xcdatamodeld in Sources */,
@@ -337,10 +367,12 @@
 				CA0B96951BEC71CC00E97070 /* PanelTypeOfTestViewController.swift in Sources */,
 				CA96E3141BF43287005CAD5A /* PreviewView.swift in Sources */,
 				CA0B96501BEC4C0900E97070 /* AppDelegate.swift in Sources */,
+				CA81752B1BFD360000890436 /* RGBA.swift in Sources */,
 				CA96E30F1BF1BE6B005CAD5A /* LayoutCreateViewController.swift in Sources */,
 				CA96E31A1BF4357D005CAD5A /* AVCaptureView2.swift in Sources */,
 				CA96E30C1BF1BB86005CAD5A /* PanelTestOverviewViewController.swift in Sources */,
 				CA96E3181BF4352D005CAD5A /* AVCamPreviewView.swift in Sources */,
+				CA81752D1BFD362F00890436 /* HSV.swift in Sources */,
 				CA0B968A1BEC4EA300E97070 /* CreatePanelViewController.swift in Sources */,
 				CA307E2D1BF43E62002F2101 /* LayoutDisplayViewController.swift in Sources */,
 			);
