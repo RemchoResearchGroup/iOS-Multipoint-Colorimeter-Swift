@@ -8,6 +8,11 @@ class PanelTestAreaNameViewController: UIViewController {
     @IBOutlet weak var concertationTextField: UITextField!
     
     
+    @IBAction func cancel(sender: AnyObject) {
+        self.performSegueWithIdentifier("cancelledSegue", sender: nil)
+    }
+
+    
     @IBAction func toTypeOfTest(sender: AnyObject) {
         savedVariables.testAreaNameArray[savedVariables.numberOfTestAreas] = nameTestAreaLabel.text!
         savedVariables.concertationArray[savedVariables.numberOfTestAreas] = nameTestAreaLabel.text!

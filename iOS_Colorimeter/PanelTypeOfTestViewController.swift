@@ -17,6 +17,11 @@ class PanelTypeOfTestViewController: UIViewController {
     @IBOutlet weak var intervalTimeView: UIView!
     
     
+    @IBAction func cancel(sender: AnyObject) {
+        self.performSegueWithIdentifier("cancelledSegue", sender: nil)
+    }
+
+    
     
     
     @IBAction func switchTestType(sender: AnyObject) {

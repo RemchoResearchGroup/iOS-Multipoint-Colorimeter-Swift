@@ -29,6 +29,11 @@ class LayoutCreateViewController: UIViewController {
     var runtimeErrorHandlingObserver: AnyObject?
     var lockInterfaceRotation: Bool = false
     
+    @IBAction func cancel(sender: AnyObject) {
+        self.performSegueWithIdentifier("cancelledSegue", sender: nil)
+    }
+
+    
     @IBOutlet weak var previewView: AVCamPreviewView!
     
     override func viewDidLoad() {

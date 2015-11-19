@@ -302,13 +302,23 @@
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="WgF-xk-dVr">
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="IBV-TF-Hbt">
+                            <color key="tintColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="cancel:" destination="zrt-oj-AGp" id="qpu-Tw-kc3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="concertationTextField" destination="lmC-fQ-VCS" id="3uj-CR-hxD"/>
                         <outlet property="nameTestAreaLabel" destination="vOB-1c-bTN" id="vuc-Gs-swv"/>
                         <outlet property="nameTestAreaTextField" destination="zVV-cD-AlY" id="MOn-eT-uqf"/>
                         <segue destination="WI8-dp-Ch5" kind="show" identifier="toTypeOfTestSegue" id="3tu-Jh-XBK"/>
+                        <segue destination="Dvm-1D-1Q9" kind="show" identifier="cancelledSegue" id="flV-f2-Bk7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p18-Sc-fPI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -414,6 +424,14 @@
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="4H0-z8-1gA">
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="6AZ-ZG-gsN">
+                            <color key="tintColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="cancel:" destination="WI8-dp-Ch5" id="huO-S9-D0u"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="intervalTimeLabel" destination="5bb-5b-Xvk" id="WHH-op-Y86"/>
@@ -424,11 +442,12 @@
                         <outlet property="typeOfTypeSegmentedControl" destination="A73-z3-ZDI" id="TPj-V0-V2p"/>
                         <segue destination="zrt-oj-AGp" kind="show" identifier="toPanelTestAreaNameSegue" id="oWI-vX-Kbl"/>
                         <segue destination="fue-Mr-fkA" kind="show" identifier="toTestOverviewSegue" id="fOP-Wu-eXu"/>
+                        <segue destination="Dvm-1D-1Q9" kind="show" identifier="cancelledSegue" id="WoG-ub-t4o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="duC-jw-58n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3989" y="417"/>
+            <point key="canvasLocation" x="4001" y="417"/>
         </scene>
         <!--Panel Test Overview View Controller-->
         <scene sceneID="WpM-0z-kjb">
@@ -497,16 +516,25 @@
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="uBg-SS-W4l">
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="rmn-0s-dwd">
+                            <color key="tintColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="cancel:" destination="fue-Mr-fkA" id="Efc-8U-py0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="numberOfTestAreas" destination="rIw-5N-Gtl" id="Ndd-oM-EHp"/>
                         <outlet property="panelNameLabel" destination="RpE-IN-Ovc" id="quR-aU-ZQQ"/>
                         <outlet property="testInfoScrollView" destination="BJm-vp-koH" id="uhM-kC-p7o"/>
+                        <segue destination="Dvm-1D-1Q9" kind="show" identifier="cancelledSegue" id="Lsb-xD-rtQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pTG-k3-DV2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4359" y="407"/>
+            <point key="canvasLocation" x="4359" y="417"/>
         </scene>
         <!--Layout Create View Controller-->
         <scene sceneID="Wi4-aI-76s">
@@ -585,7 +613,14 @@
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="g2w-hH-9bl"/>
+                    <navigationItem key="navigationItem" id="zdf-L1-56I">
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="ery-9f-zXa">
+                            <color key="tintColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="cancel:" destination="8JO-s5-hdk" id="QJZ-Jv-9Cn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -593,6 +628,7 @@
                         <outlet property="addCircleOrToLayoutDisplayButton" destination="Fuw-16-RkI" id="lEK-NT-g9a"/>
                         <outlet property="previewView" destination="vXX-5H-q1c" id="r3S-CH-HrF"/>
                         <segue destination="B9C-hV-3tx" kind="show" identifier="toLayoutDisplaySegue" id="YJD-yN-Dim"/>
+                        <segue destination="Dvm-1D-1Q9" kind="show" identifier="cancelledSegue" id="BhY-BQ-Bvk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XrO-Pw-A8H" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -617,7 +653,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kz1-4F-jeX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5387" y="417"/>
+            <point key="canvasLocation" x="5379" y="427"/>
         </scene>
         <!--Layout-->
         <scene sceneID="pSP-za-9nD">
@@ -828,13 +864,21 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0zj-gL-AKP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationItem id="pU9-et-cVq">
+                    <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="W1W-kh-e2M">
+                        <color key="tintColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                        <connections>
+                            <action selector="cancel:" destination="kDq-y0-Gv3" id="j0k-am-Hcb"/>
+                        </connections>
+                    </barButtonItem>
+                </navigationItem>
             </objects>
-            <point key="canvasLocation" x="3076" y="1111"/>
+            <point key="canvasLocation" x="4094" y="1579"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="If5-F2-Bec"/>
-        <segue reference="lgL-VM-iwB"/>
-        <segue reference="y1E-Rp-zn8"/>
+        <segue reference="oWI-vX-Kbl"/>
+        <segue reference="WoG-ub-t4o"/>
+        <segue reference="YJD-yN-Dim"/>
     </inferredMetricsTieBreakers>
 </document>

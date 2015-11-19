@@ -6,6 +6,11 @@ class PanelTestOverviewViewController: UIViewController {
     @IBOutlet weak var numberOfTestAreas: UILabel!
     @IBOutlet weak var testInfoScrollView: UIScrollView!
     
+    @IBAction func cancel(sender: AnyObject) {
+        self.performSegueWithIdentifier("cancelledSegue", sender: nil)
+    }
+
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
