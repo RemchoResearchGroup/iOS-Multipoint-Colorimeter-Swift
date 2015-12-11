@@ -23,7 +23,7 @@ class CreatePanelViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        savedVariables.performingCal = true
         //Set the first time test area flag to 1
         savedVariables.firstTestAreaFlag = 1
         //Reset number of test Areas to 0

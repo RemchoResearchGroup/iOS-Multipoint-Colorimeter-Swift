@@ -14,9 +14,10 @@ var assetCollectionPlaceholder: PHObjectPlaceholder!
 Needs to be reset in perform test*/
 var onlyStartOneTestFlag = 1
 
+var myList: Array<AnyObject> = []
 
 class LayoutDisplayViewController: UIViewController {
-    /*var buffer = UIImage()
+    var buffer = UIImage()
     //Flag that is called in both displayImage & analzye
     var ifFlag = false
     var backgroundRecordId: UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
@@ -27,9 +28,10 @@ class LayoutDisplayViewController: UIViewController {
     @IBOutlet weak var loadFlash: UILabel!
     @IBOutlet weak var snapButton: UIBarButtonItem!
     //Image View
-    @IBOutlet weak var previewView: PreviewView!
+   // @IBOutlet weak var previewView: PreviewView!
     @IBOutlet var testNumberLabel: UILabel!
     
+    @IBOutlet weak var previewView: AVCamPreviewView!
     var assetCollection: PHAssetCollection!
     var albumFound : Bool = false
     var photosAsset: PHFetchResult!
@@ -38,13 +40,8 @@ class LayoutDisplayViewController: UIViewController {
     var assetCollectionPlaceholder: PHObjectPlaceholder!
     var image = UIImage()
     
-    //@IBOutlet weak var ImageView: UIImageView!
-    
-    //@IBOutlet var Images: UIImageView!
-    
     var testImagine = UIImage()
-    
-    
+
     var sessionQueue : dispatch_queue_t?
     var session : AVCaptureSession?
     var videoDeviceInput : AVCaptureDeviceInput?
@@ -63,29 +60,19 @@ class LayoutDisplayViewController: UIViewController {
         }
     }
     
-    /*override func supportedInterfaceOrientations() -> Int {
-    return Int(UIInterfaceOrientationMask.Landscape.rawValue)
-    }*/
-    /*override func shouldAutorotate() -> Bool{
-    return true
-    }*/
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        testNumberLabel.text = ""
-        //savedVariables.photoCount = numberOfLoops - 1
-        //println("Test Requirement #15: 'Display Layout' Loaded")
+        //testNumberLabel.text = ""
+        
+        //Hides back button
+        navigationItem.hidesBackButton = true
+        
         let value = UIInterfaceOrientation.LandscapeLeft.rawValue
-        
-        
-        
         UIDevice.currentDevice().setValue(value, forKey: "orientation")
         
         
         //Needs to be fixed
-        print("\(myList.count)")
+        //print("\(myList.count)")
         
         if(savedVariables.performingCal == true){
             var fullArray = [String] ()
@@ -97,6 +84,8 @@ class LayoutDisplayViewController: UIViewController {
             let totalTestArray = savedVariables.numberOfTestAreas * 5
             print("The totalTestArray is \(savedVariables.numberOfTestAreas)")
             for var k = 0; k < totalTestArray; k++ {
+                print("numberOfTestAreas = \(savedVariables.numberOfTestAreas)")
+                print("k = \(k)")
                 if (k % 5 == 0) {
                     savedVariables.xCoordinateArray += [fullArray[k]]
                     print(savedVariables.xCoordinateArray)
@@ -115,7 +104,7 @@ class LayoutDisplayViewController: UIViewController {
                 }
             }
         }
-        else{
+        /*else{
             var data: NSManagedObject = myList[myList.count-1] as! NSManagedObject
             let appDel:AppDelegate!
             appDel = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -178,7 +167,7 @@ class LayoutDisplayViewController: UIViewController {
                     }
                 }
             }
-        }
+        }*/
         // Loads information needed displayLayout
         loadStuff()
         //        Create the AV Session!
@@ -400,8 +389,8 @@ class LayoutDisplayViewController: UIViewController {
     
     // Variables for timer
     var timer = NSTimer()
-    var numberOfLoops = (savedVariables.testTime as NSString).integerValue / (savedVariables.intervalTime as NSString).integerValue
-    
+    //var numberOfLoops = (savedVariables.testTime as NSString).integerValue / (savedVariables.intervalTime as NSString).integerValue
+    var numberOfLoops = 3
     var loopCount = 0
     
     /*Take Pics under the timer condition*/
@@ -409,17 +398,19 @@ class LayoutDisplayViewController: UIViewController {
     //Function below snaps multiple images
     @IBAction func startTest(sender: AnyObject) {
         if(onlyStartOneTestFlag == 1){
+            print("Starting Test")
             onlyStartOneTestFlag = 0
             loopCount = 0
             var intTime = NSTimeInterval()
             intTime = (savedVariables.intervalTime as NSString).doubleValue
             savedVariables.numberOfPhotos = numberOfLoops
+            print("# of photos: \(savedVariables.numberOfPhotos)")
             timer = NSTimer.scheduledTimerWithTimeInterval(intTime, target: self, selector: "timerSetup", userInfo: nil, repeats: true)
         }
     }
 
     func timerSetup() {
-        loopCount++
+        /*loopCount++
         testNumberLabel.text = "Currently Taking Photo \(loopCount) of \(numberOfLoops)"
         if (loopCount > numberOfLoops) {
             timer.invalidate()
@@ -430,7 +421,7 @@ class LayoutDisplayViewController: UIViewController {
             
         else {
             takeStillImage()
-        }
+        }*/
     }
 
     func setup(index: Int){
@@ -457,79 +448,77 @@ class LayoutDisplayViewController: UIViewController {
     
         //Load test areas
         for var i = 0; i < savedVariables.numberOfTestAreas; i++ {
-            print("\n Requirement Test: Test area loaded")
             let imageView = UIImageView(image: image!)
             let calImageView = UIImageView(image: calImage!)
             
-            //let x = savedVariables.xCoordinateArray[i]
+            let x = savedVariables.xCoordinateArray[i]
             let xLoc = (x as NSString).integerValue
             
-            //let y = savedVariables.yCoordinateArray[i]
+            let y = savedVariables.yCoordinateArray[i]
             let yLoc = (y as NSString).integerValue
             
-            //let radius = savedVariables.radiusArray[i]
+            let radius = savedVariables.radiusArray[i]
             let rad = (radius as NSString).integerValue
-            if(i == 0){
-                calImageView.frame = CGRect(x: xLoc - (rad/2), y: yLoc - (rad/2), width: rad, height: rad)
-                view.addSubview(calImageView)
-            }
-            else{
-                imageView.frame = CGRect(x: xLoc - (rad/2), y: yLoc - (rad/2), width: rad, height: rad)
-                let tempX = xLoc - (rad/2)
-                let tempY = yLoc - (rad/2)
-                print("TEST \(i): x = \(tempX) y = \(tempY)")
-                view.addSubview(imageView)
-            }
+            imageView.frame = CGRect(x: xLoc - (rad/2), y: yLoc - (rad/2), width: rad, height: rad)
+            let tempX = xLoc - (rad/2)
+            let tempY = yLoc - (rad/2)
+            print("TEST \(i): x = \(tempX) y = \(tempY)")
+            view.addSubview(imageView)
+            
             
             // Can shorten this code for sure, need to rewatch a stanford lecture video about closures...
             switch i {
             case 0:
-                let imageViewZero = UIImageView()
+                let imageViewZero = UIImageView(image: numberOneImage!)
                 imageViewZero.frame = CGRect(x: xLoc - (rad/6), y: yLoc - (rad/6), width: rad/3, height: rad/3)
                 //Update Calbration Color
-                imageViewZero.backgroundColor = UIColor(red: 0, green: 0, blue: 11, alpha: 1)
+                //imageViewZero.backgroundColor = UIColor(red: 0, green: 0, blue: 11, alpha: 1)
                 view.addSubview(imageViewZero)
             case 1:
-                let imageViewOne = UIImageView(image: numberOneImage!)
+                let imageViewOne = UIImageView(image: numberTwoImage!)
                 imageViewOne.frame = CGRect(x: xLoc - (rad/6), y: yLoc - (rad/6), width: rad/3, height: rad/3)
                 view.addSubview(imageViewOne)
             case 2:
-                let imageViewTwo = UIImageView(image: numberTwoImage!)
+                let imageViewTwo = UIImageView(image: numberThreeImage!)
                 imageViewTwo.frame = CGRect(x: xLoc - (rad/6), y: yLoc - (rad/6), width: rad/3, height: rad/3)
                 view.addSubview(imageViewTwo)
             case 3:
-                let imageViewThree = UIImageView(image: numberThreeImage!)
+                let imageViewThree = UIImageView(image: numberFourImage!)
                 imageViewThree.frame = CGRect(x: xLoc - (rad/6), y: yLoc - (rad/6), width: rad/3, height: rad/3)
                 view.addSubview(imageViewThree)
             case 4:
-                let imageViewFour = UIImageView(image: numberFourImage!)
+                let imageViewFour = UIImageView(image: numberFiveImage!)
                 imageViewFour.frame = CGRect(x: xLoc - (rad/6), y: yLoc - (rad/6), width: rad/3, height: rad/3)
                 view.addSubview(imageViewFour)
             case 5:
-                let imageViewFive = UIImageView(image: numberFiveImage!)
+                let imageViewFive = UIImageView(image: numberSixImage!)
                 imageViewFive.frame = CGRect(x: xLoc - (rad/6), y: yLoc - (rad/6), width: rad/3, height: rad/3)
                 view.addSubview(imageViewFive)
             case 6:
-                let imageViewSix = UIImageView(image: numberSixImage!)
+                let imageViewSix = UIImageView(image: numberSevenImage!)
                 imageViewSix.frame = CGRect(x: xLoc - (rad/6), y: yLoc - (rad/6), width: rad/3, height: rad/3)
                 view.addSubview(imageViewSix)
             case 7:
-                let imageViewSeven = UIImageView(image: numberSevenImage!)
+                let imageViewSeven = UIImageView(image: numberEightImage!)
                 imageViewSeven.frame = CGRect(x: xLoc - (rad/6), y: yLoc - (rad/6), width: rad/3, height: rad/3)
                 view.addSubview(imageViewSeven)
             case 8:
-                let imageViewEight = UIImageView(image: numberEightImage!)
+                let imageViewEight = UIImageView(image: numberNineImage!)
                 imageViewEight.frame = CGRect(x: xLoc - (rad/6), y: yLoc - (rad/6), width: rad/3, height: rad/3)
                 view.addSubview(imageViewEight)
-            case 9:
+            /*case 9:
                 let imageViewNine = UIImageView(image: numberNineImage!)
                 imageViewNine.frame = CGRect(x: xLoc - (rad/6), y: yLoc - (rad/6), width: rad/3, height: rad/3)
-                view.addSubview(imageViewNine)
+                view.addSubview(imageViewNine)*/
             default:
                 break
             }
         }
     }
+    
+    
+    
+    
     func deleteLastPhoto(asset: PHAsset) {
         let fetchOptions: PHFetchOptions = PHFetchOptions()
         PHPhotoLibrary.sharedPhotoLibrary().performChanges( {
@@ -539,5 +528,5 @@ class LayoutDisplayViewController: UIViewController {
             completionHandler: { success, error in
                 NSLog("Finished deleting asset. %@", (success ? "Success" : error!))
         })
-    }*/
+    }
 }

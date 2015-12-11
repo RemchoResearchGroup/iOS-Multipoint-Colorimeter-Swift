@@ -151,6 +151,9 @@ class LayoutCreateViewController: UIViewController {
             }
         })
         
+        
+        
+        
     }
     
     // All of the create layout stuff not related to the camera
@@ -204,11 +207,32 @@ class LayoutCreateViewController: UIViewController {
     
     @IBOutlet weak var addCircleOrToLayoutDisplayButton: UIButton!
     
-  
+    var occurredOnce = false
     
     @IBAction func addNewCircle(sender:UIButton!){
         circleCount += 1
         if(circleCount == savedVariables.numberOfTestAreas || circleCount < savedVariables.numberOfTestAreas){
+            if(occurredOnce == true){
+                xString = "\(location.x)"
+                yString = "\(location.y)"
+                xcoordinateList += [xString]
+                ycoordinateList += [yString]
+                radiusList += [testAreaRadius]
+                //xString = "\(location.x)"
+                //yString = "\(location.y)"
+                print(location)
+                radiusList += [testAreaRadius]
+                xcoordinateList += [xString]
+                ycoordinateList += [yString]
+                //testAreaNameList += ["aaa"]
+                //unitsNameList += ["aaa"]
+            }
+            
+            testAreaNameList += ["aaa"]
+            unitsNameList += ["aaa"]
+            slopeList += ["aaa"]
+            interceptList += ["aaa"]
+            
             if(circleCount == (savedVariables.numberOfTestAreas)){
                 addCircleOrToLayoutDisplayButton.setTitle("Save Layout", forState: .Normal
                 )
@@ -219,14 +243,6 @@ class LayoutCreateViewController: UIViewController {
             else{
                 atLeastOneCalbrationLocationHasBeenCreated = true
             }
-            xString = "\(location.x)"
-            yString = "\(location.y)"
-            print(location)
-            radiusList += [testAreaRadius]
-            xcoordinateList += [xString]
-            ycoordinateList += [yString]
-            //testAreaNameList += ["aaa"]
-            //unitsNameList += ["aaa"]
             
             print("New Circle Tapped")
             adjustableHeight = 50
@@ -236,29 +252,14 @@ class LayoutCreateViewController: UIViewController {
             //increment number of test areas
             testAreaTracker++
             numberOfTestAreas++
-            
+            occurredOnce = true
             //Not great code, changes the label for the calbration button
             if(atLeastOneTestHasBeenCreated == true && areYouModifyingCalbrationMark == true){
                 //addCalbrationLocation.setTitle("Calbration Area Confirmed", forState: UIControlState.Normal)
             }
-            if(areYouModifyingCalbrationMark == true){
-                self.testAreaNameList += ["calMarkName"]
-                self.unitsNameList += ["calMarkUnits"]
-                adjustableHeight = 25
-                adjustableWidth  = 25
-                testAreaRadius   = 50
-                imageView = UIImageView(image: calImage!)
-                //imageView.scale = 0.
-                let screenSize: CGRect = UIScreen.mainScreen().bounds
-                let screenWidth = Int(screenSize.width * 0.5)
-                let screenHeight = Int(screenSize.height * 0.7)
-                imageView.frame = CGRect(x: screenWidth, y: screenHeight, width: adjustableWidth, height: adjustableHeight
-                )
-                previewView.addSubview(imageView)
-                areYouModifyingCalbrationMark = false
-                
-            }
+
             else{
+        
                 adjustableHeight = 50
                 adjustableWidth  = 50
                 testAreaRadius   = 50
@@ -274,6 +275,41 @@ class LayoutCreateViewController: UIViewController {
         }
       
         else if(circleCount == savedVariables.numberOfTestAreas + 1){
+            if(atLeastOneCalbrationLocationHasBeenCreated == true && atLeastOneTestHasBeenCreated == true){
+                
+                xString = "\(location.x)"
+                yString = "\(location.y)"
+                xcoordinateList += [xString]
+                ycoordinateList += [yString]
+                print(location)
+                
+                radiusList += [testAreaRadius]
+
+                // savedVariables.testAreaNames += [""]
+                
+                savedVariables.numberOfTestAreas = numberOfTestAreas
+                //Clear testAreaInfo
+                savedVariables.testAreaInfo = ""
+                print(savedVariables.numberOfTestAreas)
+                
+                print(xcoordinateList)
+                print(ycoordinateList)
+            
+            
+            
+                
+                
+                
+                for var i = 0; i < numberOfTestAreas; i++ {
+                    print("***********")
+                    print("i: \(i)")
+                    print("numberOfTestAreas: \(numberOfTestAreas)")
+                    print("Info: \(xcoordinateList[i]),\(ycoordinateList[i+1]),\(radiusList[i]),\(testAreaNameList[i]),\(unitsNameList[i])")
+                    savedVariables.testAreaInfo += "\(xcoordinateList[i+1]),\(ycoordinateList[i+1]),\(radiusList[i+1]),\(testAreaNameList[i]),\(unitsNameList[i]),"
+                    print("***********")
+                }
+            }
+
             self.performSegueWithIdentifier("toLayoutDisplaySegue", sender: nil)
             
         }
@@ -339,37 +375,5 @@ class LayoutCreateViewController: UIViewController {
             calLocation = touch.locationInView(self.view)
             calImageView.center = calLocation
         }
-    }
-    
-  
-    
-    // When user taps save, all of the temp variables are saved to core data storage
-    @IBAction func saveTapped(sender: AnyObject) {
-        if(atLeastOneCalbrationLocationHasBeenCreated == true && atLeastOneTestHasBeenCreated == true){
-
-            xString = "\(location.x)"
-            yString = "\(location.y)"
-            xcoordinateList += [xString]
-            ycoordinateList += [yString]
-            radiusList += [testAreaRadius]
-            
-            testAreaNameList += ["aaa"]
-            unitsNameList += ["aaa"]
-            slopeList += ["aaa"]
-            interceptList += ["aaa"]
-           // savedVariables.testAreaNames += [""]
-            
-            savedVariables.numberOfTestAreas = numberOfTestAreas
-            for var i = 0; i < numberOfTestAreas; i++ {
-               // savedVariables.testAreaInfo += "\(xcoordinateList[i + 1]),\(ycoordinateList[i + 1]),\(radiusList[i + 1]),\(testAreaNameList[i + 1]),\(unitsNameList[i + 1]),"
-            }
-            
-            self.performSegueWithIdentifier("displayLayoutSegue", sender: nil)
-        }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }

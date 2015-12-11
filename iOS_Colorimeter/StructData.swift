@@ -25,7 +25,23 @@ struct savedVariables {
     
     static var currentTestArea = 1
     
+    static var testTime = ""
+    static var intervalTime = ""
+    
+    
+    static var performingCal = false
+    
     //For editing panel name. 
+    
+    
+    static var numberOfPhotos = 0
+    //For storing the model area data.
+    static var testAreaInfo = ""
+    static var radiusArray = [String] ()
+    static var xCoordinateArray = [String] ()
+    static var yCoordinateArray = [String] ()
+    //static var testAreaNameArray = [String] ()
+    static var unitsNameArray = [String] ()
     
     
     

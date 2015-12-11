@@ -19,6 +19,8 @@
 		CA0B968E1BEC58C000E97070 /* PanelNumberOfTestAreasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0B968D1BEC58C000E97070 /* PanelNumberOfTestAreasViewController.swift */; };
 		CA0B96921BEC649100E97070 /* PanelTestAreaNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0B96911BEC649100E97070 /* PanelTestAreaNameViewController.swift */; };
 		CA0B96951BEC71CC00E97070 /* PanelTypeOfTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0B96941BEC71CC00E97070 /* PanelTypeOfTestViewController.swift */; };
+		CA0E9BBF1BFE81B7005D0EA7 /* ExponentialRegression.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0E9BBE1BFE81B7005D0EA7 /* ExponentialRegression.swift */; };
+		CA0E9BC11BFE81CE005D0EA7 /* LinearRegression.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0E9BC01BFE81CE005D0EA7 /* LinearRegression.swift */; };
 		CA307E2D1BF43E62002F2101 /* LayoutDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA307E2C1BF43E62002F2101 /* LayoutDisplayViewController.swift */; };
 		CA8175241BFD2F0200890436 /* PerformTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8175231BFD2F0200890436 /* PerformTestViewController.swift */; };
 		CA8175281BFD355000890436 /* TestAreaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8175271BFD355000890436 /* TestAreaData.swift */; };
@@ -69,6 +71,8 @@
 		CA0B968D1BEC58C000E97070 /* PanelNumberOfTestAreasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelNumberOfTestAreasViewController.swift; sourceTree = "<group>"; };
 		CA0B96911BEC649100E97070 /* PanelTestAreaNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelTestAreaNameViewController.swift; sourceTree = "<group>"; };
 		CA0B96941BEC71CC00E97070 /* PanelTypeOfTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelTypeOfTestViewController.swift; sourceTree = "<group>"; };
+		CA0E9BBE1BFE81B7005D0EA7 /* ExponentialRegression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExponentialRegression.swift; sourceTree = "<group>"; };
+		CA0E9BC01BFE81CE005D0EA7 /* LinearRegression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinearRegression.swift; sourceTree = "<group>"; };
 		CA307E2C1BF43E62002F2101 /* LayoutDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LayoutDisplayViewController.swift; path = ../LayoutDisplayViewController.swift; sourceTree = "<group>"; };
 		CA8175231BFD2F0200890436 /* PerformTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformTestViewController.swift; sourceTree = "<group>"; };
 		CA8175271BFD355000890436 /* TestAreaData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestAreaData.swift; sourceTree = "<group>"; };
@@ -131,6 +135,7 @@
 		CA0B964E1BEC4C0900E97070 /* iOS_Colorimeter */ = {
 			isa = PBXGroup;
 			children = (
+				CA0E9BBB1BFE813A005D0EA7 /* StatisticFunctions */,
 				CA8175291BFD35D000890436 /* ColorFunctions */,
 				CA8175261BFD352600890436 /* Data */,
 				CA8175251BFD2F1100890436 /* TestViewControllers */,
@@ -175,6 +180,15 @@
 				CA96E30B1BF1BB86005CAD5A /* PanelTestOverviewViewController.swift */,
 			);
 			name = PanelViewControllers;
+			sourceTree = "<group>";
+		};
+		CA0E9BBB1BFE813A005D0EA7 /* StatisticFunctions */ = {
+			isa = PBXGroup;
+			children = (
+				CA0E9BBE1BFE81B7005D0EA7 /* ExponentialRegression.swift */,
+				CA0E9BC01BFE81CE005D0EA7 /* LinearRegression.swift */,
+			);
+			name = StatisticFunctions;
 			sourceTree = "<group>";
 		};
 		CA8175251BFD2F1100890436 /* TestViewControllers */ = {
@@ -370,6 +384,8 @@
 				CA81752B1BFD360000890436 /* RGBA.swift in Sources */,
 				CA96E30F1BF1BE6B005CAD5A /* LayoutCreateViewController.swift in Sources */,
 				CA96E31A1BF4357D005CAD5A /* AVCaptureView2.swift in Sources */,
+				CA0E9BC11BFE81CE005D0EA7 /* LinearRegression.swift in Sources */,
+				CA0E9BBF1BFE81B7005D0EA7 /* ExponentialRegression.swift in Sources */,
 				CA96E30C1BF1BB86005CAD5A /* PanelTestOverviewViewController.swift in Sources */,
 				CA96E3181BF4352D005CAD5A /* AVCamPreviewView.swift in Sources */,
 				CA81752D1BFD362F00890436 /* HSV.swift in Sources */,

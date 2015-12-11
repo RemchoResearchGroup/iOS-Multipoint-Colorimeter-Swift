@@ -637,10 +637,10 @@
             </objects>
             <point key="canvasLocation" x="4810" y="417"/>
         </scene>
-        <!--Layout-->
+        <!--Layout Display View Controller-->
         <scene sceneID="pSP-za-9nD">
             <objects>
-                <viewController id="B9C-hV-3tx" customClass="Layout" sceneMemberID="viewController">
+                <viewController id="B9C-hV-3tx" customClass="LayoutDisplayViewController" customModule="iOS_Colorimeter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xcQ-2u-vkQ"/>
                         <viewControllerLayoutGuide type="bottom" id="9jy-xZ-rGm"/>
@@ -649,17 +649,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X0Z-jR-nH0" customClass="AVCamPreviewView" customModule="iOS_Colorimeter" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X0Z-jR-nH0" customClass="AVCamPreviewView" customModule="iOS_Colorimeter" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <view alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G6r-vW-AP3">
+                                        <rect key="frame" x="90" y="512" width="141" height="48"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rsL-3k-Idz">
+                                                <rect key="frame" x="8" y="10" width="125" height="30"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Start Test"/>
+                                                <connections>
+                                                    <action selector="addNewCircle:" destination="8JO-s5-hdk" eventType="touchUpInside" id="uGb-LJ-SUo"/>
+                                                    <action selector="nextAreaOrGoToNextArea:" destination="WI8-dp-Ch5" eventType="touchUpInside" id="5FI-wa-f4E"/>
+                                                    <action selector="startTest:" destination="B9C-hV-3tx" eventType="touchUpInside" id="WJJ-nl-RnH"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <animations/>
+                                        <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="rsL-3k-Idz" firstAttribute="trailing" secondItem="G6r-vW-AP3" secondAttribute="trailingMargin" id="Uwi-zE-Lrd"/>
+                                            <constraint firstItem="rsL-3k-Idz" firstAttribute="top" secondItem="G6r-vW-AP3" secondAttribute="top" constant="10" id="geN-B4-gMT"/>
+                                            <constraint firstItem="rsL-3k-Idz" firstAttribute="bottom" secondItem="G6r-vW-AP3" secondAttribute="bottomMargin" id="qAW-B9-DoE"/>
+                                            <constraint firstItem="rsL-3k-Idz" firstAttribute="leading" secondItem="G6r-vW-AP3" secondAttribute="leadingMargin" id="u45-UF-32j"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="G6r-vW-AP3" firstAttribute="bottom" secondItem="X0Z-jR-nH0" secondAttribute="bottomMargin" id="4pg-6Z-Pv1"/>
+                                    <constraint firstItem="G6r-vW-AP3" firstAttribute="centerX" secondItem="X0Z-jR-nH0" secondAttribute="centerX" id="FkE-d8-boD"/>
+                                    <constraint firstItem="G6r-vW-AP3" firstAttribute="leading" secondItem="X0Z-jR-nH0" secondAttribute="leading" constant="90" id="wei-WC-hCO"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="X0Z-jR-nH0" secondAttribute="trailing" id="67j-32-P0F"/>
+                            <constraint firstItem="X0Z-jR-nH0" firstAttribute="leading" secondItem="sFd-St-V4z" secondAttribute="leading" id="BEZ-Kz-dqP"/>
+                            <constraint firstItem="X0Z-jR-nH0" firstAttribute="bottom" secondItem="9jy-xZ-rGm" secondAttribute="top" id="Dtu-nF-nAe"/>
+                            <constraint firstItem="X0Z-jR-nH0" firstAttribute="top" secondItem="sFd-St-V4z" secondAttribute="top" id="QJE-N9-mYL"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="previewView" destination="X0Z-jR-nH0" id="DPF-hz-sLQ"/>
                         <segue destination="wek-Vh-To2" kind="show" id="cQ5-fs-asz"/>
                     </connections>
                 </viewController>
@@ -680,10 +719,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pmK-rm-XkD">
-                                <rect key="frame" x="7" y="90" width="307" height="73"/>
+                                <rect key="frame" x="7" y="94" width="307" height="45"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Calculating... Please Wait" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mCV-SE-OHX">
-                                        <rect key="frame" x="47" y="15" width="212" height="22"/>
+                                        <rect key="frame" x="47" y="11" width="212" height="22"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mpR-0S-4yT">
+                                <rect key="frame" x="7" y="159" width="307" height="45"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Analyzing photo .. of ..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SUK-qG-Hv1">
+                                        <rect key="frame" x="47" y="11" width="212" height="22"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -783,6 +836,29 @@
                                     <constraint firstItem="cIh-gQ-1GR" firstAttribute="centerX" secondItem="07H-j6-agQ" secondAttribute="centerX" id="liZ-V5-K87"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rwd-hG-9Yx">
+                                <rect key="frame" x="6" y="507" width="308" height="36"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IBX-eK-wu1">
+                                        <rect key="frame" x="113" y="3" width="83" height="30"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Information "/>
+                                        <connections>
+                                            <action selector="savePanelName:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MfK-44-KOn"/>
+                                            <segue destination="mZs-zI-IKF" kind="show" id="L2l-Vw-7yW"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="IBX-eK-wu1" firstAttribute="centerX" secondItem="rwd-hG-9Yx" secondAttribute="centerX" id="8Sq-a8-tF5"/>
+                                    <constraint firstItem="IBX-eK-wu1" firstAttribute="centerY" secondItem="rwd-hG-9Yx" secondAttribute="centerY" id="FFZ-Gi-KBH"/>
+                                    <constraint firstItem="IBX-eK-wu1" firstAttribute="top" secondItem="rwd-hG-9Yx" secondAttribute="top" constant="3" id="mbB-yd-kAu"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -805,6 +881,86 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8g6-DW-5gZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2231" y="58"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="6Xr-ie-Y87">
+            <objects>
+                <viewController id="mZs-zI-IKF" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LCL-DA-LUq"/>
+                        <viewControllerLayoutGuide type="bottom" id="gw0-LR-eqj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="v3q-DH-PIa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fF0-Oy-7T5">
+                                <rect key="frame" x="0.0" y="364" width="320" height="157"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Department Of Chemistry" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPW-li-wEU">
+                                        <rect key="frame" x="8" y="20" width="291" height="21"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Oregon State University " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RxN-jQ-yb2">
+                                        <rect key="frame" x="8" y="49" width="291" height="21"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Corvallis, OR 97333" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7A-vc-WLM">
+                                        <rect key="frame" x="15" y="78" width="291" height="21"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="remcholab@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgG-iy-g0B">
+                                        <rect key="frame" x="15" y="116" width="291" height="21"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Yt-Y5-7My">
+                                <rect key="frame" x="-5" y="265" width="320" height="70"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Multipoint Colorimeter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGZ-Fy-kmd">
+                                        <rect key="frame" x="0.0" y="21" width="320" height="29"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="fGZ-Fy-kmd" secondAttribute="trailing" id="0Wp-3n-ZsD"/>
+                                    <constraint firstItem="fGZ-Fy-kmd" firstAttribute="top" secondItem="6Yt-Y5-7My" secondAttribute="top" constant="21" id="IQu-cQ-kUR"/>
+                                    <constraint firstItem="fGZ-Fy-kmd" firstAttribute="leading" secondItem="6Yt-Y5-7My" secondAttribute="leading" id="ddQ-CA-I12"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="remchoLogo" translatesAutoresizingMaskIntoConstraints="NO" id="A2g-yy-lQf">
+                                <rect key="frame" x="13" y="97" width="294" height="104"/>
+                                <animations/>
+                            </imageView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jU4-lE-A29" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2231" y="814"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OdA-2X-VHC">
@@ -836,7 +992,7 @@
         <!--Calibration Area Details-->
         <scene sceneID="zL0-Aq-KW4">
             <objects>
-                <viewController id="wBV-zd-Hdb" customClass="CalibrationAreaDetails" customModule="Colorimeter_v2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="wBV-zd-Hdb" customClass="CalibrationAreaDetails" customModule="iOS_Colorimeter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bOd-ke-NEA"/>
                         <viewControllerLayoutGuide type="bottom" id="6Hn-yM-eWE"/>
@@ -892,7 +1048,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lyu-Gx-EDF" customClass="Chart" customModule="Colorimeter_v2" customModuleProvider="target">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lyu-Gx-EDF" customClass="Chart" customModule="iOS_Colorimeter" customModuleProvider="target">
                                 <rect key="frame" x="5" y="271" width="311" height="215"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -949,7 +1105,7 @@
         <!--Select Area-->
         <scene sceneID="WfG-lv-mCe">
             <objects>
-                <viewController id="d5W-15-6tt" customClass="CalibrationSelectArea" customModule="Colorimeter_v2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="d5W-15-6tt" customClass="CalibrationSelectArea" customModule="iOS_Colorimeter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Djs-aK-Pr1"/>
                         <viewControllerLayoutGuide type="bottom" id="78x-zd-J5Q"/>
@@ -1052,7 +1208,7 @@
         <!--Test Area Information-->
         <scene sceneID="PPD-gM-M6d">
             <objects>
-                <viewController id="xEX-wJ-d8O" customClass="CalibrationTestAreaDetails" customModule="Colorimeter_v2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="xEX-wJ-d8O" customClass="CalibrationTestAreaDetails" customModule="iOS_Colorimeter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1rh-hz-gwA"/>
                         <viewControllerLayoutGuide type="bottom" id="KW4-ee-Fgc"/>
@@ -1078,7 +1234,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OtW-Me-HNi" customClass="Chart" customModule="Colorimeter_v2" customModuleProvider="target">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OtW-Me-HNi" customClass="Chart" customModule="iOS_Colorimeter" customModuleProvider="target">
                                 <rect key="frame" x="6" y="135" width="305" height="161"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1177,7 +1333,7 @@
         <!--Select Test Area-->
         <scene sceneID="8xt-mu-cAs">
             <objects>
-                <viewController id="6Se-mW-b7U" customClass="SelectTestArea" customModule="Colorimeter_v2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6Se-mW-b7U" customClass="SelectTestArea" customModule="iOS_Colorimeter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mQR-gX-GDY"/>
                         <viewControllerLayoutGuide type="bottom" id="bne-ec-C01"/>
@@ -1261,7 +1417,7 @@
         <!--Test Area Results-->
         <scene sceneID="TI3-c3-Nhh">
             <objects>
-                <viewController id="Z4L-0r-MXn" customClass="TestAreaResults" customModule="Colorimeter_v2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Z4L-0r-MXn" customClass="TestAreaResults" customModule="iOS_Colorimeter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="x9I-mZ-bK0"/>
                         <viewControllerLayoutGuide type="bottom" id="Ty9-0N-U1v"/>
@@ -1346,9 +1502,12 @@
             <point key="canvasLocation" x="5844" y="-319"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="remchoLogo" width="284" height="105"/>
+    </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="BhY-BQ-Bvk"/>
         <segue reference="oWI-vX-Kbl"/>
-        <segue reference="WoG-ub-t4o"/>
         <segue reference="YJD-yN-Dim"/>
     </inferredMetricsTieBreakers>
 </document>
