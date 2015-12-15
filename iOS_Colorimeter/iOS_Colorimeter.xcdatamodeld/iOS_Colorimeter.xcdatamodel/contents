@@ -1,4 +1,47 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15B42" minimumToolsVersion="Automatic">
+    <entity name="Model" representedClassName="Model" syncable="YES">
+        <attribute name="calCompleted" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="endPoint" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="flashOff" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="flashOn" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="hsv" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="intercept" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="intervalTime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="kinetic" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="modelName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rgb" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="testAreaInfo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="testTime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tracker" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="units" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TestInfo" inverseName="newRelationship" inverseEntity="TestInfo" syncable="YES"/>
+        <relationship name="testAreas" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TestArea" inverseName="model" inverseEntity="TestArea" syncable="YES"/>
+    </entity>
+    <entity name="Results" syncable="YES">
+        <attribute name="modelName" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="TestArea" representedClassName="TestArea" syncable="YES">
+        <attribute name="intercept" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="radius" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="slope" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="units" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="xcoordinate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ycoordinate" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="model" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Model" inverseName="testAreas" inverseEntity="Model" syncable="YES"/>
+    </entity>
+    <entity name="TestInfo" representedClassName="TestInfo" syncable="YES">
+        <attribute name="modelName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="testAreaName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="testAreaUnits" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="testNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Model" inverseName="newRelationship" inverseEntity="Model" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Model" positionX="-63" positionY="-18" width="128" height="285"/>
+        <element name="Results" positionX="-54" positionY="99" width="128" height="60"/>
+        <element name="TestArea" positionX="-36" positionY="108" width="128" height="165"/>
+        <element name="TestInfo" positionX="-18" positionY="126" width="128" height="120"/>
+    </elements>
 </model>

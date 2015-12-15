@@ -20,6 +20,8 @@ class Model: NSManagedObject {
     @NSManaged var units: String
     @NSManaged var flashOn: DarwinBoolean
     @NSManaged var flashOff: DarwinBoolean
+    @NSManaged var slope: String
+    @NSManaged var intercept: String
     //@NSManaged var testAreaName: String
 }
 
@@ -33,6 +35,18 @@ extension Model {
         return testAreas
     }
 }
+
+@objc(Model)
+class TestInfo: NSManagedObject {
+    //properties feeding the attributes in our entity
+    //Must match the entity attributes
+    @NSManaged var modelName: String
+    @NSManaged var testAreaName: String
+    @NSManaged var testAreaUnits: String
+    @NSManaged var testNumber: String
+}
+
+
 
 
 

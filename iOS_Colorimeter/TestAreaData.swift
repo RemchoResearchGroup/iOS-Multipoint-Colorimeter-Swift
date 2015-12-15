@@ -7,5 +7,8 @@ class TestArea: NSManagedObject {
     @NSManaged var xcoordinate: String
     @NSManaged var ycoordinate: String
     @NSManaged var radius: String
-    //@NSManaged var model: Model
+    @NSManaged var name: String
+    @NSManaged var units: String
+    @NSManaged var slope: String
+    @NSManaged var intercept: String
 }

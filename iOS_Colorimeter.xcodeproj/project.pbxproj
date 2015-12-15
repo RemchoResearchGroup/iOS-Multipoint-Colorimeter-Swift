@@ -22,6 +22,12 @@
 		CA0E9BBF1BFE81B7005D0EA7 /* ExponentialRegression.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0E9BBE1BFE81B7005D0EA7 /* ExponentialRegression.swift */; };
 		CA0E9BC11BFE81CE005D0EA7 /* LinearRegression.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0E9BC01BFE81CE005D0EA7 /* LinearRegression.swift */; };
 		CA307E2D1BF43E62002F2101 /* LayoutDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA307E2C1BF43E62002F2101 /* LayoutDisplayViewController.swift */; };
+		CA4465BC1C1E8CF200B9D70A /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4465BB1C1E8CF200B9D70A /* test.swift */; };
+		CA4466151C1E9D1D00B9D70A /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA4466101C1E9CBB00B9D70A /* Charts.framework */; };
+		CA4466161C1E9D1D00B9D70A /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA4466101C1E9CBB00B9D70A /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CA4466201C1FCCC400B9D70A /* CalibrationSelectColorChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA44661F1C1FCCC400B9D70A /* CalibrationSelectColorChannelViewController.swift */; };
+		CA4466281C20B3DF00B9D70A /* TestResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4466271C20B3DF00B9D70A /* TestResultsViewController.swift */; };
+		CA469F941C1D0C3D00067E1E /* CalibrationAddConcentrationValueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA469F931C1D0C3D00067E1E /* CalibrationAddConcentrationValueViewController.swift */; };
 		CA8175241BFD2F0200890436 /* PerformTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8175231BFD2F0200890436 /* PerformTestViewController.swift */; };
 		CA8175281BFD355000890436 /* TestAreaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8175271BFD355000890436 /* TestAreaData.swift */; };
 		CA81752B1BFD360000890436 /* RGBA.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA81752A1BFD360000890436 /* RGBA.swift */; };
@@ -50,7 +56,49 @@
 			remoteGlobalIDString = CA0B964B1BEC4C0900E97070;
 			remoteInfo = iOS_Colorimeter;
 		};
+		CA44660F1C1E9CBB00B9D70A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA4466061C1E9CBB00B9D70A /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5BA8EC401A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
+		CA4466111C1E9CBB00B9D70A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA4466061C1E9CBB00B9D70A /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A52C5C371BAC5CA400594CDD;
+			remoteInfo = "Charts-TV";
+		};
+		CA4466131C1E9CBB00B9D70A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA4466061C1E9CBB00B9D70A /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06AEE7A21BDC3F8B009875AE;
+			remoteInfo = ChartsTests;
+		};
+		CA4466171C1E9D1D00B9D70A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA4466061C1E9CBB00B9D70A /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BA8EC3F1A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CA4466191C1E9D1D00B9D70A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CA4466161C1E9D1D00B9D70A /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		CA0B964C1BEC4C0900E97070 /* iOS_Colorimeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Colorimeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +122,11 @@
 		CA0E9BBE1BFE81B7005D0EA7 /* ExponentialRegression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExponentialRegression.swift; sourceTree = "<group>"; };
 		CA0E9BC01BFE81CE005D0EA7 /* LinearRegression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinearRegression.swift; sourceTree = "<group>"; };
 		CA307E2C1BF43E62002F2101 /* LayoutDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LayoutDisplayViewController.swift; path = ../LayoutDisplayViewController.swift; sourceTree = "<group>"; };
+		CA4465BB1C1E8CF200B9D70A /* test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
+		CA4466061C1E9CBB00B9D70A /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts/Charts.xcodeproj; sourceTree = SOURCE_ROOT; };
+		CA44661F1C1FCCC400B9D70A /* CalibrationSelectColorChannelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalibrationSelectColorChannelViewController.swift; sourceTree = "<group>"; };
+		CA4466271C20B3DF00B9D70A /* TestResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestResultsViewController.swift; sourceTree = "<group>"; };
+		CA469F931C1D0C3D00067E1E /* CalibrationAddConcentrationValueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalibrationAddConcentrationValueViewController.swift; sourceTree = "<group>"; };
 		CA8175231BFD2F0200890436 /* PerformTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformTestViewController.swift; sourceTree = "<group>"; };
 		CA8175271BFD355000890436 /* TestAreaData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestAreaData.swift; sourceTree = "<group>"; };
 		CA81752A1BFD360000890436 /* RGBA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGBA.swift; sourceTree = "<group>"; };
@@ -92,6 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA4466151C1E9D1D00B9D70A /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,11 +197,13 @@
 				CA96E30D1BF1BE46005CAD5A /* LayoutViewControlers */,
 				CA0B96931BEC6DB200E97070 /* PanelViewControllers */,
 				CA0B96531BEC4C0900E97070 /* Main.storyboard */,
+				CA4466061C1E9CBB00B9D70A /* Charts.xcodeproj */,
 				CA0B96591BEC4C0A00E97070 /* Assets.xcassets */,
 				CA0B965B1BEC4C0A00E97070 /* LaunchScreen.storyboard */,
 				CA0B965E1BEC4C0A00E97070 /* Info.plist */,
 				CA0B96561BEC4C0900E97070 /* iOS_Colorimeter.xcdatamodeld */,
 				CA0B964F1BEC4C0900E97070 /* AppDelegate.swift */,
+				CA4465BB1C1E8CF200B9D70A /* test.swift */,
 			);
 			path = iOS_Colorimeter;
 			sourceTree = "<group>";
@@ -173,6 +229,7 @@
 		CA0B96931BEC6DB200E97070 /* PanelViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				CA469F921C1D0BE600067E1E /* CalibrationFiles */,
 				CA0B96941BEC71CC00E97070 /* PanelTypeOfTestViewController.swift */,
 				CA0B96911BEC649100E97070 /* PanelTestAreaNameViewController.swift */,
 				CA0B968D1BEC58C000E97070 /* PanelNumberOfTestAreasViewController.swift */,
@@ -191,10 +248,30 @@
 			name = StatisticFunctions;
 			sourceTree = "<group>";
 		};
+		CA4466071C1E9CBB00B9D70A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CA4466101C1E9CBB00B9D70A /* Charts.framework */,
+				CA4466121C1E9CBB00B9D70A /* Charts.framework */,
+				CA4466141C1E9CBB00B9D70A /* ChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CA469F921C1D0BE600067E1E /* CalibrationFiles */ = {
+			isa = PBXGroup;
+			children = (
+				CA469F931C1D0C3D00067E1E /* CalibrationAddConcentrationValueViewController.swift */,
+				CA44661F1C1FCCC400B9D70A /* CalibrationSelectColorChannelViewController.swift */,
+			);
+			name = CalibrationFiles;
+			sourceTree = "<group>";
+		};
 		CA8175251BFD2F1100890436 /* TestViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				CA8175231BFD2F0200890436 /* PerformTestViewController.swift */,
+				CA4466271C20B3DF00B9D70A /* TestResultsViewController.swift */,
 			);
 			name = TestViewControllers;
 			sourceTree = "<group>";
@@ -248,10 +325,12 @@
 				CA0B96481BEC4C0900E97070 /* Sources */,
 				CA0B96491BEC4C0900E97070 /* Frameworks */,
 				CA0B964A1BEC4C0900E97070 /* Resources */,
+				CA4466191C1E9D1D00B9D70A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				CA4466181C1E9D1D00B9D70A /* PBXTargetDependency */,
 			);
 			name = iOS_Colorimeter;
 			productName = iOS_Colorimeter;
@@ -329,6 +408,12 @@
 			mainGroup = CA0B96431BEC4C0900E97070;
 			productRefGroup = CA0B964D1BEC4C0900E97070 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = CA4466071C1E9CBB00B9D70A /* Products */;
+					ProjectRef = CA4466061C1E9CBB00B9D70A /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				CA0B964B1BEC4C0900E97070 /* iOS_Colorimeter */,
@@ -337,6 +422,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		CA4466101C1E9CBB00B9D70A /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = CA44660F1C1E9CBB00B9D70A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CA4466121C1E9CBB00B9D70A /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = CA4466111C1E9CBB00B9D70A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CA4466141C1E9CBB00B9D70A /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = CA4466131C1E9CBB00B9D70A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		CA0B964A1BEC4C0900E97070 /* Resources */ = {
@@ -377,11 +486,13 @@
 				CA0B96921BEC649100E97070 /* PanelTestAreaNameViewController.swift in Sources */,
 				CA0B96581BEC4C0900E97070 /* iOS_Colorimeter.xcdatamodeld in Sources */,
 				CA0B968E1BEC58C000E97070 /* PanelNumberOfTestAreasViewController.swift in Sources */,
+				CA4466281C20B3DF00B9D70A /* TestResultsViewController.swift in Sources */,
 				CA8175241BFD2F0200890436 /* PerformTestViewController.swift in Sources */,
 				CA0B96951BEC71CC00E97070 /* PanelTypeOfTestViewController.swift in Sources */,
 				CA96E3141BF43287005CAD5A /* PreviewView.swift in Sources */,
 				CA0B96501BEC4C0900E97070 /* AppDelegate.swift in Sources */,
 				CA81752B1BFD360000890436 /* RGBA.swift in Sources */,
+				CA4465BC1C1E8CF200B9D70A /* test.swift in Sources */,
 				CA96E30F1BF1BE6B005CAD5A /* LayoutCreateViewController.swift in Sources */,
 				CA96E31A1BF4357D005CAD5A /* AVCaptureView2.swift in Sources */,
 				CA0E9BC11BFE81CE005D0EA7 /* LinearRegression.swift in Sources */,
@@ -389,6 +500,8 @@
 				CA96E30C1BF1BB86005CAD5A /* PanelTestOverviewViewController.swift in Sources */,
 				CA96E3181BF4352D005CAD5A /* AVCamPreviewView.swift in Sources */,
 				CA81752D1BFD362F00890436 /* HSV.swift in Sources */,
+				CA469F941C1D0C3D00067E1E /* CalibrationAddConcentrationValueViewController.swift in Sources */,
+				CA4466201C1FCCC400B9D70A /* CalibrationSelectColorChannelViewController.swift in Sources */,
 				CA0B968A1BEC4EA300E97070 /* CreatePanelViewController.swift in Sources */,
 				CA307E2D1BF43E62002F2101 /* LayoutDisplayViewController.swift in Sources */,
 			);
@@ -422,6 +535,11 @@
 			isa = PBXTargetDependency;
 			target = CA0B964B1BEC4C0900E97070 /* iOS_Colorimeter */;
 			targetProxy = CA0B966F1BEC4C0A00E97070 /* PBXContainerItemProxy */;
+		};
+		CA4466181C1E9D1D00B9D70A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Charts-iOS";
+			targetProxy = CA4466171C1E9D1D00B9D70A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -533,6 +651,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = iOS_Colorimeter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "RemchoResearch.iOS-Colorimeter";
@@ -548,6 +667,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = iOS_Colorimeter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "RemchoResearch.iOS-Colorimeter";

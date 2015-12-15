@@ -64,6 +64,9 @@ class LayoutDisplayViewController: UIViewController {
         super.viewDidLoad()
         //testNumberLabel.text = ""
         
+        //Reset currentTestArea to 1
+        savedVariables.currentTestArea = 1
+        
         //Hides back button
         navigationItem.hidesBackButton = true
         
@@ -73,14 +76,15 @@ class LayoutDisplayViewController: UIViewController {
         
         //Needs to be fixed
         //print("\(myList.count)")
-        
-        if(savedVariables.performingCal == true){
+        if(savedVariables.performingTest == false){
             var fullArray = [String] ()
             fullArray = savedVariables.testAreaInfo.characters.split {$0 == ","}.map { String($0) }
             savedVariables.xCoordinateArray = []
             savedVariables.yCoordinateArray = []
             savedVariables.radiusArray = []
-            savedVariables.testAreaNameArray = []
+            savedVariables.slopeArray = []
+            savedVariables.interceptArray = []
+            //savedVariables.testAreaNameArray = []
             let totalTestArray = savedVariables.numberOfTestAreas * 5
             print("The totalTestArray is \(savedVariables.numberOfTestAreas)")
             for var k = 0; k < totalTestArray; k++ {
@@ -96,12 +100,12 @@ class LayoutDisplayViewController: UIViewController {
                 if (k % 5 == 2) {
                     savedVariables.radiusArray += [fullArray[k]]
                 }
-                if (k % 5 == 3) {
+                /*if (k % 5 == 3) {
                     savedVariables.testAreaNameArray  += [fullArray[k]]
-                }
-                if (k % 5 == 4) {
+                }*/
+                /*if (k % 5 == 4) {
                     savedVariables.unitsNameArray += [fullArray[k]]
-                }
+                }*/
             }
         }
         /*else{
@@ -401,8 +405,10 @@ class LayoutDisplayViewController: UIViewController {
             print("Starting Test")
             onlyStartOneTestFlag = 0
             loopCount = 0
+            //var intTime = NSTimeInterval()
+            //intTime = (savedVariables.intervalTime as NSString).doubleValue
             var intTime = NSTimeInterval()
-            intTime = (savedVariables.intervalTime as NSString).doubleValue
+            intTime = 1.0
             savedVariables.numberOfPhotos = numberOfLoops
             print("# of photos: \(savedVariables.numberOfPhotos)")
             timer = NSTimer.scheduledTimerWithTimeInterval(intTime, target: self, selector: "timerSetup", userInfo: nil, repeats: true)
@@ -410,22 +416,22 @@ class LayoutDisplayViewController: UIViewController {
     }
 
     func timerSetup() {
-        /*loopCount++
-        testNumberLabel.text = "Currently Taking Photo \(loopCount) of \(numberOfLoops)"
-        if (loopCount > numberOfLoops) {
+        loopCount++
+        //testNumberLabel.text = "Currently Taking Photo \(loopCount) of \(numberOfLoops)"
+        if (loopCount >= numberOfLoops) {
             timer.invalidate()
             let alert = UIAlertController(title: "Alert", message: "Images Saved", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-            self.performSegueWithIdentifier("SegueToPreformTest", sender: nil)
+            self.performSegueWithIdentifier("SegueToPerformTest", sender: nil)
         }
             
         else {
             takeStillImage()
-        }*/
+        }
     }
 
     func setup(index: Int){
-        self.performSegueWithIdentifier("SegueToPreformTest", sender: nil)
+        self.performSegueWithIdentifier("SegueToPerformTest", sender: nil)
     }
     
     
@@ -515,9 +521,6 @@ class LayoutDisplayViewController: UIViewController {
             }
         }
     }
-    
-    
-    
     
     func deleteLastPhoto(asset: PHAsset) {
         let fetchOptions: PHFetchOptions = PHFetchOptions()

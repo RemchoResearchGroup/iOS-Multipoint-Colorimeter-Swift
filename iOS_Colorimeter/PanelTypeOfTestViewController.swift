@@ -76,6 +76,8 @@ class PanelTypeOfTestViewController: UIViewController {
                         savedVariables.totalTestTimeArray[currentTypeOfTest] = totalTestTimeTextField.text!
                         savedVariables.intervalTestTimeArray[currentTypeOfTest] = intervalTimeTextField.text!
                         savedVariables.currentTestArea += 1
+                        setHighestTotalTestTime()
+                        setTiming(intervalTimeTextField.text!)
                         self.performSegueWithIdentifier("toTestOverviewSegue", sender: nil)
                     }
 
@@ -93,6 +95,8 @@ class PanelTypeOfTestViewController: UIViewController {
                     savedVariables.typeOfTestArray[currentTypeOfTest] = "End-Point"
                     savedVariables.totalTestTimeArray[currentTypeOfTest] = totalTestTimeTextField.text!
                     savedVariables.intervalTestTimeArray[currentTypeOfTest] = "0"
+                    setHighestTotalTestTime()
+                    setTiming(intervalTimeTextField.text!)
                     self.performSegueWithIdentifier("toTestOverviewSegue", sender: nil)
                 }
             }
@@ -100,6 +104,7 @@ class PanelTypeOfTestViewController: UIViewController {
         else{
                 //Check if Kinetic
                 if(currentTypeOfTest == 0){
+                
                     if(totalTestTimeTextField.text! == ""){
                         let alert = UIAlertController(title: "Error", message: "Please add a test time.", preferredStyle: UIAlertControllerStyle.Alert)
                         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
@@ -123,6 +128,8 @@ class PanelTypeOfTestViewController: UIViewController {
                             savedVariables.totalTestTimeArray[currentTypeOfTest] = totalTestTimeTextField.text!
                             savedVariables.intervalTestTimeArray[currentTypeOfTest] = intervalTimeTextField.text!
                             savedVariables.currentTestArea += 1
+                            setHighestTotalTestTime()
+                            setTiming(intervalTimeTextField.text!)
                             self.performSegueWithIdentifier("toPanelTestAreaNameSegue", sender: nil)
                         }
 
@@ -131,6 +138,7 @@ class PanelTypeOfTestViewController: UIViewController {
                 
                 //Check if End-Point
                 if(currentTypeOfTest == 1){
+               
                     if(totalTestTimeTextField.text! == ""){
                         let alert = UIAlertController(title: "Error", message: "Please add a test time.", preferredStyle: UIAlertControllerStyle.Alert)
                         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
@@ -141,6 +149,8 @@ class PanelTypeOfTestViewController: UIViewController {
                         savedVariables.totalTestTimeArray[currentTypeOfTest] = totalTestTimeTextField.text!
                         savedVariables.intervalTestTimeArray[currentTypeOfTest] = "0"
                         savedVariables.currentTestArea += 1
+                        setHighestTotalTestTime()
+                        setTiming(intervalTimeTextField.text!)
                         self.performSegueWithIdentifier("toPanelTestAreaNameSegue", sender: nil)
               
                 }
@@ -154,18 +164,28 @@ class PanelTypeOfTestViewController: UIViewController {
         view.endEditing(true)
     }
     
+    func setHighestTotalTestTime(){
+        print("The current highest total time is : \(savedVariables.highestTotalTime)")
+        
+        let totalTestTimeToInt = Int(totalTestTimeTextField.text!)
+        if(savedVariables.highestTotalTime < totalTestTimeToInt!){
+            savedVariables.highestTotalTime = totalTestTimeToInt!
+            print("Highest Total Time: \(totalTestTimeToInt)")
+        }
+    }
+    
+    func setTiming(intervalTime: String){
+        let tempInt:Int = Int(intervalTime)!
+        savedVariables.timingArray += [tempInt]
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
       
         
         //Update label to corresponding test area.
-        
-        
-        
-        
-        
-        
-        
         
         //Hides back button
         navigationItem.hidesBackButton = true

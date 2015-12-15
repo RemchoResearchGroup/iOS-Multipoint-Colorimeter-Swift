@@ -64,6 +64,7 @@ class PanelTestAreaNameViewController: UIViewController {
              for _ in 0...savedVariables.numberOfTestAreas {
                 savedVariables.testAreaNameArray.append("")
                 savedVariables.concertationArray.append("")
+                savedVariables.concertationValueArray.append("")
                 savedVariables.typeOfTestArray.append("")
                 savedVariables.totalTestTimeArray.append("")
                 savedVariables.intervalTestTimeArray.append("")
