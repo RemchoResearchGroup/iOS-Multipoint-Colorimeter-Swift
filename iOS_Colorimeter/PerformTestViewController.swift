@@ -9,6 +9,8 @@ class PerformTestViewController: UIViewController {
     @IBOutlet weak var photoBeingTested: UILabel!
     @IBOutlet weak var testBeingTested: UILabel!
     
+    @IBOutlet var labelOne: UILabel!
+    @IBOutlet var labelTwo: UILabel!
     
     
     func getLatestPhotos(completion completionBlock : ([UIImage] -> ()))   {
@@ -39,6 +41,51 @@ class PerformTestViewController: UIViewController {
                             
                             //savedVariables.instanceCount = savedVariables.instanceCount + 1
                             //self.performSegueWithIdentifier("SegueToResults1", sender: nil)
+                            print("test")
+                            savedVariables.currentTestArea = 0
+                            var averageColor = 1.1
+                            var channel = savedVariables.channelUsed[savedVariables.currentTestArea]
+                            print(channel)
+                            if(channel == "0"){
+                                averageColor = savedVariables.calibrationRedArray[0][0]
+                                print(averageColor)
+                            }
+                            if(channel == "1"){
+                                averageColor = savedVariables.calibrationGreenArray[0][0]
+                            }
+                            if(channel == "2"){
+                                averageColor = savedVariables.calibrationBlueArray[0][0]
+                            }
+                            
+                            var slope = (savedVariables.slopeArray[0] as NSString).doubleValue
+                            var intercept = (savedVariables.interceptArray[1] as NSString).doubleValue
+                            var concertationNumber =  intercept + slope * averageColor
+                            print(concertationNumber)
+                            self.labelOne.text = "1: \(concertationNumber) \(savedVariables.concertationArray[0])"
+                            
+                            
+                            print("test")
+                            savedVariables.currentTestArea = 1
+                            averageColor = 1.1
+                            channel = savedVariables.channelUsed[savedVariables.currentTestArea]
+                            print(channel)
+                            if(channel == "0"){
+                                averageColor = savedVariables.calibrationRedArray[1][0] 
+                                print(averageColor)
+                            }
+                            if(channel == "1"){
+                                averageColor = savedVariables.calibrationGreenArray[1][0]
+                            }
+                            if(channel == "2"){
+                                averageColor = savedVariables.calibrationBlueArray[1][0]
+                            }
+                            
+                            
+                            slope = (savedVariables.slopeArray[0] as NSString).doubleValue
+                            intercept = (savedVariables.interceptArray[1] as NSString).doubleValue
+                            concertationNumber =  intercept + slope * averageColor
+                            print(concertationNumber)
+                            self.labelOne.text = "2: \(concertationNumber) \(savedVariables.concertationArray[1])"
                         }
                         else{
                             //savedVariables.photoCount = 0

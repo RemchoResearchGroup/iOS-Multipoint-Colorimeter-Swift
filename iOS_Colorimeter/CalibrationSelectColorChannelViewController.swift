@@ -86,8 +86,8 @@ class CalibrationSelectColorChannelViewController: UIViewController{
             print("The sum of X squared \(sumX2)")
             print("The sum of Y squared \(sumY2)")
             
-            slope = ((sumY*sumX2)-(sumX*sumXY))/(n*sumX2 - (sumX * sumX))
-            intercept = ((n * sumXY) - (sumX * sumY))/(n*(sumX2) - (sumX * sumX))
+            intercept = ((sumY*sumX2)-(sumX*sumXY))/(n*sumX2 - (sumX * sumX))
+            slope = ((n * sumXY) - (sumX * sumY))/(n*(sumX2) - (sumX * sumX))
             correlation = ((Double(numberOfItems) * sumXY) - (sumX * sumY)) / (sqrt(Double(numberOfItems) * sumX2 - (sumX * sumX)) * sqrt(Double(numberOfItems) * sumY2 - (sumY * sumY)))
             rSquared = correlation * correlation
             //count = count + 1

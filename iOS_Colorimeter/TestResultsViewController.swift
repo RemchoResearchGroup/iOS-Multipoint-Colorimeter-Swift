@@ -37,7 +37,7 @@ class TestResultsViewController: UIViewController{
         let slope = (savedVariables.slopeArray[savedVariables.currentTestArea] as NSString).doubleValue
         let intercept = (savedVariables.interceptArray[savedVariables.currentTestArea] as NSString).doubleValue
         let concertationNumber =  intercept + slope * averageColor
-        
+        print(concertationNumber)
         //+ (savedVariables.interceptArray[savedVariables.currentTestAreaSelected] * averageColor)
         //concertationLabel.text = "\(concertationNumber)"
         

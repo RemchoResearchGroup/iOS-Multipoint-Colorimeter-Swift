@@ -773,7 +773,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RPu-VW-4oo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4810" y="-998"/>
+            <point key="canvasLocation" x="5178" y="-1024"/>
         </scene>
         <!--Perform Test View Controller-->
         <scene sceneID="yVr-Zx-UwZ">
@@ -815,6 +815,28 @@
                                 <animations/>
                                 <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="1:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="etP-3G-9n5">
+                                <rect key="frame" x="0.0" y="246" width="320" height="31"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="dlE-sP-TTc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="2:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jhp-P6-RrM">
+                                <rect key="frame" x="0.0" y="299" width="320" height="31"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="Tni-0F-hTk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -824,6 +846,8 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="labelOne" destination="etP-3G-9n5" id="Sgs-Mz-gnv"/>
+                        <outlet property="labelTwo" destination="Jhp-P6-RrM" id="kI7-oR-lwV"/>
                         <segue destination="tVp-b6-SUw" kind="show" identifier="SegueToAddConcentrationValue" id="b7z-1e-k5y"/>
                         <segue destination="AQM-E8-Ifr" kind="show" identifier="SegueToResults1" id="Ids-9P-lEC"/>
                     </connections>
@@ -1128,16 +1152,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NFz-GX-L4m">
-                                <rect key="frame" x="11" y="228" width="101" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Next Test Area">
-                                    <color key="titleColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="nextArea:" destination="tVp-b6-SUw" eventType="touchUpInside" id="Fzk-nR-A0l"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Please Enter a Concentration:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qGb-P8-Eal">
                                 <rect key="frame" x="0.0" y="104" width="320" height="31"/>
                                 <animations/>
@@ -1161,11 +1175,9 @@
                             <constraint firstItem="ZMm-ah-pZG" firstAttribute="trailing" secondItem="u28-rS-HJi" secondAttribute="trailing" id="JOP-Xk-HiJ"/>
                             <constraint firstItem="ZMm-ah-pZG" firstAttribute="leading" secondItem="u28-rS-HJi" secondAttribute="leading" id="Jq3-lx-jbl"/>
                             <constraint firstItem="u28-rS-HJi" firstAttribute="leading" secondItem="W6c-mm-Ppa" secondAttribute="leading" id="dPs-Oo-UU4"/>
-                            <constraint firstItem="NFz-GX-L4m" firstAttribute="leading" secondItem="W6c-mm-Ppa" secondAttribute="leadingMargin" constant="-5" id="dlD-tK-zKJ"/>
                             <constraint firstItem="qGb-P8-Eal" firstAttribute="top" secondItem="u28-rS-HJi" secondAttribute="bottom" constant="31" id="h7j-sr-J5w"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5c6-qh-CNH" secondAttribute="trailing" constant="-24" id="hGV-hi-91w"/>
                             <constraint firstItem="qGb-P8-Eal" firstAttribute="leading" secondItem="5c6-qh-CNH" secondAttribute="leading" id="hmf-x0-cUy"/>
-                            <constraint firstItem="NFz-GX-L4m" firstAttribute="baseline" secondItem="2Pn-K8-80C" secondAttribute="baseline" id="jbC-7u-c5P"/>
                             <constraint firstItem="ZMm-ah-pZG" firstAttribute="centerX" secondItem="wnE-fy-OEl" secondAttribute="centerX" id="jvb-PH-BWP"/>
                             <constraint firstItem="5c6-qh-CNH" firstAttribute="top" secondItem="qGb-P8-Eal" secondAttribute="bottom" constant="8" symbolic="YES" id="lqw-Ds-FY1"/>
                             <constraint firstAttribute="trailing" secondItem="qGb-P8-Eal" secondAttribute="trailing" id="pzZ-wG-XRr"/>
@@ -1188,7 +1200,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IQC-Wx-TWT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5545" y="-408"/>
+            <point key="canvasLocation" x="5299" y="-319"/>
         </scene>
         <!--Test-->
         <scene sceneID="evz-4m-s3H">
