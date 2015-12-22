@@ -19,7 +19,9 @@ class CalibrationAddConcentrationValueViewController: UIViewController {
     @IBOutlet var testAreaNumberLabel: UILabel!
     @IBOutlet var unitsLabel: UILabel!
     
-    
+    @IBAction func cancel(sender: AnyObject) {
+        self.performSegueWithIdentifier("cancelledSegue", sender: nil)
+    }
 
     @IBAction func nextArea(sender: AnyObject) {
         if(concentrationTextBox.text != ""){
@@ -34,6 +36,8 @@ class CalibrationAddConcentrationValueViewController: UIViewController {
                 print("*****")
                 
                 print(savedVariables.concentrationArray[savedVariables.currentTestArea-1][savedVariables.countTracker-1])
+                print(savedVariables.instanceCount)
+                savedVariables.instanceCount += 1
                 self.performSegueWithIdentifier("SegueLayoutDisplay", sender: nil)
             }
             else{
@@ -46,7 +50,7 @@ class CalibrationAddConcentrationValueViewController: UIViewController {
                 
                 print(savedVariables.concentrationArray[savedVariables.currentTestArea-1][savedVariables.countTracker-1])
                 savedVariables.currentTestArea += 1
-                if(savedVariables.numberOfTestAreas == savedVariables.currentTestArea){
+                if(savedVariables.numberOfTestAreas == savedVariables.currentTestArea && savedVariables.instanceCount != 0){
                     selectColorChannelButton.hidden = false
                 }
                 updateLabels()
@@ -98,6 +102,9 @@ class CalibrationAddConcentrationValueViewController: UIViewController {
         testAreaNameLabel.text = "\(savedVariables.currentTestArea): \(savedVariables.testAreaNameArray[savedVariables.currentTestArea-1])"
         print(savedVariables.testAreaNameArray)
         unitsLabel.text = "\(savedVariables.concertationArray[savedVariables.currentTestArea-1])"
+        
+        //clear textfield 
+        concentrationTextBox.text = ""
     }
  
     override func viewDidLoad() {
@@ -105,9 +112,9 @@ class CalibrationAddConcentrationValueViewController: UIViewController {
         savedVariables.countTracker += 1
       
         print(savedVariables.countTracker)
-        updateLabels()
     
         selectColorChannelButton.hidden = true
+        updateLabels()
         //colorPreviewView.backgroundColor = UIColor(red: 255, green: 165, blue: 0, alpha: 1)
     }
     

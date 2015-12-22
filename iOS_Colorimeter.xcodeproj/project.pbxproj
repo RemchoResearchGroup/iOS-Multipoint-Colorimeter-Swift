@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		CA0B96501BEC4C0900E97070 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0B964F1BEC4C0900E97070 /* AppDelegate.swift */; };
-		CA0B96551BEC4C0900E97070 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA0B96531BEC4C0900E97070 /* Main.storyboard */; };
 		CA0B96581BEC4C0900E97070 /* iOS_Colorimeter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CA0B96561BEC4C0900E97070 /* iOS_Colorimeter.xcdatamodeld */; };
 		CA0B965A1BEC4C0A00E97070 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA0B96591BEC4C0A00E97070 /* Assets.xcassets */; };
 		CA0B965D1BEC4C0A00E97070 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA0B965B1BEC4C0A00E97070 /* LaunchScreen.storyboard */; };
@@ -22,6 +21,7 @@
 		CA0E9BBF1BFE81B7005D0EA7 /* ExponentialRegression.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0E9BBE1BFE81B7005D0EA7 /* ExponentialRegression.swift */; };
 		CA0E9BC11BFE81CE005D0EA7 /* LinearRegression.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0E9BC01BFE81CE005D0EA7 /* LinearRegression.swift */; };
 		CA307E2D1BF43E62002F2101 /* LayoutDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA307E2C1BF43E62002F2101 /* LayoutDisplayViewController.swift */; };
+		CA34F3741C28C998009A9B9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA34F3721C28C998009A9B9A /* Main.storyboard */; };
 		CA4465BC1C1E8CF200B9D70A /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4465BB1C1E8CF200B9D70A /* test.swift */; };
 		CA4466151C1E9D1D00B9D70A /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA4466101C1E9CBB00B9D70A /* Charts.framework */; };
 		CA4466161C1E9D1D00B9D70A /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA4466101C1E9CBB00B9D70A /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -103,7 +103,6 @@
 /* Begin PBXFileReference section */
 		CA0B964C1BEC4C0900E97070 /* iOS_Colorimeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Colorimeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA0B964F1BEC4C0900E97070 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CA0B96541BEC4C0900E97070 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CA0B96571BEC4C0900E97070 /* iOS_Colorimeter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iOS_Colorimeter.xcdatamodel; sourceTree = "<group>"; };
 		CA0B96591BEC4C0A00E97070 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA0B965C1BEC4C0A00E97070 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -122,6 +121,7 @@
 		CA0E9BBE1BFE81B7005D0EA7 /* ExponentialRegression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExponentialRegression.swift; sourceTree = "<group>"; };
 		CA0E9BC01BFE81CE005D0EA7 /* LinearRegression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinearRegression.swift; sourceTree = "<group>"; };
 		CA307E2C1BF43E62002F2101 /* LayoutDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LayoutDisplayViewController.swift; path = ../LayoutDisplayViewController.swift; sourceTree = "<group>"; };
+		CA34F3731C28C998009A9B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CA4465BB1C1E8CF200B9D70A /* test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		CA4466061C1E9CBB00B9D70A /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts/Charts.xcodeproj; sourceTree = SOURCE_ROOT; };
 		CA44661F1C1FCCC400B9D70A /* CalibrationSelectColorChannelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalibrationSelectColorChannelViewController.swift; sourceTree = "<group>"; };
@@ -189,6 +189,7 @@
 		CA0B964E1BEC4C0900E97070 /* iOS_Colorimeter */ = {
 			isa = PBXGroup;
 			children = (
+				CA34F3721C28C998009A9B9A /* Main.storyboard */,
 				CA0E9BBB1BFE813A005D0EA7 /* StatisticFunctions */,
 				CA8175291BFD35D000890436 /* ColorFunctions */,
 				CA8175261BFD352600890436 /* Data */,
@@ -196,7 +197,6 @@
 				CA96E3101BF43227005CAD5A /* CameraFiles */,
 				CA96E30D1BF1BE46005CAD5A /* LayoutViewControlers */,
 				CA0B96931BEC6DB200E97070 /* PanelViewControllers */,
-				CA0B96531BEC4C0900E97070 /* Main.storyboard */,
 				CA4466061C1E9CBB00B9D70A /* Charts.xcodeproj */,
 				CA0B96591BEC4C0A00E97070 /* Assets.xcassets */,
 				CA0B965B1BEC4C0A00E97070 /* LaunchScreen.storyboard */,
@@ -452,9 +452,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA34F3741C28C998009A9B9A /* Main.storyboard in Resources */,
 				CA0B965D1BEC4C0A00E97070 /* LaunchScreen.storyboard in Resources */,
 				CA0B965A1BEC4C0A00E97070 /* Assets.xcassets in Resources */,
-				CA0B96551BEC4C0900E97070 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -544,20 +544,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		CA0B96531BEC4C0900E97070 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CA0B96541BEC4C0900E97070 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CA0B965B1BEC4C0A00E97070 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				CA0B965C1BEC4C0A00E97070 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		CA34F3721C28C998009A9B9A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA34F3731C28C998009A9B9A /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

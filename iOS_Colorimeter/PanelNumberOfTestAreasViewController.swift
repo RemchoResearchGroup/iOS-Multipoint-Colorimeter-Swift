@@ -35,7 +35,7 @@ class PanelNumberOfTestAreasViewController: UIViewController {
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
         savedVariables.numberOfTestAreas = Int(pickerNumbers[row])!
-        print(savedVariables.numberOfTestAreas)
+        //print(savedVariables.numberOfTestAreas)
         return pickerNumbers[row]
     }
     

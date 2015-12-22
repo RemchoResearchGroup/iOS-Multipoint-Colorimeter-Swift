@@ -8,6 +8,7 @@ class TestResultsViewController: UIViewController{
     @IBOutlet var unitsLabel: UILabel!
     @IBOutlet var concertationLabel: UILabel!
     
+    @IBOutlet var nextAreaButton: UIButton!
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -15,46 +16,45 @@ class TestResultsViewController: UIViewController{
         
     }
     
+    @IBAction func nextArea(sender: AnyObject) {
+        savedVariables.currentTestArea += 1
+        updateLabels()
+    }
+    
+    
+    func updateLabels(){
+        /*if(savedVariables.currentTestArea == savedVariables.numberOfTestAreas-2){
+            nextAreaButton.hidden = true
+        }*/
+        testAreaLabel.text = "\(savedVariables.currentTestArea + 1): \(savedVariables.testAreaNameArray[savedVariables.currentTestArea])"
+        var averageColor = 0.0
+        var channel = savedVariables.channelUsed[savedVariables.currentTestArea]
+        print(channel)
+        if(channel == "0"){
+            averageColor =  savedVariables.calibrationRedArray[savedVariables.currentTestArea][savedVariables.instanceCount] as! Double
+            print(averageColor)
+        }
+        if(channel == "1"){
+            averageColor = savedVariables.calibrationGreenArray[savedVariables.currentTestArea][savedVariables.instanceCount]
+        }
+        if(channel == "2"){
+            averageColor = savedVariables.calibrationBlueArray[savedVariables.currentTestArea][savedVariables.instanceCount]
+        }
+        
+        let slope = (savedVariables.slopeArray[savedVariables.currentTestArea] as NSString).doubleValue
+        print("The slope is : \(slope)")
+        let intercept = (savedVariables.interceptArray[savedVariables.currentTestArea] as NSString).doubleValue
+        print("The intercept is: \(intercept)")
+        let concertationNumber =  intercept + slope * averageColor
+        print(concertationNumber)
+        concertationLabel.text = "\(concertationNumber)"
+        //concertationLabel.text = "\(concertationNumber) \(savedVariables.unitsNameArray[savedVariables.currentTestArea+1])"
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("test")
-        var averageColor = 1.1
-        var channel = savedVariables.channelUsed[savedVariables.currentTestArea]
-        print(channel)
-        if(channel == "0"){
-            averageColor = savedVariables.redArray[savedVariables.currentTestArea] as! Double
-            print(averageColor)
-        }
-        if(channel == "1"){
-            averageColor = savedVariables.greenArray[savedVariables.currentTestArea]as! Double
-        }
-        if(channel == "2"){
-            averageColor = savedVariables.blueArray[savedVariables.currentTestArea] as! Double
-        }
-
-        let slope = (savedVariables.slopeArray[savedVariables.currentTestArea] as NSString).doubleValue
-        let intercept = (savedVariables.interceptArray[savedVariables.currentTestArea] as NSString).doubleValue
-        let concertationNumber =  intercept + slope * averageColor
-        print(concertationNumber)
-        //+ (savedVariables.interceptArray[savedVariables.currentTestAreaSelected] * averageColor)
-        //concertationLabel.text = "\(concertationNumber)"
-        
-        //unitsLabel.text = savedVariables.unitsNameArray[savedVariables.currentTestArea]
-        
-        
-        //testAreaLabel.text = "\(savedVariables.testAreaNameArray[savedVariables.currentTestAreaSelected])"
-        //formulaLabel.text = String(format: "y = %.5d + %.5d * x", savedVariables.slopeArray[savedVariables.currentTestAreaSelected], savedVariables.interceptArray[savedVariables.currentTestAreaSelected])
-        // formulaLabel.text = String(format: "y = %.5\(slope) + %.5\(intercept) * x")
-        //print("aaa")
-        
-        //slopeLabel.text = savedVariables.slopeArray[savedVariables.currentTestAreaSelected]
-        //interceptLabel.text = savedVariables.interceptArray[savedVariables.currentTestAreaSelected]
-        //print("\(savedVariables.currentTestAreaSelected)")
-        
-        
-        
-        
+        savedVariables.currentTestArea = 0
+        updateLabels()
     }
 }

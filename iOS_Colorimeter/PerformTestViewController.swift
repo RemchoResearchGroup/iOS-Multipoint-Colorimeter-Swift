@@ -9,8 +9,16 @@ class PerformTestViewController: UIViewController {
     @IBOutlet weak var photoBeingTested: UILabel!
     @IBOutlet weak var testBeingTested: UILabel!
     
+    
+    @IBOutlet var progressLabel: UILabel!
+    
+    
     @IBOutlet var labelOne: UILabel!
     @IBOutlet var labelTwo: UILabel!
+    
+    @IBAction func cancel(sender: AnyObject) {
+        self.performSegueWithIdentifier("cancelledSegue", sender: nil)
+    }
     
     
     func getLatestPhotos(completion completionBlock : ([UIImage] -> ()))   {
@@ -39,16 +47,21 @@ class PerformTestViewController: UIViewController {
                         stopped = true
                         if(savedVariables.performingTest == true){
                             
+                            
+                            
+                            
+                            self.findAverage()
+                            
+                            self.performSegueWithIdentifier("SegueToTestResults", sender: nil)
+                            /*
                             //savedVariables.instanceCount = savedVariables.instanceCount + 1
                             //self.performSegueWithIdentifier("SegueToResults1", sender: nil)
-                            print("test")
                             savedVariables.currentTestArea = 0
                             var averageColor = 1.1
                             var channel = savedVariables.channelUsed[savedVariables.currentTestArea]
-                            print(channel)
+     
                             if(channel == "0"){
                                 averageColor = savedVariables.calibrationRedArray[0][0]
-                                print(averageColor)
                             }
                             if(channel == "1"){
                                 averageColor = savedVariables.calibrationGreenArray[0][0]
@@ -58,20 +71,17 @@ class PerformTestViewController: UIViewController {
                             }
                             
                             var slope = (savedVariables.slopeArray[0] as NSString).doubleValue
-                            var intercept = (savedVariables.interceptArray[1] as NSString).doubleValue
+                            var intercept = (savedVariables.interceptArray[0] as NSString).doubleValue
                             var concertationNumber =  intercept + slope * averageColor
-                            print(concertationNumber)
+    
                             self.labelOne.text = "1: \(concertationNumber) \(savedVariables.concertationArray[0])"
                             
-                            
-                            print("test")
                             savedVariables.currentTestArea = 1
                             averageColor = 1.1
                             channel = savedVariables.channelUsed[savedVariables.currentTestArea]
-                            print(channel)
+
                             if(channel == "0"){
-                                averageColor = savedVariables.calibrationRedArray[1][0] 
-                                print(averageColor)
+                                averageColor = savedVariables.calibrationRedArray[1][0]
                             }
                             if(channel == "1"){
                                 averageColor = savedVariables.calibrationGreenArray[1][0]
@@ -81,14 +91,15 @@ class PerformTestViewController: UIViewController {
                             }
                             
                             
-                            slope = (savedVariables.slopeArray[0] as NSString).doubleValue
+                            slope = (savedVariables.slopeArray[1] as NSString).doubleValue
                             intercept = (savedVariables.interceptArray[1] as NSString).doubleValue
                             concertationNumber =  intercept + slope * averageColor
                             print(concertationNumber)
-                            self.labelOne.text = "2: \(concertationNumber) \(savedVariables.concertationArray[1])"
+                            self.labelOne.text = "2: \(concertationNumber) \(savedVariables.concertationArray[1])"*/
                         }
                         else{
                             //savedVariables.photoCount = 0
+                            self.findAverage()
                             self.performSegueWithIdentifier("SegueToAddConcentrationValue", sender: nil)
                         }
                     }
@@ -144,8 +155,14 @@ class PerformTestViewController: UIViewController {
     }
     
     func analyze(x: Int, y: Int, radius: Int, optimization: Int, testImagine: UIImage, testArea: Int, photoUsed: Int) {
-        //photoBeingTested.text = "Photo \(photoUsed + 1) of \(savedVariables.numberOfPhotos)"
-        //testBeingTested.text = "Test Area \(testArea + 1) of \(savedVariables.numberOfTestAreas)"
+        //photoBeingTested.text = "Photo \(photoUsed) of \(savedVariables.numberOfPhotos)"
+        //testBeingTested.text = "Test Area \(testArea) of \(savedVariables.numberOfTestAreas)"
+        progressLabel.text = "Analyzing photo \(photoUsed) of \(savedVariables.numberOfPhotos)"
+        print("**************************")
+        print("The photo is \(photoUsed)")
+        print("The testArea is \(testArea)")
+        print("**************************")
+        
         let x = x * 2
         let y = y * 2
         var position = CGPoint(x: x, y: y)
@@ -180,15 +197,14 @@ class PerformTestViewController: UIViewController {
                 alphaSum = alphaSum + alphaval
                 totalLoops = totalLoops + 1
                 
-                
                 //println("Green is r: \(redval) g: \(greenval) b: \(blueval) a: \(alphaval)")
-                if(xIndex == radius - 1 /*- optimization*/ && yIndex == radius - 1/* - optimization*/){
+                /*if(xIndex == radius - 1 /*- optimization*/ && yIndex == radius - 1/* - optimization*/){
                     //println("index if statement hit")
                     flag = true
-                }
+                }*/
             }
         }
-        if(flag == true){
+        //if(flag == true){
         //,if(testArea == (savedVariables.numberOfTestAreas - 1)){
             print("Photo Tested: \(savedVariables.numberOfPhotos - photoUsed)")
             // println("Flag hit")
@@ -204,33 +220,76 @@ class PerformTestViewController: UIViewController {
             print("Adjusted RGB r: \(avgRed*255) g: \(avgGreen*255) b: \(avgBlue * 255)")
             print("Gray Scale is: \(grayScale)")
             print("hue is \(hsv.hue), sat is \(hsv.saturation), value is \(hsv.value)")
+            
+            /*
             savedVariables.redArray += [CGFloat(avgRed*255.0)]
             savedVariables.greenArray += [avgGreen*255]
             savedVariables.blueArray += [avgBlue*255]
             savedVariables.hueArray += [hsv.hue]
             savedVariables.saturationArray += [hsv.saturation]
-            savedVariables.valueArray += [hsv.value]
+            savedVariables.valueArray += [hsv.value]*/
             
             //Needs to save the photodata in the reserve order on the order of the photo being loaded
             
-            savedVariables.calibrationRedArray[testArea][photoUsed]       = Double(avgRed*255.0)
-            savedVariables.calibrationGreenArray[testArea][photoUsed]     = Double(avgGreen*255.0)
-            savedVariables.calibrationBlueArray[testArea][photoUsed]      = Double(avgBlue*255.0)
-            savedVariables.calibrationHueArray[testArea][photoUsed]        = Double(hsv.hue)
-            savedVariables.calibrationSaturationArray[testArea][photoUsed] = Double(hsv.saturation)
-            savedVariables.calibrationValueArray[testArea][photoUsed    ]      = Double(hsv.value)
+            savedVariables.redArray[testArea][photoUsed]       = Double(avgRed*255.0)
+            savedVariables.greenArray[testArea][photoUsed]     = Double(avgGreen*255.0)
+            savedVariables.blueArray[testArea][photoUsed]      = Double(avgBlue*255.0)
+            /*savedVariables.hueArray[testArea][photoUsed]        = Double(hsv.hue)
+            savedVariables.saturationArray[testArea][photoUsed] = Double(hsv.saturation)
+            savedVariables.valueArray[testArea][photoUsed]      = Double(hsv.value)*/
 
-
-
-
+            
+            /*
             print("**************************")
-            //print("The instance is \(savedVariables.instanceCount)")
-            print("The count is \(photoUsed)")
-            print("The counter is \(counter)")
+            print("The photo is \(photoUsed)")
             print("The testArea is \(testArea)")
             print("**************************")
-            //savedVariables.photoCount = savedVariables.photoCount + 1
-            counter = counter + 1
+    
+            print("**************************")
+            print("The cal red is \(savedVariables.redArray[testArea][photoUsed])")
+            print("The cal green is \(savedVariables.greenArray[testArea][photoUsed])")
+            print("The cal blue is \(savedVariables.blueArray[testArea][photoUsed])")
+            print("**************************")
+            */
+        //}
+    }
+    
+    func findAverage(){
+        print("The number of photos \(savedVariables.numberOfPhotos)")
+        print("The number of test areas \(savedVariables.numberOfTestAreas)")
+        
+        var redSum   = 0.0
+        var greenSum = 0.0
+        var blueSum  = 0.0
+        //var alphaSum = 0.0
+
+        
+        for var xIndex = 0; xIndex < savedVariables.numberOfTestAreas; xIndex++ {
+            
+            redSum   = 0.0
+            greenSum = 0.0
+            blueSum  = 0.0
+            //var alphaSum = 0.0
+
+            for var yIndex = 0; yIndex < savedVariables.numberOfPhotos; yIndex++ {
+                redSum = redSum + savedVariables.redArray[xIndex][yIndex]
+                greenSum = greenSum + savedVariables.greenArray[xIndex][yIndex]
+                blueSum = blueSum + savedVariables.blueArray[xIndex][yIndex]
+            }
+            print("The redSum is \(redSum)")
+            print("The greenSum is \(greenSum)")
+            print("The blueSum is \(blueSum)")
+            savedVariables.calibrationRedArray[xIndex][savedVariables.instanceCount] = redSum / Double(savedVariables.numberOfPhotos)
+            savedVariables.calibrationGreenArray[xIndex][savedVariables.instanceCount] = greenSum / Double(savedVariables.numberOfPhotos)
+            savedVariables.calibrationBlueArray[xIndex][savedVariables.instanceCount] = blueSum / Double(savedVariables.numberOfPhotos)
+            
+            print("**************************")
+            //print("The instance is \(savedVariables.instanceCount)")
+            print("The average RED is \(savedVariables.calibrationRedArray[xIndex][savedVariables.instanceCount])")
+            print("The average GREEN is \(savedVariables.calibrationGreenArray[xIndex][savedVariables.instanceCount])")
+            print("The average BLUE is \(savedVariables.calibrationBlueArray[xIndex][savedVariables.instanceCount])")
+            print("**************************")
+            
         }
     }
     
@@ -241,26 +300,12 @@ class PerformTestViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
-        
+  
         onlyStartOneTestFlag = 1
         
+        //Hides back button
+        navigationItem.hidesBackButton = true
         
-
-        //savedVariables.photoCount       += 1
-        savedVariables.redArray         = ["Filler"]
-        savedVariables.greenArray       = ["Filler"]
-        savedVariables.blueArray        = ["Filler"]
-        savedVariables.hueArray         = ["Filler"]
-        savedVariables.saturationArray  = ["Filler"]
-        savedVariables.valueArray       = ["Filler"]
-        
-
-
-
-
         getLatestPhotos(completion: { images in
             print(images)
         })

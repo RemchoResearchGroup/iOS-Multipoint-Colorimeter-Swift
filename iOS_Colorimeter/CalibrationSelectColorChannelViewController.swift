@@ -24,6 +24,11 @@ class CalibrationSelectColorChannelViewController: UIViewController{
     @IBOutlet var interceptLabel: UILabel!
     
     
+    
+    @IBAction func cancel(sender: AnyObject) {
+        self.performSegueWithIdentifier("cancelledSegue", sender: nil)
+    }
+    
     func updateLabels(){
         testAreaNameAndNumberLabel.text = "\(savedVariables.currentTestArea+1): \(savedVariables.testAreaNameArray[savedVariables.currentTestArea])"
         print(savedVariables.testAreaNameArray)
@@ -55,21 +60,20 @@ class CalibrationSelectColorChannelViewController: UIViewController{
         if savedVariables.numberOfTestAreas > 1 {
             print("**********************************")
             for var i = 0; i < savedVariables.numberOfTestAreas; i++ {
-                xValue = savedVariables.concentrationArray[testArea][i]
-                
+                yValue = savedVariables.concentrationArray[testArea][i]
                 switch testChannel {
                 case 0:
-                    yValue = savedVariables.calibrationRedArray[testArea][i]
+                    xValue = savedVariables.calibrationRedArray[testArea][i]
                 case 1:
-                    yValue = savedVariables.calibrationGreenArray[testArea][i]
+                    xValue = savedVariables.calibrationGreenArray[testArea][i]
                 case 2:
-                    yValue = savedVariables.calibrationBlueArray[testArea][i]
+                    xValue = savedVariables.calibrationBlueArray[testArea][i]
                 case 3:
-                    yValue = savedVariables.calibrationHueArray[testArea][i]
+                    xValue = savedVariables.calibrationHueArray[testArea][i]
                 case 4:
-                    yValue = savedVariables.calibrationSaturationArray[testArea][i]
+                    xValue = savedVariables.calibrationSaturationArray[testArea][i]
                 case 5:
-                    yValue = savedVariables.calibrationValueArray[testArea][i]
+                    xValue = savedVariables.calibrationValueArray[testArea][i]
                 default:
                     break;
                 }
@@ -196,7 +200,15 @@ class CalibrationSelectColorChannelViewController: UIViewController{
             if(savedVariables.numberOfPhotos-2 == savedVariables.currentTestArea){
                 nextOrSaveBarButton.setTitle("Continue to Test", forState: .Normal)
             }
+            //Reset labels for default to red 
+            hsvSegmentedControl.selectedSegmentIndex = 0
             savedVariables.currentTestArea += 1
+            currentSlope = linearRegression(savedVariables.currentTestArea, testChannel: 0).slope
+            currentIntercept = linearRegression(savedVariables.currentTestArea, testChannel: 0).intercept
+            currentR2 = linearRegression(savedVariables.currentTestArea, testChannel: 0).rSquared
+            slopeLabel.text = "Slope: \(currentSlope)"
+            interceptLabel.text = "Intercept: \(currentIntercept)"
+            r2Label.text = "R^2: \(currentR2)"
             updateLabels()
             
             
@@ -278,7 +290,7 @@ class CalibrationSelectColorChannelViewController: UIViewController{
         super.viewDidLoad()
         savedVariables.currentTestArea = 0
         updateLabels()
-        
+        savedVariables.instanceCount = 0
         currentSlope = linearRegression(savedVariables.currentTestArea, testChannel: 0).slope
         currentIntercept = linearRegression(savedVariables.currentTestArea, testChannel: 0).intercept
         currentR2 = linearRegression(savedVariables.currentTestArea, testChannel: 0).rSquared
@@ -287,7 +299,9 @@ class CalibrationSelectColorChannelViewController: UIViewController{
         r2Label.text = "R^2: \(currentR2)"
 
         
-    
+        //Hides back button
+        navigationItem.hidesBackButton = true
+        
         /*let slope = linearRegression(savedVariables.currentTestArea, testChannel: currentChannel).slope
         let intercept = linearRegression(savedVariables.currentTestArea, testChannel: currentChannel).intercept*/
         

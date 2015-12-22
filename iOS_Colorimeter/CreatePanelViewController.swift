@@ -26,6 +26,9 @@ class CreatePanelViewController: UIViewController {
         
         savedVariables.timingArray = []
         
+        //Used to find the average of the colors for a test, hence starting at one.
+        savedVariables.instanceCount = 0
+        savedVariables.performingTest = false
         savedVariables.performingCal = true
         //Set the first time test area flag to 1
         savedVariables.firstTestAreaFlag = 1
@@ -47,6 +50,13 @@ class CreatePanelViewController: UIViewController {
             savedVariables.calibrationHueArray.append(Array(count:NumRows, repeatedValue:Double()))
             savedVariables.calibrationSaturationArray.append(Array(count:NumRows, repeatedValue:Double()))
             savedVariables.calibrationValueArray.append(Array(count:NumRows, repeatedValue:Double()))
+            
+            savedVariables.redArray.append(Array(count:NumRows, repeatedValue:Double()))
+            savedVariables.greenArray.append(Array(count:NumRows, repeatedValue:Double()))
+            savedVariables.blueArray.append(Array(count:NumRows, repeatedValue:Double()))
+            savedVariables.hueArray.append(Array(count:NumRows, repeatedValue:Double()))
+            savedVariables.saturationArray.append(Array(count:NumRows, repeatedValue:Double()))
+            savedVariables.valueArray.append(Array(count:NumRows, repeatedValue:Double()))
             
             /*savedVariables.xCord.append(Array(count:NumRows, repeatedValue:Double()))
             savedVariables.yCord.append(Array(count:NumRows, repeatedValue:Double()))

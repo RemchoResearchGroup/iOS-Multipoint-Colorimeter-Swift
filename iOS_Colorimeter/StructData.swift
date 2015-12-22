@@ -70,16 +70,18 @@ struct savedVariables {
     
     static var performingTest = false
     
-    static var redArray = [AnyObject] ()
-    static var greenArray = [AnyObject] ()
-    static var blueArray = [AnyObject] ()
-    static var hueArray = [AnyObject] ()
-    static var saturationArray = [AnyObject] ()
-    static var valueArray = [AnyObject] ()
     //static var concentrationArray = [[Int]]()
     //static var photoCount = 0
     //static var concentrationArray = Array<Array<Double>>()
-    //static var instanceCount = 0
+    
+    static var instanceCount = 0
+    
+    static var redArray        = Array<Array<Double>>()
+    static var greenArray      = Array<Array<Double>>()
+    static var blueArray       = Array<Array<Double>>()
+    static var hueArray        = Array<Array<Double>>()
+    static var saturationArray = Array<Array<Double>>()
+    static var valueArray      = Array<Array<Double>>()
 
     static var concentrationArray         = Array<Array<Double>>()
     static var calibrationRedArray        = Array<Array<Double>>()
@@ -99,6 +101,8 @@ struct savedVariables {
   
     static var countTracker = 0
     static var firstCal = true
+    
+
     
 }
 

@@ -53,6 +53,9 @@ class LayoutDisplayViewController: UIViewController {
     
     var lockInterfaceRotation: Bool=false
     
+    @IBAction func cancel(sender: AnyObject) {
+        self.performSegueWithIdentifier("cancelledSegue", sender: nil)
+    }
     
     var sessionRunningAndDeviceAuthorized : Bool {
         get {
@@ -86,10 +89,10 @@ class LayoutDisplayViewController: UIViewController {
             savedVariables.interceptArray = []
             //savedVariables.testAreaNameArray = []
             let totalTestArray = savedVariables.numberOfTestAreas * 5
-            print("The totalTestArray is \(savedVariables.numberOfTestAreas)")
+            //print("The totalTestArray is \(savedVariables.numberOfTestAreas)")
             for var k = 0; k < totalTestArray; k++ {
-                print("numberOfTestAreas = \(savedVariables.numberOfTestAreas)")
-                print("k = \(k)")
+                //print("numberOfTestAreas = \(savedVariables.numberOfTestAreas)")
+                //print("k = \(k)")
                 if (k % 5 == 0) {
                     savedVariables.xCoordinateArray += [fullArray[k]]
                     print(savedVariables.xCoordinateArray)
@@ -107,6 +110,9 @@ class LayoutDisplayViewController: UIViewController {
                     savedVariables.unitsNameArray += [fullArray[k]]
                 }*/
             }
+            print(savedVariables.xCoordinateArray)
+            print(savedVariables.yCoordinateArray)
+            print(savedVariables.radiusArray)
         }
         /*else{
             var data: NSManagedObject = myList[myList.count-1] as! NSManagedObject
@@ -393,8 +399,9 @@ class LayoutDisplayViewController: UIViewController {
     
     // Variables for timer
     var timer = NSTimer()
-    //var numberOfLoops = (savedVariables.testTime as NSString).integerValue / (savedVariables.intervalTime as NSString).integerValue
-    var numberOfLoops = 3
+    var numberOfLoops = (savedVariables.totalTestTimeArray[0] as! NSString).integerValue / (savedVariables.intervalTestTimeArray[0] as! NSString).integerValue
+
+    //var numberOfLoops = 3
     var loopCount = 0
     
     /*Take Pics under the timer condition*/
@@ -403,12 +410,15 @@ class LayoutDisplayViewController: UIViewController {
     @IBAction func startTest(sender: AnyObject) {
         if(onlyStartOneTestFlag == 1){
             print("Starting Test")
+            print("The number of loops is \(numberOfLoops)")
             onlyStartOneTestFlag = 0
             loopCount = 0
             //var intTime = NSTimeInterval()
             //intTime = (savedVariables.intervalTime as NSString).doubleValue
             var intTime = NSTimeInterval()
-            intTime = 1.0
+            intTime = (savedVariables.intervalTestTimeArray[0] as! NSString).doubleValue
+            print("The int time is : \(savedVariables.intervalTestTimeArray[0])")
+            //intTime = 2.0
             savedVariables.numberOfPhotos = numberOfLoops
             print("# of photos: \(savedVariables.numberOfPhotos)")
             timer = NSTimer.scheduledTimerWithTimeInterval(intTime, target: self, selector: "timerSetup", userInfo: nil, repeats: true)
@@ -418,7 +428,7 @@ class LayoutDisplayViewController: UIViewController {
     func timerSetup() {
         loopCount++
         //testNumberLabel.text = "Currently Taking Photo \(loopCount) of \(numberOfLoops)"
-        if (loopCount >= numberOfLoops) {
+        if (loopCount > numberOfLoops) {
             timer.invalidate()
             let alert = UIAlertController(title: "Alert", message: "Images Saved", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))

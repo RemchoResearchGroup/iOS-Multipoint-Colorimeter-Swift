@@ -28,7 +28,7 @@ class PanelTypeOfTestViewController: UIViewController {
        switch typeOfTypeSegmentedControl.selectedSegmentIndex{
             //Kinetic selected.
             case 0:
-                print("Kinetic Selected")
+                //print("Kinetic Selected")
                 currentTypeOfTest = 0
                 self.intervalTimeView.hidden = false
                 //intervalTimeLabel.text = "What is the interval time?"
@@ -36,7 +36,7 @@ class PanelTypeOfTestViewController: UIViewController {
             
             //End-Point selected.
             case 1:
-                print("End-Point Selected")
+                //print("End-Point Selected")
                 currentTypeOfTest = 1
                 self.intervalTimeView.hidden = true
                 //intervalTimeLabel.attributedText = attrString
@@ -72,9 +72,9 @@ class PanelTypeOfTestViewController: UIViewController {
                         self.presentViewController(alert, animated: true, completion: nil)
                     }
                     else{
-                        savedVariables.typeOfTestArray[currentTypeOfTest] = "Kinetic"
-                        savedVariables.totalTestTimeArray[currentTypeOfTest] = totalTestTimeTextField.text!
-                        savedVariables.intervalTestTimeArray[currentTypeOfTest] = intervalTimeTextField.text!
+                        savedVariables.typeOfTestArray[savedVariables.currentTestArea-1] = "Kinetic"
+                        savedVariables.totalTestTimeArray[savedVariables.currentTestArea-1] = totalTestTimeTextField.text!
+                        savedVariables.intervalTestTimeArray[savedVariables.currentTestArea-1] = intervalTimeTextField.text!
                         savedVariables.currentTestArea += 1
                         setHighestTotalTestTime()
                         setTiming(intervalTimeTextField.text!)
@@ -92,9 +92,10 @@ class PanelTypeOfTestViewController: UIViewController {
                     self.presentViewController(alert, animated: true, completion: nil)
                 }
                 else{
-                    savedVariables.typeOfTestArray[currentTypeOfTest] = "End-Point"
-                    savedVariables.totalTestTimeArray[currentTypeOfTest] = totalTestTimeTextField.text!
-                    savedVariables.intervalTestTimeArray[currentTypeOfTest] = "0"
+                    savedVariables.typeOfTestArray[savedVariables.currentTestArea-1] = "End-Point"
+                    savedVariables.totalTestTimeArray[savedVariables.currentTestArea-1] = totalTestTimeTextField.text!
+                    savedVariables.intervalTestTimeArray[savedVariables.currentTestArea-1] = "0"
+                    savedVariables.currentTestArea += 1
                     setHighestTotalTestTime()
                     setTiming(intervalTimeTextField.text!)
                     self.performSegueWithIdentifier("toTestOverviewSegue", sender: nil)
@@ -124,9 +125,9 @@ class PanelTypeOfTestViewController: UIViewController {
                             self.presentViewController(alert, animated: true, completion: nil)
                         }
                         else{
-                            savedVariables.typeOfTestArray[currentTypeOfTest] = "Kinetic"
-                            savedVariables.totalTestTimeArray[currentTypeOfTest] = totalTestTimeTextField.text!
-                            savedVariables.intervalTestTimeArray[currentTypeOfTest] = intervalTimeTextField.text!
+                            savedVariables.typeOfTestArray[savedVariables.currentTestArea-1] = "Kinetic"
+                            savedVariables.totalTestTimeArray[savedVariables.currentTestArea-1] = totalTestTimeTextField.text!
+                            savedVariables.intervalTestTimeArray[savedVariables.currentTestArea-1] = intervalTimeTextField.text!
                             savedVariables.currentTestArea += 1
                             setHighestTotalTestTime()
                             setTiming(intervalTimeTextField.text!)
@@ -145,9 +146,9 @@ class PanelTypeOfTestViewController: UIViewController {
                         self.presentViewController(alert, animated: true, completion: nil)
                     }
                 else{
-                        savedVariables.typeOfTestArray[currentTypeOfTest] = "End-Point"
-                        savedVariables.totalTestTimeArray[currentTypeOfTest] = totalTestTimeTextField.text!
-                        savedVariables.intervalTestTimeArray[currentTypeOfTest] = "0"
+                        savedVariables.typeOfTestArray[savedVariables.currentTestArea-1] = "End-Point"
+                        savedVariables.totalTestTimeArray[savedVariables.currentTestArea-1] = totalTestTimeTextField.text!
+                        savedVariables.intervalTestTimeArray[savedVariables.currentTestArea-1] = "0"
                         savedVariables.currentTestArea += 1
                         setHighestTotalTestTime()
                         setTiming(intervalTimeTextField.text!)
@@ -165,12 +166,12 @@ class PanelTypeOfTestViewController: UIViewController {
     }
     
     func setHighestTotalTestTime(){
-        print("The current highest total time is : \(savedVariables.highestTotalTime)")
+        //print("The current highest total time is : \(savedVariables.highestTotalTime)")
         
         let totalTestTimeToInt = Int(totalTestTimeTextField.text!)
         if(savedVariables.highestTotalTime < totalTestTimeToInt!){
             savedVariables.highestTotalTime = totalTestTimeToInt!
-            print("Highest Total Time: \(totalTestTimeToInt)")
+            //print("Highest Total Time: \(totalTestTimeToInt)")
         }
     }
     

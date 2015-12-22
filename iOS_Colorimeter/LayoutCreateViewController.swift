@@ -220,10 +220,8 @@ class LayoutCreateViewController: UIViewController {
                 radiusList += [testAreaRadius]
                 //xString = "\(location.x)"
                 //yString = "\(location.y)"
-                print(location)
-                radiusList += [testAreaRadius]
-                xcoordinateList += [xString]
-                ycoordinateList += [yString]
+                //print(location)
+            
                 //testAreaNameList += ["aaa"]
                 //unitsNameList += ["aaa"]
             }
@@ -244,7 +242,7 @@ class LayoutCreateViewController: UIViewController {
                 atLeastOneCalbrationLocationHasBeenCreated = true
             }
             
-            print("New Circle Tapped")
+            //print("New Circle Tapped")
             adjustableHeight = 50
             adjustableWidth = 50
             testAreaRadius = 50
@@ -281,8 +279,7 @@ class LayoutCreateViewController: UIViewController {
                 yString = "\(location.y)"
                 xcoordinateList += [xString]
                 ycoordinateList += [yString]
-                print(location)
-                
+              
                 radiusList += [testAreaRadius]
 
                 // savedVariables.testAreaNames += [""]
@@ -290,12 +287,13 @@ class LayoutCreateViewController: UIViewController {
                 savedVariables.numberOfTestAreas = numberOfTestAreas
                 //Clear testAreaInfo
                 savedVariables.testAreaInfo = ""
-                print(savedVariables.numberOfTestAreas)
+                //print(savedVariables.numberOfTestAreas)
                 
+                //print(xcoordinateList)
+                //print(ycoordinateList)
+            
                 print(xcoordinateList)
                 print(ycoordinateList)
-            
-            
             
                 
                 
@@ -304,8 +302,8 @@ class LayoutCreateViewController: UIViewController {
                     print("***********")
                     print("i: \(i)")
                     print("numberOfTestAreas: \(numberOfTestAreas)")
-                    print("Info: \(xcoordinateList[i]),\(ycoordinateList[i+1]),\(radiusList[i]),\(testAreaNameList[i]),\(unitsNameList[i])")
-                    savedVariables.testAreaInfo += "\(xcoordinateList[i+1]),\(ycoordinateList[i+1]),\(radiusList[i+1]),\(testAreaNameList[i]),\(unitsNameList[i]),"
+                    print("Info: \(xcoordinateList[i]),\(ycoordinateList[i]),\(radiusList[i]),\(testAreaNameList[i]),\(unitsNameList[i])")
+                    savedVariables.testAreaInfo += "\(xcoordinateList[i]),\(ycoordinateList[i]),\(radiusList[i]),\(testAreaNameList[i]),\(unitsNameList[i]),"
                     print("***********")
                 }
             }
