@@ -165,6 +165,7 @@ class PanelTypeOfTestViewController: UIViewController {
         view.endEditing(true)
     }
     
+    
     func setHighestTotalTestTime(){
         //print("The current highest total time is : \(savedVariables.highestTotalTime)")
         
@@ -177,7 +178,8 @@ class PanelTypeOfTestViewController: UIViewController {
     
     func setTiming(intervalTime: String){
         let tempInt:Int = Int(intervalTime)!
-        savedVariables.timingArray += [tempInt]
+        //savedVariables.timingArray += [tempInt]
+        addToTimingArray(tempInt)
     }
     
     

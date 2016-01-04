@@ -13,6 +13,7 @@ class PanelTestOverviewViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        print(savedVariables.timingArray)
         super.viewDidLoad()
         panelNameLabel.text = "Panel Name: \(savedVariables.panelName)"
         numberOfTestAreas.text = "Number of Test Areas: \(savedVariables.numberOfTestAreas)"

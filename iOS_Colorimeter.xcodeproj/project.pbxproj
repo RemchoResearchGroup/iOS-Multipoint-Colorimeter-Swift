@@ -39,6 +39,7 @@
 		CA96E3161BF434AF005CAD5A /* CameraTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA96E3151BF434AF005CAD5A /* CameraTwo.swift */; };
 		CA96E3181BF4352D005CAD5A /* AVCamPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA96E3171BF4352D005CAD5A /* AVCamPreviewView.swift */; };
 		CA96E31A1BF4357D005CAD5A /* AVCaptureView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA96E3191BF4357D005CAD5A /* AVCaptureView2.swift */; };
+		CAFFB8761C378096002B7F19 /* TimingFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFFB8751C378096002B7F19 /* TimingFunctions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +139,7 @@
 		CA96E3151BF434AF005CAD5A /* CameraTwo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraTwo.swift; path = ../CameraTwo.swift; sourceTree = "<group>"; };
 		CA96E3171BF4352D005CAD5A /* AVCamPreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AVCamPreviewView.swift; path = ../AVCamPreviewView.swift; sourceTree = "<group>"; };
 		CA96E3191BF4357D005CAD5A /* AVCaptureView2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVCaptureView2.swift; sourceTree = "<group>"; };
+		CAFFB8751C378096002B7F19 /* TimingFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimingFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 				CA0B96561BEC4C0900E97070 /* iOS_Colorimeter.xcdatamodeld */,
 				CA0B964F1BEC4C0900E97070 /* AppDelegate.swift */,
 				CA4465BB1C1E8CF200B9D70A /* test.swift */,
+				CAFFB8751C378096002B7F19 /* TimingFunctions.swift */,
 			);
 			path = iOS_Colorimeter;
 			sourceTree = "<group>";
@@ -502,6 +505,7 @@
 				CA81752D1BFD362F00890436 /* HSV.swift in Sources */,
 				CA469F941C1D0C3D00067E1E /* CalibrationAddConcentrationValueViewController.swift in Sources */,
 				CA4466201C1FCCC400B9D70A /* CalibrationSelectColorChannelViewController.swift in Sources */,
+				CAFFB8761C378096002B7F19 /* TimingFunctions.swift in Sources */,
 				CA0B968A1BEC4EA300E97070 /* CreatePanelViewController.swift in Sources */,
 				CA307E2D1BF43E62002F2101 /* LayoutDisplayViewController.swift in Sources */,
 			);
@@ -601,7 +605,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -639,7 +643,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

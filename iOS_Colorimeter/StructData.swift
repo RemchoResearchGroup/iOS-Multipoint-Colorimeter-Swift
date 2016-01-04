@@ -74,6 +74,8 @@ struct savedVariables {
     //static var photoCount = 0
     //static var concentrationArray = Array<Array<Double>>()
     
+    static var markPhotosArray = Array<Array<Double>>()
+    
     static var instanceCount = 0
     
     static var redArray        = Array<Array<Double>>()

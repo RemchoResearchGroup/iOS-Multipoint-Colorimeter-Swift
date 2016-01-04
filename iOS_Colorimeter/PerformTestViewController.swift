@@ -254,6 +254,8 @@ class PerformTestViewController: UIViewController {
         //}
     }
     
+    
+    
     func findAverage(){
         print("The number of photos \(savedVariables.numberOfPhotos)")
         print("The number of test areas \(savedVariables.numberOfTestAreas)")
@@ -265,6 +267,14 @@ class PerformTestViewController: UIViewController {
 
         
         for var xIndex = 0; xIndex < savedVariables.numberOfTestAreas; xIndex++ {
+            //for var yIndex = 0; yIndex < savedVariables.numberOfPhotos; yIndex++ {
+                //If(savedVariables.markPhotoArray[i][j] == 1){
+                
+            
+                //}
+            //}
+            
+            
             
             redSum   = 0.0
             greenSum = 0.0
@@ -272,16 +282,31 @@ class PerformTestViewController: UIViewController {
             //var alphaSum = 0.0
 
             for var yIndex = 0; yIndex < savedVariables.numberOfPhotos; yIndex++ {
-                redSum = redSum + savedVariables.redArray[xIndex][yIndex]
-                greenSum = greenSum + savedVariables.greenArray[xIndex][yIndex]
-                blueSum = blueSum + savedVariables.blueArray[xIndex][yIndex]
+                if(savedVariables.markPhotosArray[xIndex][yIndex] == 1){
+                    print("Test Area: \(savedVariables.numberOfTestAreas)")
+                    print(yIndex)
+                    redSum = redSum + savedVariables.redArray[xIndex][yIndex]
+                    greenSum = greenSum + savedVariables.greenArray[xIndex][yIndex]
+                    blueSum = blueSum + savedVariables.blueArray[xIndex][yIndex]
+                }
             }
             print("The redSum is \(redSum)")
             print("The greenSum is \(greenSum)")
             print("The blueSum is \(blueSum)")
-            savedVariables.calibrationRedArray[xIndex][savedVariables.instanceCount] = redSum / Double(savedVariables.numberOfPhotos)
-            savedVariables.calibrationGreenArray[xIndex][savedVariables.instanceCount] = greenSum / Double(savedVariables.numberOfPhotos)
-            savedVariables.calibrationBlueArray[xIndex][savedVariables.instanceCount] = blueSum / Double(savedVariables.numberOfPhotos)
+            
+            let totalTime:Int = Int(savedVariables.totalTestTimeArray[xIndex] as! String)!
+            let intervalTime:Int = Int(savedVariables.intervalTestTimeArray[xIndex] as! String)!
+            
+            
+            let divisor = Double(totalTime/intervalTime)
+            print("The divisor is \(divisor)")
+            
+            //savedVariables.calibrationRedArray[xIndex][savedVariables.instanceCount] = redSum / Double(savedVariables.numberOfPhotos)
+            //savedVariables.calibrationGreenArray[xIndex][savedVariables.instanceCount] = greenSum / Double(savedVariables.numberOfPhotos)
+            //savedVariables.calibrationBlueArray[xIndex][savedVariables.instanceCount] = blueSum / Double(savedVariables.numberOfPhotos)
+            savedVariables.calibrationRedArray[xIndex][savedVariables.instanceCount] = redSum/divisor
+            savedVariables.calibrationGreenArray[xIndex][savedVariables.instanceCount] = greenSum/divisor
+            savedVariables.calibrationBlueArray[xIndex][savedVariables.instanceCount] = blueSum/divisor
             
             print("**************************")
             //print("The instance is \(savedVariables.instanceCount)")
@@ -294,13 +319,13 @@ class PerformTestViewController: UIViewController {
     }
     
     
-    
+
     
     var counter = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-  
+        print(savedVariables.markPhotosArray)
         onlyStartOneTestFlag = 1
         
         //Hides back button

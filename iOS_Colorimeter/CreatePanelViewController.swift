@@ -43,6 +43,8 @@ class CreatePanelViewController: UIViewController {
         let NumColumns = 20
         let NumRows = 20
         for column in 0...NumColumns {
+            savedVariables.markPhotosArray.append(Array(count:NumRows, repeatedValue:Double()))
+            
             savedVariables.concentrationArray.append(Array(count:NumRows, repeatedValue:Double()))
             savedVariables.calibrationRedArray.append(Array(count:NumRows, repeatedValue:Double()))
             savedVariables.calibrationGreenArray.append(Array(count:NumRows, repeatedValue:Double()))

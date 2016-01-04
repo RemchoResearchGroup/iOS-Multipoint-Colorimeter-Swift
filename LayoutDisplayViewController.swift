@@ -233,7 +233,7 @@ class LayoutDisplayViewController: UIViewController {
     
     func createAlbum() {
         let fetchOptions = PHFetchOptions()
-        fetchOptions.predicate = NSPredicate(format: "title = %@", "camcam")
+        fetchOptions.predicate = NSPredicate(format: "title = %@", "iOS Colorimeter")
         let collection : PHFetchResult = PHAssetCollection.fetchAssetCollectionsWithType(.Album, subtype: .Any, options: fetchOptions)
         
         if let first_obj: AnyObject = collection.firstObject {
@@ -241,7 +241,7 @@ class LayoutDisplayViewController: UIViewController {
             assetCollection = collection.firstObject as! PHAssetCollection
         } else {
             PHPhotoLibrary.sharedPhotoLibrary().performChanges({
-                let createAlbumRequest : PHAssetCollectionChangeRequest = PHAssetCollectionChangeRequest.creationRequestForAssetCollectionWithTitle("camcam")
+                let createAlbumRequest : PHAssetCollectionChangeRequest = PHAssetCollectionChangeRequest.creationRequestForAssetCollectionWithTitle("iOS Colorimeter")
                 self.assetCollectionPlaceholder = createAlbumRequest.placeholderForCreatedAssetCollection
                 }, completionHandler: { success, error in
                     self.albumFound = (success ? true: false)
@@ -335,9 +335,7 @@ class LayoutDisplayViewController: UIViewController {
         //completionHandler: (() -> Void)!
         dispatch_async(self.sessionQueue!, { () -> Void in
             let layer : AVCaptureVideoPreviewLayer = self.previewView.layer as! AVCaptureVideoPreviewLayer
-            print("Before 443")
             self.stillImageOutput!.connectionWithMediaType(AVMediaTypeVideo).videoOrientation = layer.connection.videoOrientation
-            print("After 444")
             self.stillImageOutput?.connectionWithMediaType(AVMediaTypeVideo).videoOrientation = layer.connection.videoOrientation
             // flash On
             //            if (savedVariables.flashOn == true) {
@@ -399,7 +397,7 @@ class LayoutDisplayViewController: UIViewController {
     
     // Variables for timer
     var timer = NSTimer()
-    var numberOfLoops = (savedVariables.totalTestTimeArray[0] as! NSString).integerValue / (savedVariables.intervalTestTimeArray[0] as! NSString).integerValue
+    //var numberOfLoops = (savedVariables.totalTestTimeArray[0] as! NSString).integerValue / (savedVariables.intervalTestTimeArray[0] as! NSString).integerValue
 
     //var numberOfLoops = 3
     var loopCount = 0
@@ -409,6 +407,14 @@ class LayoutDisplayViewController: UIViewController {
     //Function below snaps multiple images
     @IBAction func startTest(sender: AnyObject) {
         if(onlyStartOneTestFlag == 1){
+            print("Starting Test")
+            print("The total test time Is: \(savedVariables.highestTotalTime)")
+            onlyStartOneTestFlag = 0
+            var intTime = NSTimeInterval()
+            intTime = 1.0
+            timer = NSTimer.scheduledTimerWithTimeInterval(intTime, target: self, selector: "timerSetup", userInfo: nil, repeats: true)
+            
+            /*
             print("Starting Test")
             print("The number of loops is \(numberOfLoops)")
             onlyStartOneTestFlag = 0
@@ -421,12 +427,55 @@ class LayoutDisplayViewController: UIViewController {
             //intTime = 2.0
             savedVariables.numberOfPhotos = numberOfLoops
             print("# of photos: \(savedVariables.numberOfPhotos)")
-            timer = NSTimer.scheduledTimerWithTimeInterval(intTime, target: self, selector: "timerSetup", userInfo: nil, repeats: true)
+            timer = NSTimer.scheduledTimerWithTimeInterval(intTime, target: self, selector: "timerSetup", userInfo: nil, repeats: true)*/
         }
     }
-
+    
+    var currentTime = 0
+    var pictureCounter = 0
+    
     func timerSetup() {
-        loopCount++
+        
+        currentTime++
+        
+       
+        
+        for var i = 0; i < savedVariables.timingArray.count; i++ {
+            if(currentTime % savedVariables.timingArray[i] == 0){
+            //Needs to mark the photo
+                takeStillImage()
+                let tempCurrentTime = currentTime
+                let tempPictureCounter = pictureCounter
+                pictureCounter += 1
+                for var j = 0; j < savedVariables.numberOfTestAreas; j++ {
+                    let intervalTime = Int(savedVariables.intervalTestTimeArray[j] as! String)!
+                    let totalTime = Int(savedVariables.totalTestTimeArray[j] as! String)!
+                    if(tempCurrentTime % intervalTime == 0 && totalTime >= tempCurrentTime){
+                        print("*****")
+                        print(tempCurrentTime)
+                        print(intervalTime)
+                        print(j)
+                        print(tempPictureCounter)
+                        print("*****")
+                        savedVariables.markPhotosArray[j][tempPictureCounter] = 1
+                        print("match RECORDED")
+                    }
+                }
+            }
+        }
+        
+        
+        
+        
+        if(currentTime == savedVariables.highestTotalTime){
+            timer.invalidate()
+            
+            let alert = UIAlertController(title: "Alert", message: "Images Saved", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+            savedVariables.numberOfPhotos = pictureCounter
+            self.performSegueWithIdentifier("SegueToPerformTest", sender: nil)
+        }
+        /*loopCount++
         //testNumberLabel.text = "Currently Taking Photo \(loopCount) of \(numberOfLoops)"
         if (loopCount > numberOfLoops) {
             timer.invalidate()
@@ -437,7 +486,7 @@ class LayoutDisplayViewController: UIViewController {
             
         else {
             takeStillImage()
-        }
+        }*/
     }
 
     func setup(index: Int){
