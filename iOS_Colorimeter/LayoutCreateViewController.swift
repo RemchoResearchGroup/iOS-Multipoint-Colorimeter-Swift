@@ -302,10 +302,12 @@ class LayoutCreateViewController: UIViewController {
                     print("***********")
                     print("i: \(i)")
                     print("numberOfTestAreas: \(numberOfTestAreas)")
-                    print("Info: \(xcoordinateList[i]),\(ycoordinateList[i]),\(radiusList[i]),\(testAreaNameList[i]),\(unitsNameList[i])")
-                    savedVariables.testAreaInfo += "\(xcoordinateList[i]),\(ycoordinateList[i]),\(radiusList[i]),\(testAreaNameList[i]),\(unitsNameList[i]),"
+                    
+                    savedVariables.testAreaInfo += "\(xcoordinateList[i]),\(ycoordinateList[i]),\(radiusList[i]),\(testAreaNameList[i]),\(unitsNameList[i]), , , , ,"
+                    
                     print("***********")
                 }
+                print("Info: \(savedVariables.testAreaInfo)")
             }
 
             self.performSegueWithIdentifier("toLayoutDisplaySegue", sender: nil)

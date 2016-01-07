@@ -40,6 +40,7 @@ struct savedVariables {
     
     static var highestTotalTime = 0
     
+    static var testSelected = 0
     
     static var currentTestArea = 1
     

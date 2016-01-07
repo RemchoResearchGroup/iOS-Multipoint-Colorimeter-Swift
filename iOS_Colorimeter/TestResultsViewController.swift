@@ -26,6 +26,10 @@ class TestResultsViewController: UIViewController{
         /*if(savedVariables.currentTestArea == savedVariables.numberOfTestAreas-2){
             nextAreaButton.hidden = true
         }*/
+        if(savedVariables.currentTestArea == savedVariables.numberOfPhotos){
+            self.performSegueWithIdentifier("SegueBackToMainMenu", sender: nil)
+        }
+        else{
         testAreaLabel.text = "\(savedVariables.currentTestArea + 1): \(savedVariables.testAreaNameArray[savedVariables.currentTestArea])"
         var averageColor = 0.0
         var channel = savedVariables.channelUsed[savedVariables.currentTestArea]
@@ -49,8 +53,9 @@ class TestResultsViewController: UIViewController{
         print(concertationNumber)
         concertationLabel.text = "\(concertationNumber)"
         //concertationLabel.text = "\(concertationNumber) \(savedVariables.unitsNameArray[savedVariables.currentTestArea+1])"
-    }
     
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

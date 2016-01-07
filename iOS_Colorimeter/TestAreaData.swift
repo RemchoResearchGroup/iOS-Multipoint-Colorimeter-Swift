@@ -11,4 +11,6 @@ class TestArea: NSManagedObject {
     @NSManaged var units: String
     @NSManaged var slope: String
     @NSManaged var intercept: String
+    @NSManaged var intervalTime: String
+    @NSManaged var totalTime: String
 }

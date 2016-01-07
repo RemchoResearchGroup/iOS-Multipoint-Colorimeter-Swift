@@ -88,19 +88,19 @@ class LayoutDisplayViewController: UIViewController {
             savedVariables.slopeArray = []
             savedVariables.interceptArray = []
             //savedVariables.testAreaNameArray = []
-            let totalTestArray = savedVariables.numberOfTestAreas * 5
+            let totalTestArray = savedVariables.numberOfTestAreas * 9
             //print("The totalTestArray is \(savedVariables.numberOfTestAreas)")
             for var k = 0; k < totalTestArray; k++ {
                 //print("numberOfTestAreas = \(savedVariables.numberOfTestAreas)")
                 //print("k = \(k)")
-                if (k % 5 == 0) {
+                if (k % 9 == 0) {
                     savedVariables.xCoordinateArray += [fullArray[k]]
                     print(savedVariables.xCoordinateArray)
                 }
-                if (k % 5 == 1) {
+                if (k % 9 == 1) {
                     savedVariables.yCoordinateArray += [fullArray[k]]
                 }
-                if (k % 5 == 2) {
+                if (k % 9 == 2) {
                     savedVariables.radiusArray += [fullArray[k]]
                 }
                 /*if (k % 5 == 3) {
@@ -515,6 +515,8 @@ class LayoutDisplayViewController: UIViewController {
         for var i = 0; i < savedVariables.numberOfTestAreas; i++ {
             let imageView = UIImageView(image: image!)
             let calImageView = UIImageView(image: calImage!)
+            
+            
             
             let x = savedVariables.xCoordinateArray[i]
             let xLoc = (x as NSString).integerValue

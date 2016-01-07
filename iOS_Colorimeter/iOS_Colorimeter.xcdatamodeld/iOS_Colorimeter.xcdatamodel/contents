@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15B42" minimumToolsVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15C50" minimumToolsVersion="Automatic">
     <entity name="Model" representedClassName="Model" syncable="YES">
         <attribute name="calCompleted" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="endPoint" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -16,16 +16,18 @@
         <attribute name="tracker" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="units" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TestInfo" inverseName="newRelationship" inverseEntity="TestInfo" syncable="YES"/>
-        <relationship name="testAreas" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TestArea" inverseName="model" inverseEntity="TestArea" syncable="YES"/>
+        <relationship name="testAreas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TestArea" inverseName="model" inverseEntity="TestArea" syncable="YES"/>
     </entity>
     <entity name="Results" syncable="YES">
         <attribute name="modelName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="TestArea" representedClassName="TestArea" syncable="YES">
         <attribute name="intercept" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="intervalTime" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="radius" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="slope" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="totalTime" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="units" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="xcoordinate" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ycoordinate" optional="YES" attributeType="String" syncable="YES"/>
@@ -41,7 +43,7 @@
     <elements>
         <element name="Model" positionX="-63" positionY="-18" width="128" height="285"/>
         <element name="Results" positionX="-54" positionY="99" width="128" height="60"/>
-        <element name="TestArea" positionX="-36" positionY="108" width="128" height="165"/>
+        <element name="TestArea" positionX="-36" positionY="108" width="128" height="195"/>
         <element name="TestInfo" positionX="-18" positionY="126" width="128" height="120"/>
     </elements>
 </model>

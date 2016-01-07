@@ -39,6 +39,8 @@
 		CA96E3161BF434AF005CAD5A /* CameraTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA96E3151BF434AF005CAD5A /* CameraTwo.swift */; };
 		CA96E3181BF4352D005CAD5A /* AVCamPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA96E3171BF4352D005CAD5A /* AVCamPreviewView.swift */; };
 		CA96E31A1BF4357D005CAD5A /* AVCaptureView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA96E3191BF4357D005CAD5A /* AVCaptureView2.swift */; };
+		CAA4BF151C3E354000E7E1DE /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA4BF141C3E354000E7E1DE /* MainMenuViewController.swift */; };
+		CAA4BF191C3E548600E7E1DE /* SelectPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA4BF181C3E548600E7E1DE /* SelectPanelViewController.swift */; };
 		CAFFB8761C378096002B7F19 /* TimingFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFFB8751C378096002B7F19 /* TimingFunctions.swift */; };
 /* End PBXBuildFile section */
 
@@ -139,6 +141,8 @@
 		CA96E3151BF434AF005CAD5A /* CameraTwo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraTwo.swift; path = ../CameraTwo.swift; sourceTree = "<group>"; };
 		CA96E3171BF4352D005CAD5A /* AVCamPreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AVCamPreviewView.swift; path = ../AVCamPreviewView.swift; sourceTree = "<group>"; };
 		CA96E3191BF4357D005CAD5A /* AVCaptureView2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVCaptureView2.swift; sourceTree = "<group>"; };
+		CAA4BF141C3E354000E7E1DE /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
+		CAA4BF181C3E548600E7E1DE /* SelectPanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPanelViewController.swift; sourceTree = "<group>"; };
 		CAFFB8751C378096002B7F19 /* TimingFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimingFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -207,6 +211,8 @@
 				CA0B964F1BEC4C0900E97070 /* AppDelegate.swift */,
 				CA4465BB1C1E8CF200B9D70A /* test.swift */,
 				CAFFB8751C378096002B7F19 /* TimingFunctions.swift */,
+				CAA4BF141C3E354000E7E1DE /* MainMenuViewController.swift */,
+				CAA4BF181C3E548600E7E1DE /* SelectPanelViewController.swift */,
 			);
 			path = iOS_Colorimeter;
 			sourceTree = "<group>";
@@ -483,6 +489,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA8175281BFD355000890436 /* TestAreaData.swift in Sources */,
+				CAA4BF191C3E548600E7E1DE /* SelectPanelViewController.swift in Sources */,
 				CA96E3161BF434AF005CAD5A /* CameraTwo.swift in Sources */,
 				CA81752F1BFD366000890436 /* ModelData.swift in Sources */,
 				CA0B968C1BEC539F00E97070 /* StructData.swift in Sources */,
@@ -491,6 +498,7 @@
 				CA0B968E1BEC58C000E97070 /* PanelNumberOfTestAreasViewController.swift in Sources */,
 				CA4466281C20B3DF00B9D70A /* TestResultsViewController.swift in Sources */,
 				CA8175241BFD2F0200890436 /* PerformTestViewController.swift in Sources */,
+				CAA4BF151C3E354000E7E1DE /* MainMenuViewController.swift in Sources */,
 				CA0B96951BEC71CC00E97070 /* PanelTypeOfTestViewController.swift in Sources */,
 				CA96E3141BF43287005CAD5A /* PreviewView.swift in Sources */,
 				CA0B96501BEC4C0900E97070 /* AppDelegate.swift in Sources */,

@@ -113,7 +113,7 @@ class CalibrationSelectColorChannelViewController: UIViewController{
             savedVariables.channelUsed += [""]
             savedVariables.channelUsed[savedVariables.currentTestArea] = String(currentChannel)
             
-            /*let appDel: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            let appDel: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             let context: NSManagedObjectContext = appDel.managedObjectContext
             let newModel = NSEntityDescription.insertNewObjectForEntityForName("Model", inManagedObjectContext: context) as! Model
             //text fields strings are saved
@@ -144,26 +144,32 @@ class CalibrationSelectColorChannelViewController: UIViewController{
             
                 //slopeList += [""]
                 //interceptList += [""]
-                
+            savedVariables.testAreaInfo = ""
             for var i = 0; i < savedVariables.numberOfTestAreas; i++ {
                 let testArea = NSEntityDescription.insertNewObjectForEntityForName("TestArea", inManagedObjectContext: context) as! TestArea
                 //println("Test Area \(i): \(xcoordinateList[i + 1]), \(savedVariables.ycoordinateList[i + 1]), \(savedVariables.radiusList[i + 1]) px")
+                testArea.totalTime = (savedVariables.totalTestTimeArray[i])  as! String
+                testArea.intervalTime = (savedVariables.intervalTestTimeArray[i]) as! String
                 testArea.xcoordinate = (savedVariables.xCoordinateArray[i])
                 testArea.ycoordinate = (savedVariables.yCoordinateArray[i])
                 testArea.radius = String(savedVariables.radiusArray[i])
                 testArea.name = String(savedVariables.testAreaNameArray[i])
                 testArea.units = String(savedVariables.concertationArray[i])
-                testArea.slope = String(slopeList[i])
-                testArea.intercept = String(interceptList[i])
+                //testArea.slope = String(slopeList[i])
+                //testArea.intercept = String(interceptList[i])
                 print("Test Area Hit")
                 newModel.addTestArea(testArea)
                 //savedVariables.testAreaInfo += "\(xcoordinateList[i + 1]),\(ycoordinateList[i + 1]),\(radiusList[i + 1]),\(testAreaNameList[i + 1]),\(unitsNameList[i + 1]),"
-            }*/
+                
+                savedVariables.testAreaInfo += "\(savedVariables.xCoordinateArray[i]),\(savedVariables.yCoordinateArray[i]),\(savedVariables.radiusArray[i]),\(savedVariables.totalTestTimeArray[i]),\(savedVariables.intervalTestTimeArray[i]),\(savedVariables.testAreaNameArray[i]),\(savedVariables.concertationArray[i]),\(savedVariables.slopeArray[i]),\(savedVariables.interceptArray[i]),\(savedVariables.channelUsed[i]),"
+            }
            
             
                 var numberOfTestAreas = 0
                 numberOfTestAreas = savedVariables.numberOfTestAreas
                 for var i = 0; i < numberOfTestAreas; i++ {
+                        print(savedVariables.totalTestTimeArray[i])
+                        print(savedVariables.intervalTestTimeArray[i])
                         print(savedVariables.xCoordinateArray[i])
                         print(savedVariables.yCoordinateArray[i])
                         print(savedVariables.radiusArray[i])
@@ -181,14 +187,16 @@ class CalibrationSelectColorChannelViewController: UIViewController{
                         //print("\(savedVariables.xCoordinateArray[i]),\(savedVariables.yCoordinateArray[i]),\(savedVariables.radiusArray[i]),\(savedVariables.testAreaNameArray[i]),\(savedVariables.concertationArray[i]),\(savedVariables.slopeArray[i]),\(savedVariables.interceptArray[i]),")*/
                     
                 }
-                /*newModel.setValue(savedVariables.testAreaInfo, forKey: "testAreaInfo")
-                
+                newModel.setValue(savedVariables.testAreaInfo, forKey: "testAreaInfo")
+                print("Before save.")
                 do {
                     try context.save()
+                    print("saved")
                 } catch _ {
-                }*/
+                    print("Failed to save.")
+                }
                 savedVariables.performingTest = true
-                self.performSegueWithIdentifier("SegueBackToDisplayLayout", sender: nil)
+                self.performSegueWithIdentifier("SegueBackToMainMenu", sender: nil)
             }
         else{
             savedVariables.slopeArray += [""]
