@@ -41,6 +41,7 @@
 		CA96E31A1BF4357D005CAD5A /* AVCaptureView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA96E3191BF4357D005CAD5A /* AVCaptureView2.swift */; };
 		CAA4BF151C3E354000E7E1DE /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA4BF141C3E354000E7E1DE /* MainMenuViewController.swift */; };
 		CAA4BF191C3E548600E7E1DE /* SelectPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA4BF181C3E548600E7E1DE /* SelectPanelViewController.swift */; };
+		CAA4BF1F1C43812400E7E1DE /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA4BF1E1C43812400E7E1DE /* InfoViewController.swift */; };
 		CAFFB8761C378096002B7F19 /* TimingFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFFB8751C378096002B7F19 /* TimingFunctions.swift */; };
 /* End PBXBuildFile section */
 
@@ -143,6 +144,7 @@
 		CA96E3191BF4357D005CAD5A /* AVCaptureView2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVCaptureView2.swift; sourceTree = "<group>"; };
 		CAA4BF141C3E354000E7E1DE /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		CAA4BF181C3E548600E7E1DE /* SelectPanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPanelViewController.swift; sourceTree = "<group>"; };
+		CAA4BF1E1C43812400E7E1DE /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		CAFFB8751C378096002B7F19 /* TimingFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimingFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -175,6 +177,7 @@
 		CA0B96431BEC4C0900E97070 = {
 			isa = PBXGroup;
 			children = (
+				CAA4BF1E1C43812400E7E1DE /* InfoViewController.swift */,
 				CA0B964E1BEC4C0900E97070 /* iOS_Colorimeter */,
 				CA0B96661BEC4C0A00E97070 /* iOS_ColorimeterTests */,
 				CA0B96711BEC4C0A00E97070 /* iOS_ColorimeterUITests */,
@@ -516,6 +519,7 @@
 				CAFFB8761C378096002B7F19 /* TimingFunctions.swift in Sources */,
 				CA0B968A1BEC4EA300E97070 /* CreatePanelViewController.swift in Sources */,
 				CA307E2D1BF43E62002F2101 /* LayoutDisplayViewController.swift in Sources */,
+				CAA4BF1F1C43812400E7E1DE /* InfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,6 +10,7 @@ class CalibrationSelectColorChannelViewController: UIViewController{
     
     
     
+    @IBOutlet var equationLabel: UILabel!
     
     
     @IBOutlet var testAreaNameAndNumberLabel: UILabel!
@@ -235,6 +236,7 @@ class CalibrationSelectColorChannelViewController: UIViewController{
                 currentSlope = linearRegression(savedVariables.currentTestArea, testChannel: 0).slope
                 currentIntercept = linearRegression(savedVariables.currentTestArea, testChannel: 0).intercept
                 currentR2 = linearRegression(savedVariables.currentTestArea, testChannel: 0).rSquared
+                equationLabel.text = "y = \(currentSlope)X + \(currentIntercept)"
                 slopeLabel.text = "Slope: \(currentSlope)"
                 interceptLabel.text = "Intercept: \(currentIntercept)"
                 r2Label.text = "R^2: \(currentR2)"
@@ -243,6 +245,7 @@ class CalibrationSelectColorChannelViewController: UIViewController{
                 currentSlope = linearRegression(savedVariables.currentTestArea, testChannel: 1).slope
                 currentIntercept = linearRegression(savedVariables.currentTestArea, testChannel: 1).intercept
                 currentR2 = linearRegression(savedVariables.currentTestArea, testChannel: 1).rSquared
+                equationLabel.text = "y = \(currentSlope)X + \(currentIntercept)"
                 slopeLabel.text = "Slope: \(currentSlope)"
                 interceptLabel.text = "Intercept: \(currentIntercept)"
                 r2Label.text = "R^2: \(currentR2)"
@@ -251,6 +254,7 @@ class CalibrationSelectColorChannelViewController: UIViewController{
                 currentSlope = linearRegression(savedVariables.currentTestArea, testChannel: 2).slope
                 currentIntercept = linearRegression(savedVariables.currentTestArea, testChannel: 2).intercept
                 currentR2 = linearRegression(savedVariables.currentTestArea, testChannel: 2).rSquared
+                equationLabel.text = "y = \(currentSlope)X + \(currentIntercept)"
                 slopeLabel.text = "Slope: \(currentSlope)"
                 interceptLabel.text = "Intercept: \(currentIntercept)"
                 r2Label.text = "R^2: \(currentR2)"
@@ -259,6 +263,7 @@ class CalibrationSelectColorChannelViewController: UIViewController{
                 currentSlope = linearRegression(savedVariables.currentTestArea, testChannel: 3).slope
                 currentIntercept = linearRegression(savedVariables.currentTestArea, testChannel: 3).intercept
                 currentR2 = linearRegression(savedVariables.currentTestArea, testChannel: 3).rSquared
+                equationLabel.text = "y = \(currentSlope)X + \(currentIntercept)"
                 slopeLabel.text = "Slope: \(currentSlope)"
                 interceptLabel.text = "Intercept: \(currentIntercept)"
                 r2Label.text = "R^2: \(currentR2)"
@@ -267,6 +272,7 @@ class CalibrationSelectColorChannelViewController: UIViewController{
                 currentSlope = linearRegression(savedVariables.currentTestArea, testChannel: 5).slope
                 currentIntercept = linearRegression(savedVariables.currentTestArea, testChannel: 5).intercept
                 currentR2 = linearRegression(savedVariables.currentTestArea, testChannel: 5).rSquared
+                equationLabel.text = "y = \(currentSlope)X + \(currentIntercept)"
                 slopeLabel.text = "Slope: \(currentSlope)"
                 interceptLabel.text = "Intercept: \(currentIntercept)"
                 r2Label.text = "R^2: \(currentR2)"
@@ -275,6 +281,7 @@ class CalibrationSelectColorChannelViewController: UIViewController{
                 currentSlope = linearRegression(savedVariables.currentTestArea, testChannel: 6).slope
                 currentIntercept = linearRegression(savedVariables.currentTestArea, testChannel: 6).intercept
                 currentR2 = linearRegression(savedVariables.currentTestArea, testChannel: 6).rSquared
+                equationLabel.text = "y = \(currentSlope)X + \(currentIntercept)"
                 slopeLabel.text = "Slope: \(currentSlope)"
                 interceptLabel.text = "Intercept: \(currentIntercept)"
                 r2Label.text = "R^2: \(currentR2)"
@@ -302,6 +309,7 @@ class CalibrationSelectColorChannelViewController: UIViewController{
         currentSlope = linearRegression(savedVariables.currentTestArea, testChannel: 0).slope
         currentIntercept = linearRegression(savedVariables.currentTestArea, testChannel: 0).intercept
         currentR2 = linearRegression(savedVariables.currentTestArea, testChannel: 0).rSquared
+        equationLabel.text = "y = \(currentSlope)X + \(currentIntercept)"
         slopeLabel.text = "Slope: \(currentSlope)"
         interceptLabel.text = "Intercept: \(currentIntercept)"
         r2Label.text = "R^2: \(currentR2)"

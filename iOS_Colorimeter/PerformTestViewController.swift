@@ -39,6 +39,7 @@ class PerformTestViewController: UIViewController {
                     
                     if count >= savedVariables.numberOfPhotos
                     {
+                         self.progressLabel.text = "Analyzing photo \(count) of \(savedVariables.numberOfPhotos)"
                         //self.photoBeingTested.text = "Finshed"
                         //self.testBeingTested.text = ""
                         stopEnumeration.memory = ObjCBool(true)
@@ -325,6 +326,7 @@ class PerformTestViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.progressLabel.text = "Analyzing photo 1 of \(savedVariables.numberOfPhotos)"
         print(savedVariables.markPhotosArray)
         onlyStartOneTestFlag = 1
         

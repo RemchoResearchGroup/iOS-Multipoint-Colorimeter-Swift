@@ -50,7 +50,7 @@ class CalibrationAddConcentrationValueViewController: UIViewController {
                 
                 print(savedVariables.concentrationArray[savedVariables.currentTestArea-1][savedVariables.countTracker-1])
                 savedVariables.currentTestArea += 1
-                if(savedVariables.numberOfTestAreas == savedVariables.currentTestArea && savedVariables.instanceCount != 0){
+                if(savedVariables.numberOfTestAreas == savedVariables.currentTestArea && savedVariables.instanceCount != 0 || savedVariables.numberOfTestAreas != 1){
                     selectColorChannelButton.hidden = false
                 }
                 updateLabels()
@@ -112,8 +112,12 @@ class CalibrationAddConcentrationValueViewController: UIViewController {
         savedVariables.countTracker += 1
       
         print(savedVariables.countTracker)
-    
-        selectColorChannelButton.hidden = true
+        if(savedVariables.numberOfTestAreas == 1 && savedVariables.instanceCount != 0){
+            print("Only one test area")
+        }
+        else{
+            selectColorChannelButton.hidden = true
+        }
         updateLabels()
         //colorPreviewView.backgroundColor = UIColor(red: 255, green: 165, blue: 0, alpha: 1)
     }

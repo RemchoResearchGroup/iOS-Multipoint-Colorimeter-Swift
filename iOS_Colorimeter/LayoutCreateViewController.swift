@@ -17,6 +17,7 @@ class LayoutCreateViewController: UIViewController {
     var movieFileOutput: AVCaptureMovieFileOutput?
     var stillImageOutput: AVCaptureStillImageOutput?
     
+    @IBOutlet var addCircleButton: UIButton!
     
     var deviceAuthorized: Bool  = false
     var backgroundRecordId: UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
@@ -38,6 +39,8 @@ class LayoutCreateViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addCircleButton.setTitle(savedVariables.testAreaNameArray[circleCount] as! String, forState:.Normal)
+        
         
         //savedVariables.performingCal = true
         //savedVariables.initalCalibrationTesting = true
@@ -212,6 +215,7 @@ class LayoutCreateViewController: UIViewController {
     @IBAction func addNewCircle(sender:UIButton!){
         circleCount += 1
         if(circleCount == savedVariables.numberOfTestAreas || circleCount < savedVariables.numberOfTestAreas){
+            addCircleButton.setTitle(savedVariables.testAreaNameArray[circleCount] as! String, forState:.Normal)
             if(occurredOnce == true){
                 xString = "\(location.x)"
                 yString = "\(location.y)"

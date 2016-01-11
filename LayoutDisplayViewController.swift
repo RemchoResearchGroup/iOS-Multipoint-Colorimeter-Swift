@@ -32,6 +32,9 @@ class LayoutDisplayViewController: UIViewController {
     @IBOutlet var testNumberLabel: UILabel!
     
     @IBOutlet weak var previewView: AVCamPreviewView!
+    @IBOutlet var progressLabel: UILabel!
+    
+    
     var assetCollection: PHAssetCollection!
     var albumFound : Bool = false
     var photosAsset: PHFetchResult!
@@ -66,7 +69,7 @@ class LayoutDisplayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //testNumberLabel.text = ""
-        
+        progressLabel.text = "\(currentTime) seconds of \(savedVariables.highestTotalTime) seconds"
         //Reset currentTestArea to 1
         savedVariables.currentTestArea = 1
         
@@ -438,7 +441,7 @@ class LayoutDisplayViewController: UIViewController {
         
         currentTime++
         
-       
+        progressLabel.text = "\(currentTime) seconds of \(savedVariables.highestTotalTime) seconds"
         
         for var i = 0; i < savedVariables.timingArray.count; i++ {
             if(currentTime % savedVariables.timingArray[i] == 0){

@@ -2,18 +2,35 @@ import UIKit
 
 class PanelNumberOfTestAreasViewController: UIViewController {
     
+    @IBOutlet var numberOfTestAreaLabel: UILabel!
+    
+    @IBAction func increaseNumberOfTestAreas(sender: AnyObject) {
+        currentCount += 1
+        savedVariables.numberOfTestAreas = currentCount
+        numberOfTestAreaLabel.text = "\(currentCount)"
+    }
+    @IBAction func decreaseNumberOfTestAreas(sender: AnyObject) {
+        if(currentCount != 1){
+            currentCount -= 1
+            savedVariables.numberOfTestAreas = currentCount
+            numberOfTestAreaLabel.text = "\(currentCount)"
+        }
+    }
+    
+    var currentCount = 1
     
     //Max number of test areas is 10.
-    var pickerNumbers = ["1","2","3","4","5","6","7","8","9","10"]
+    //var pickerNumbers = ["1","2","3","4","5","6","7","8","9","10"]
 
-    @IBOutlet weak var testNumberPicker: UIPickerView!
+    //@IBOutlet weak var testNumberPicker: UIPickerView!
+    
     @IBAction func cancel(sender: AnyObject) {
         self.performSegueWithIdentifier("cancelledSegue", sender: nil)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        savedVariables.numberOfTestAreas = currentCount
         //Hides back button
         navigationItem.hidesBackButton = true
         
@@ -25,7 +42,7 @@ class PanelNumberOfTestAreasViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    /*func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
     
@@ -37,7 +54,7 @@ class PanelNumberOfTestAreasViewController: UIViewController {
         savedVariables.numberOfTestAreas = Int(pickerNumbers[row])!
         //print(savedVariables.numberOfTestAreas)
         return pickerNumbers[row]
-    }
+    }*/
     
 }
 
