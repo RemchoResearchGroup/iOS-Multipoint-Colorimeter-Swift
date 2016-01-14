@@ -280,6 +280,11 @@ class PerformTestViewController: UIViewController {
             redSum   = 0.0
             greenSum = 0.0
             blueSum  = 0.0
+            
+            var perviousRed = 0.0
+            var perviousGreen = 0.0
+            var perviousBlue = 0.0
+            
             //var alphaSum = 0.0
 
             for var yIndex = 0; yIndex < savedVariables.numberOfPhotos; yIndex++ {
@@ -289,6 +294,15 @@ class PerformTestViewController: UIViewController {
                     redSum = redSum + savedVariables.redArray[xIndex][yIndex]
                     greenSum = greenSum + savedVariables.greenArray[xIndex][yIndex]
                     blueSum = blueSum + savedVariables.blueArray[xIndex][yIndex]
+                    
+                    
+                    print("The type of test for \(yIndex): \(savedVariables.typeOfTestArray[xIndex])")
+                    if(savedVariables.typeOfTestArray[xIndex] as! String == "Kinetic"){
+                        print("Kinetic Hit")
+                    }
+                    
+                    
+                    
                 }
             }
             print("The redSum is \(redSum)")
@@ -302,9 +316,6 @@ class PerformTestViewController: UIViewController {
             let divisor = Double(totalTime/intervalTime)
             print("The divisor is \(divisor)")
             
-            //savedVariables.calibrationRedArray[xIndex][savedVariables.instanceCount] = redSum / Double(savedVariables.numberOfPhotos)
-            //savedVariables.calibrationGreenArray[xIndex][savedVariables.instanceCount] = greenSum / Double(savedVariables.numberOfPhotos)
-            //savedVariables.calibrationBlueArray[xIndex][savedVariables.instanceCount] = blueSum / Double(savedVariables.numberOfPhotos)
             savedVariables.calibrationRedArray[xIndex][savedVariables.instanceCount] = redSum/divisor
             savedVariables.calibrationGreenArray[xIndex][savedVariables.instanceCount] = greenSum/divisor
             savedVariables.calibrationBlueArray[xIndex][savedVariables.instanceCount] = blueSum/divisor

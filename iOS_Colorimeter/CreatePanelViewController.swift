@@ -60,6 +60,13 @@ class CreatePanelViewController: UIViewController {
             savedVariables.saturationArray.append(Array(count:NumRows, repeatedValue:Double()))
             savedVariables.valueArray.append(Array(count:NumRows, repeatedValue:Double()))
             
+            savedVariables.slopeRedArray.append(Array(count:NumRows, repeatedValue:Double()))
+            savedVariables.slopeGreenArray.append(Array(count:NumRows, repeatedValue:Double()))
+            savedVariables.slopeBlueArray.append(Array(count:NumRows, repeatedValue:Double()))
+            savedVariables.slopeHueArray.append(Array(count:NumRows, repeatedValue:Double()))
+            savedVariables.slopeSaturationArray.append(Array(count:NumRows, repeatedValue:Double()))
+            savedVariables.slopeValueArray.append(Array(count:NumRows, repeatedValue:Double()))
+            
             /*savedVariables.xCord.append(Array(count:NumRows, repeatedValue:Double()))
             savedVariables.yCord.append(Array(count:NumRows, repeatedValue:Double()))
             savedVariables.radius.append(Array(count:NumRows, repeatedValue:Double()))

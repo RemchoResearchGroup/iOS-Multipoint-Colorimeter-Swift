@@ -441,10 +441,12 @@ class LayoutDisplayViewController: UIViewController {
         
         currentTime++
         
-        progressLabel.text = "\(currentTime) seconds of \(savedVariables.highestTotalTime) seconds"
+        if(savedVariables.highestTotalTime >= currentTime){
+            progressLabel.text = "\(currentTime) seconds of \(savedVariables.highestTotalTime) seconds"
+        }
         
         for var i = 0; i < savedVariables.timingArray.count; i++ {
-            if(currentTime % savedVariables.timingArray[i] == 0){
+            if(currentTime % savedVariables.timingArray[i] == 0 && currentTime <= savedVariables.highestTotalTime){
             //Needs to mark the photo
                 takeStillImage()
                 let tempCurrentTime = currentTime
@@ -470,7 +472,7 @@ class LayoutDisplayViewController: UIViewController {
         
         
         
-        if(currentTime == savedVariables.highestTotalTime){
+        if(currentTime == (savedVariables.highestTotalTime + 2)){
             timer.invalidate()
             
             let alert = UIAlertController(title: "Alert", message: "Images Saved", preferredStyle: UIAlertControllerStyle.Alert)
@@ -478,6 +480,7 @@ class LayoutDisplayViewController: UIViewController {
             savedVariables.numberOfPhotos = pictureCounter
             self.performSegueWithIdentifier("SegueToPerformTest", sender: nil)
         }
+        
         /*loopCount++
         //testNumberLabel.text = "Currently Taking Photo \(loopCount) of \(numberOfLoops)"
         if (loopCount > numberOfLoops) {

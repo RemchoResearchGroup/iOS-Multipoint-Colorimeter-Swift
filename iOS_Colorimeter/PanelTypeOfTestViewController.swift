@@ -94,10 +94,10 @@ class PanelTypeOfTestViewController: UIViewController {
                 else{
                     savedVariables.typeOfTestArray[savedVariables.currentTestArea-1] = "End-Point"
                     savedVariables.totalTestTimeArray[savedVariables.currentTestArea-1] = totalTestTimeTextField.text!
-                    savedVariables.intervalTestTimeArray[savedVariables.currentTestArea-1] = "0"
+                    savedVariables.intervalTestTimeArray[savedVariables.currentTestArea-1] = totalTestTimeTextField.text!
                     savedVariables.currentTestArea += 1
                     setHighestTotalTestTime()
-                    setTiming(intervalTimeTextField.text!)
+                    setTiming(totalTestTimeTextField.text!)
                     self.performSegueWithIdentifier("toTestOverviewSegue", sender: nil)
                 }
             }
@@ -148,10 +148,10 @@ class PanelTypeOfTestViewController: UIViewController {
                 else{
                         savedVariables.typeOfTestArray[savedVariables.currentTestArea-1] = "End-Point"
                         savedVariables.totalTestTimeArray[savedVariables.currentTestArea-1] = totalTestTimeTextField.text!
-                        savedVariables.intervalTestTimeArray[savedVariables.currentTestArea-1] = "0"
+                        savedVariables.intervalTestTimeArray[savedVariables.currentTestArea-1] = totalTestTimeTextField.text!
                         savedVariables.currentTestArea += 1
                         setHighestTotalTestTime()
-                        setTiming(intervalTimeTextField.text!)
+                        setTiming(totalTestTimeTextField.text!)
                         self.performSegueWithIdentifier("toPanelTestAreaNameSegue", sender: nil)
               
                 }

@@ -94,8 +94,13 @@ struct savedVariables {
     static var calibrationSaturationArray = Array<Array<Double>>()
     static var calibrationValueArray      = Array<Array<Double>>()
     
+    static var slopeRedArray        = Array<Array<Double>>()
+    static var slopeGreenArray      = Array<Array<Double>>()
+    static var slopeBlueArray       = Array<Array<Double>>()
+    static var slopeHueArray        = Array<Array<Double>>()
+    static var slopeSaturationArray = Array<Array<Double>>()
+    static var slopeValueArray      = Array<Array<Double>>()
     
-
     /*static var xCord  = Array<Array<Double>>()
     static var yCord  = Array<Array<Double>>()
     static var radius = Array<Array<Double>>()
