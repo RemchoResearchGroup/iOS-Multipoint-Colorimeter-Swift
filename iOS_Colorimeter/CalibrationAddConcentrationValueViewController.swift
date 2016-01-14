@@ -9,7 +9,10 @@ class CalibrationAddConcentrationValueViewController: UIViewController {
     
     @IBOutlet var colorPreviewView: UIView!
     
+    @IBOutlet var redLabel: UILabel!
+    @IBOutlet var greenLabel: UILabel!
   
+    @IBOutlet var blueLabel: UILabel!
     
     
     @IBOutlet var concentrationTextBox: UITextField!
@@ -105,6 +108,17 @@ class CalibrationAddConcentrationValueViewController: UIViewController {
         
         //clear textfield 
         concentrationTextBox.text = ""
+        var red = savedVariables.calibrationRedArray[savedVariables.currentTestArea-1][savedVariables.instanceCount]
+        var green = savedVariables.calibrationGreenArray[savedVariables.currentTestArea-1][savedVariables.instanceCount]
+        var blue = savedVariables.calibrationBlueArray[savedVariables.currentTestArea-1][savedVariables.instanceCount]
+        
+        
+        
+        redLabel.text = (String(format: "Red:  %.5f", red))
+        greenLabel.text = (String(format: "Green:  %.5f", green))
+        blueLabel.text = (String(format: "Blue:  %.5f", blue))
+        //colorPreviewView.backgroundColor = UIColor(red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha: 0.5)
+        
     }
  
     override func viewDidLoad() {
@@ -119,7 +133,6 @@ class CalibrationAddConcentrationValueViewController: UIViewController {
             selectColorChannelButton.hidden = true
         }
         updateLabels()
-        //colorPreviewView.backgroundColor = UIColor(red: 255, green: 165, blue: 0, alpha: 1)
     }
     
     //Calls this function when the tap is recognized.

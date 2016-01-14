@@ -296,10 +296,10 @@ class PerformTestViewController: UIViewController {
                     blueSum = blueSum + savedVariables.blueArray[xIndex][yIndex]
                     
                     
-                    print("The type of test for \(yIndex): \(savedVariables.typeOfTestArray[xIndex])")
-                    if(savedVariables.typeOfTestArray[xIndex] as! String == "Kinetic"){
+                    //print("The type of test for \(yIndex): \(savedVariables.typeOfTestArray[xIndex])")
+                    /*if(savedVariables.typeOfTestArray[xIndex] as! String == "Kinetic"){
                         print("Kinetic Hit")
-                    }
+                    }*/
                     
                     
                     

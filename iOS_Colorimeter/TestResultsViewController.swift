@@ -8,6 +8,10 @@ class TestResultsViewController: UIViewController{
     @IBOutlet var unitsLabel: UILabel!
     @IBOutlet var concertationLabel: UILabel!
     
+    @IBOutlet var blueLabel: UILabel!
+    @IBOutlet var greenLabel: UILabel!
+    
+    @IBOutlet var redLabel: UILabel!
     @IBOutlet var nextAreaButton: UIButton!
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -26,7 +30,16 @@ class TestResultsViewController: UIViewController{
         /*if(savedVariables.currentTestArea == savedVariables.numberOfTestAreas-2){
             nextAreaButton.hidden = true
         }*/
-        if(savedVariables.currentTestArea == savedVariables.numberOfPhotos){
+        var red = savedVariables.calibrationRedArray[savedVariables.currentTestArea][savedVariables.instanceCount]
+        var green = savedVariables.calibrationGreenArray[savedVariables.currentTestArea][savedVariables.instanceCount]
+        var blue = savedVariables.calibrationBlueArray[savedVariables.currentTestArea][savedVariables.instanceCount]
+        
+        
+        
+        redLabel.text = (String(format: "Red:  %.5f", red))
+        greenLabel.text = (String(format: "Green:  %.5f", green))
+        blueLabel.text = (String(format: "Blue:  %.5f", blue))
+        if(savedVariables.currentTestArea == (savedVariables.numberOfPhotos+1)){
             self.performSegueWithIdentifier("SegueBackToMainMenu", sender: nil)
         }
         else{

@@ -58,9 +58,9 @@ class CalibrationSelectColorChannelViewController: UIViewController{
         print("The number of Items is \(numberOfItems)")
         n = numberOfItems
         
-        if savedVariables.numberOfTestAreas > 1 {
+        if savedVariables.numberOfTestAreas > 0 {
             print("**********************************")
-            for var i = 0; i < savedVariables.numberOfTestAreas; i++ {
+            for var i = 0; i <= savedVariables.numberOfTestAreas; i++ {
                 yValue = savedVariables.concentrationArray[testArea][i]
                 switch testChannel {
                 case 0:
@@ -236,55 +236,55 @@ class CalibrationSelectColorChannelViewController: UIViewController{
                 currentSlope = linearRegression(savedVariables.currentTestArea, testChannel: 0).slope
                 currentIntercept = linearRegression(savedVariables.currentTestArea, testChannel: 0).intercept
                 currentR2 = linearRegression(savedVariables.currentTestArea, testChannel: 0).rSquared
-                equationLabel.text = "y = \(currentSlope)X + \(currentIntercept)"
-                slopeLabel.text = "Slope: \(currentSlope)"
-                interceptLabel.text = "Intercept: \(currentIntercept)"
-                r2Label.text = "R^2: \(currentR2)"
+                equationLabel.text = (String(format: "y = %.5fX + %.5f", currentSlope, currentIntercept))
+                slopeLabel.text = (String(format: "Slope: %.5f", currentSlope))
+                interceptLabel.text = (String(format: "Intercept: %.5f", currentIntercept))
+                r2Label.text = (String(format: "R^2: %.5f", currentR2))
                 currentChannel = 0
             case 1:
                 currentSlope = linearRegression(savedVariables.currentTestArea, testChannel: 1).slope
                 currentIntercept = linearRegression(savedVariables.currentTestArea, testChannel: 1).intercept
                 currentR2 = linearRegression(savedVariables.currentTestArea, testChannel: 1).rSquared
-                equationLabel.text = "y = \(currentSlope)X + \(currentIntercept)"
-                slopeLabel.text = "Slope: \(currentSlope)"
-                interceptLabel.text = "Intercept: \(currentIntercept)"
-                r2Label.text = "R^2: \(currentR2)"
+                equationLabel.text = (String(format: "y = %.5fX + %.5f", currentSlope, currentIntercept))
+                slopeLabel.text = (String(format: "Slope: %.5f", currentSlope))
+                interceptLabel.text = (String(format: "Intercept: %.5f", currentIntercept))
+                r2Label.text = (String(format: "R^2: %.5f", currentR2))
                 currentChannel = 1
             case 2:
                 currentSlope = linearRegression(savedVariables.currentTestArea, testChannel: 2).slope
                 currentIntercept = linearRegression(savedVariables.currentTestArea, testChannel: 2).intercept
                 currentR2 = linearRegression(savedVariables.currentTestArea, testChannel: 2).rSquared
-                equationLabel.text = "y = \(currentSlope)X + \(currentIntercept)"
-                slopeLabel.text = "Slope: \(currentSlope)"
-                interceptLabel.text = "Intercept: \(currentIntercept)"
-                r2Label.text = "R^2: \(currentR2)"
+                equationLabel.text = (String(format: "y = %.5fX + %.5f", currentSlope, currentIntercept))
+                slopeLabel.text = (String(format: "Slope: %.5f", currentSlope))
+                interceptLabel.text = (String(format: "Intercept: %.5f", currentIntercept))
+                r2Label.text = (String(format: "R^2: %.5f", currentR2))
                 currentChannel = 2
             case 3:
                 currentSlope = linearRegression(savedVariables.currentTestArea, testChannel: 3).slope
                 currentIntercept = linearRegression(savedVariables.currentTestArea, testChannel: 3).intercept
                 currentR2 = linearRegression(savedVariables.currentTestArea, testChannel: 3).rSquared
-                equationLabel.text = "y = \(currentSlope)X + \(currentIntercept)"
-                slopeLabel.text = "Slope: \(currentSlope)"
-                interceptLabel.text = "Intercept: \(currentIntercept)"
-                r2Label.text = "R^2: \(currentR2)"
+                equationLabel.text = (String(format: "y = %.5fX + %.5f", currentSlope, currentIntercept))
+                slopeLabel.text = (String(format: "Slope: %.5f", currentSlope))
+                interceptLabel.text = (String(format: "Intercept: %.5f", currentIntercept))
+                r2Label.text = (String(format: "R^2: %.5f", currentR2))
                 currentChannel = 3
             case 4:
                 currentSlope = linearRegression(savedVariables.currentTestArea, testChannel: 5).slope
                 currentIntercept = linearRegression(savedVariables.currentTestArea, testChannel: 5).intercept
                 currentR2 = linearRegression(savedVariables.currentTestArea, testChannel: 5).rSquared
-                equationLabel.text = "y = \(currentSlope)X + \(currentIntercept)"
-                slopeLabel.text = "Slope: \(currentSlope)"
-                interceptLabel.text = "Intercept: \(currentIntercept)"
-                r2Label.text = "R^2: \(currentR2)"
+                equationLabel.text = (String(format: "y = %.5fX + %.5f", currentSlope, currentIntercept))
+                slopeLabel.text = (String(format: "Slope: %.5f", currentSlope))
+                interceptLabel.text = (String(format: "Intercept: %.5f", currentIntercept))
+                r2Label.text = (String(format: "R^2: %.5f", currentR2))
                 currentChannel = 4
             case 5:
                 currentSlope = linearRegression(savedVariables.currentTestArea, testChannel: 6).slope
                 currentIntercept = linearRegression(savedVariables.currentTestArea, testChannel: 6).intercept
                 currentR2 = linearRegression(savedVariables.currentTestArea, testChannel: 6).rSquared
-                equationLabel.text = "y = \(currentSlope)X + \(currentIntercept)"
-                slopeLabel.text = "Slope: \(currentSlope)"
-                interceptLabel.text = "Intercept: \(currentIntercept)"
-                r2Label.text = "R^2: \(currentR2)"
+                equationLabel.text = (String(format: "y = %.5fX + %.5f", currentSlope, currentIntercept))
+                slopeLabel.text = (String(format: "Slope: %.5f", currentSlope))
+                interceptLabel.text = (String(format: "Intercept: %.5f", currentIntercept))
+                r2Label.text = (String(format: "R^2: %.5f", currentR2))
                 currentChannel = 5
             default:
                 break;
@@ -309,11 +309,11 @@ class CalibrationSelectColorChannelViewController: UIViewController{
         currentSlope = linearRegression(savedVariables.currentTestArea, testChannel: 0).slope
         currentIntercept = linearRegression(savedVariables.currentTestArea, testChannel: 0).intercept
         currentR2 = linearRegression(savedVariables.currentTestArea, testChannel: 0).rSquared
-        equationLabel.text = "y = \(currentSlope)X + \(currentIntercept)"
-        slopeLabel.text = "Slope: \(currentSlope)"
-        interceptLabel.text = "Intercept: \(currentIntercept)"
-        r2Label.text = "R^2: \(currentR2)"
-
+        //equationLabel.text = "y = \(currentSlope)X + \(currentIntercept)"
+        equationLabel.text = (String(format: "y = %.5fX + %.5f", currentSlope, currentIntercept))
+        slopeLabel.text = (String(format: "Slope: %.5f", currentSlope))
+        interceptLabel.text = (String(format: "Intercept: %.5f", currentIntercept))
+        r2Label.text = (String(format: "R^2: %.5f", currentR2))
         
         //Hides back button
         navigationItem.hidesBackButton = true
