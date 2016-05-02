@@ -79,7 +79,7 @@ class SelectPanelViewController: UIViewController{
         //Fill Array with up to 20 photos and 20 test areas
         let NumColumns = 20
         let NumRows = 20
-        for column in 0...NumColumns {
+        for _ in 0...NumColumns {
             savedVariables.markPhotosArray.append(Array(count:NumRows, repeatedValue:Double()))
             
             savedVariables.concentrationArray.append(Array(count:NumRows, repeatedValue:Double()))
@@ -89,6 +89,12 @@ class SelectPanelViewController: UIViewController{
             savedVariables.calibrationHueArray.append(Array(count:NumRows, repeatedValue:Double()))
             savedVariables.calibrationSaturationArray.append(Array(count:NumRows, repeatedValue:Double()))
             savedVariables.calibrationValueArray.append(Array(count:NumRows, repeatedValue:Double()))
+            savedVariables.calibrationSlopeRedArray.append(Array(count:NumRows, repeatedValue:Double()))
+            savedVariables.calibrationSlopeGreenArray.append(Array(count:NumRows, repeatedValue:Double()))
+            savedVariables.calibrationSlopeBlueArray.append(Array(count:NumRows, repeatedValue:Double()))
+            
+            
+            
             
             savedVariables.redArray.append(Array(count:NumRows, repeatedValue:Double()))
             savedVariables.greenArray.append(Array(count:NumRows, repeatedValue:Double()))
@@ -97,11 +103,12 @@ class SelectPanelViewController: UIViewController{
             savedVariables.saturationArray.append(Array(count:NumRows, repeatedValue:Double()))
             savedVariables.valueArray.append(Array(count:NumRows, repeatedValue:Double()))
             
-            /*savedVariables.xCord.append(Array(count:NumRows, repeatedValue:Double()))
-            savedVariables.yCord.append(Array(count:NumRows, repeatedValue:Double()))
-            savedVariables.radius.append(Array(count:NumRows, repeatedValue:Double()))
-            savedVariables.slope.append(Array(count:NumRows, repeatedValue:Double()))
-            savedVariables.intercept.append(Array(count:NumRows, repeatedValue:Double()))*/
+            savedVariables.slopeRedArray.append(Array(count:NumRows, repeatedValue:Double()))
+            savedVariables.slopeGreenArray.append(Array(count:NumRows, repeatedValue:Double()))
+            savedVariables.slopeBlueArray.append(Array(count:NumRows, repeatedValue:Double()))
+            savedVariables.slopeHueArray.append(Array(count:NumRows, repeatedValue:Double()))
+            savedVariables.slopeSaturationArray.append(Array(count:NumRows, repeatedValue:Double()))
+            savedVariables.slopeValueArray.append(Array(count:NumRows, repeatedValue:Double()))
         }
         
         //Hides back button
@@ -131,8 +138,8 @@ class SelectPanelViewController: UIViewController{
         cell.textLabel?.minimumScaleFactor = 0.1
         cell.textLabel?.font = UIFont.systemFontOfSize(20.0)
         if let ip = indexPath as NSIndexPath? {
-            var data: NSManagedObject = myList[ip.row] as! NSManagedObject
-            var modelName = data.valueForKeyPath("modelName") as! String
+            let data: NSManagedObject = myList[ip.row] as! NSManagedObject
+            let modelName = data.valueForKeyPath("modelName") as! String
             cell.textLabel?.text =  modelName
         }
         return cell
@@ -166,8 +173,8 @@ class SelectPanelViewController: UIViewController{
     // Table View displays core data info and updates temp variables so next screen can use it
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if let ip = indexPath as NSIndexPath? {
-            var data: NSManagedObject = myList[ip.row] as! NSManagedObject
-            var modelName = data.valueForKeyPath("modelName") as! String
+            //let data: NSManagedObject = myList[ip.row] as! NSManagedObject
+            //var modelName = data.valueForKeyPath("modelName") as! String
             //modelSelected.text =  modelName
             currentRow = ip.row
         }
@@ -211,7 +218,7 @@ class SelectPanelViewController: UIViewController{
                 
                 
                 
-                var data: NSManagedObject = myList[currentRow] as! NSManagedObject
+                let data: NSManagedObject = myList[currentRow] as! NSManagedObject
                 savedVariables.panelName = data.valueForKeyPath("modelName") as! String
                 //savedVariables.testTime = data.valueForKeyPath("testTime") as! String
                 //savedVariables.intervalTime = data.valueForKeyPath("intervalTime") as! String
@@ -233,41 +240,44 @@ class SelectPanelViewController: UIViewController{
                 savedVariables.yCoordinateArray = []
                 savedVariables.radiusArray = []
                 savedVariables.testAreaNameArray = []
-                var totalTestArray = savedVariables.numberOfTestAreas * 10
+                let totalTestArray = savedVariables.numberOfTestAreas * 11
                 for var k = 0; k < totalTestArray; k++ {
-                    if (k % 10 == 0) {
+                    if (k % 11 == 0) {
                         savedVariables.xCoordinateArray += [fullArray[k]]
                     }
-                    if (k % 10 == 1) {
+                    if (k % 11 == 1) {
                         savedVariables.yCoordinateArray += [fullArray[k]]
                     }
-                    if (k % 10 == 2) {
+                    if (k % 11 == 2) {
                         savedVariables.radiusArray += [fullArray[k]]
                     }
-                    if (k % 10 == 3) {
+                    if (k % 11 == 3) {
                         savedVariables.totalTestTimeArray += [fullArray[k]]
                         setHighestTotalTestTime(fullArray[k])
                     }
-                    if (k % 10 == 4) {
+                    if (k % 11 == 4) {
                         savedVariables.intervalTestTimeArray += [fullArray[k]]
                         print("Interval Time: \(fullArray[k])")
                         addToTimingArray(Int(fullArray[k])!)
                     }
-                    if (k % 10 == 5) {
+                    if (k % 11 == 5) {
                         savedVariables.testAreaNameArray  += [fullArray[k]]
                         print("The test names are: \(fullArray[k])")
                     }
-                    if (k % 10 == 6) {
+                    if (k % 11 == 6) {
                         savedVariables.unitsNameArray += [fullArray[k]]
                     }
-                    if (k % 10 == 7) {
+                    if (k % 11 == 7) {
                         savedVariables.slopeArray += [fullArray[k]]
                     }
-                    if (k % 10 == 8) {
+                    if (k % 11 == 8) {
                         savedVariables.interceptArray += [fullArray[k]]
                     }
-                    if (k % 10 == 9) {
+                    if (k % 11 == 9) {
                         savedVariables.channelUsed += [fullArray[k]]
+                    }
+                    if (k % 11 == 10) {
+                        savedVariables.takeSlopeDataArray += [fullArray[k]]
                     }
                 }
                 print("Highest Time:\(savedVariables.highestTotalTime)")

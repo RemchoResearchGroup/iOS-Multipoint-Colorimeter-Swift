@@ -9,7 +9,6 @@ import AVFoundation
 
 func HSV(r:CGFloat, g:CGFloat, b: CGFloat) -> (hue:CGFloat, saturation:CGFloat, value:CGFloat){
     
-    
     var delta: CGFloat
     var s: CGFloat, h: CGFloat, v: CGFloat
     var rgbMin: CGFloat
@@ -26,18 +25,15 @@ func HSV(r:CGFloat, g:CGFloat, b: CGFloat) -> (hue:CGFloat, saturation:CGFloat, 
     else{
         s = 0
         h = -1
-        //return?
     }
     if( r == rgbMax){
-        //println("r")
         h = (g - b) / delta
     }
     else if(g == rgbMax){
-        //println("g")
         h = 2 + (b - r) / delta
     }
+    //b == rgbMax
     else{
-        //println("b")
         h = 4 + (r - g) / delta
     }
     h *= 60

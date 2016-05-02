@@ -105,19 +105,7 @@ class CameraTwo: UIViewController, AVCaptureFileOutputRecordingDelegate {
                 })
                 
             }
-            
-            
-            //let audioDevice: AVCaptureDevice = AVCaptureDevice.devicesWithMediaType(AVMediaTypeAudio).first as! AVCaptureDevice
-            //let audioDeviceInput: AVCaptureDeviceInput = (try! AVCaptureDeviceInput.deviceInputWithDevice(audioDevice))
-            /*if error != nil{
-            print(error)
-            }
-            if session.canAddInput(audioDeviceInput){
-            session.addInput(audioDeviceInput)
-            }*/
-            
-            
-            
+    
             let movieFileOutput: AVCaptureMovieFileOutput = AVCaptureMovieFileOutput()
             if session.canAddOutput(movieFileOutput){
                 session.addOutput(movieFileOutput)
@@ -147,65 +135,6 @@ class CameraTwo: UIViewController, AVCaptureFileOutputRecordingDelegate {
         
     }
     
-    /*
-    
-    override func viewWillAppear(animated: Bool) {
-    dispatch_async(self.sessionQueue, {
-    self.addObserver(self, forKeyPath: "sessionRunningAndDeviceAuthorized", options: NSKeyValueObservingOptions.Old | NSKeyValueObservingOptions.New, context: &SessionRunningAndDeviceAuthorizedContext)
-    self.addObserver(self, forKeyPath: "stillImageOutput.capturingStillImage", options: NSKeyValueObservingOptions.Old | NSKeyValueObservingOptions.New, context: &CapturingStillImageContext)
-    self.addObserver(self, forKeyPath: "movieFileOutput.recording", options: NSKeyValueObservingOptions.Old | NSKeyValueObservingOptions.New, context: &RecordingContext)
-    
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: "subjectAreaDidChange:", name: AVCaptureDeviceSubjectAreaDidChangeNotification, object: self.videoDeviceInput?.device)
-    
-    
-    weak var weakSelf = self
-    
-    self.runtimeErrorHandlingObserver = NSNotificationCenter.defaultCenter().addObserverForName(AVCaptureSessionRuntimeErrorNotification, object: self.session, queue: nil, usingBlock: {
-    (note: NSNotification?) in
-    var strongSelf: CameraTwo = weakSelf!
-    dispatch_async(strongSelf.sessionQueue, {
-    //                    strongSelf.session?.startRunning()
-    if let sess = strongSelf.session{
-    sess.startRunning()
-    }
-    //                    strongSelf.recordButton.title  = NSLocalizedString("Record", "Recording button record title")
-    })
-    
-    })
-    
-    self.session?.startRunning()
-    
-    })
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-    
-    dispatch_async(self.sessionQueue, {
-    
-    if let sess = self.session{
-    sess.stopRunning()
-    
-    NSNotificationCenter.defaultCenter().removeObserver(self, name: AVCaptureDeviceSubjectAreaDidChangeNotification, object: self.videoDeviceInput?.device)
-    NSNotificationCenter.defaultCenter().removeObserver(self.runtimeErrorHandlingObserver!)
-    
-    self.removeObserver(self, forKeyPath: "sessionRunningAndDeviceAuthorized", context: &SessionRunningAndDeviceAuthorizedContext)
-    
-    self.removeObserver(self, forKeyPath: "stillImageOutput.capturingStillImage", context: &CapturingStillImageContext)
-    //self.removeObserver(self, forKeyPath: "movieFileOutput.recording", context: &SessionRunningAndDeviceAuthorizedContext)
-    
-    
-    
-    }
-    
-    
-    
-    })
-    
-    
-    
-    }
-    */
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -217,71 +146,19 @@ class CameraTwo: UIViewController, AVCaptureFileOutputRecordingDelegate {
     }
     
     override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
-        
         (self.previewView.layer as! AVCaptureVideoPreviewLayer).connection.videoOrientation = AVCaptureVideoOrientation(rawValue: toInterfaceOrientation.rawValue)!
-        
-        //        if let layer = self.previewView.layer as? AVCaptureVideoPreviewLayer{
-        //            layer.connection.videoOrientation = self.convertOrientation(toInterfaceOrientation)
-        //        }
-        
     }
     
     override func shouldAutorotate() -> Bool {
         return !self.lockInterfaceRotation
     }
-    //    observeValueForKeyPath:ofObject:change:context:
-    
-    /*
-    override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<Void>) {
-    
-    
-    
-    if context == &CapturingStillImageContext{
-    var isCapturingStillImage: Bool = change[NSKeyValueChangeNewKey]!.boolValue
-    if isCapturingStillImage {
-    self.runStillImageCaptureAnimation()
-    }
-    
-    }else if context  == &RecordingContext{
-    var isRecording: Bool = change[NSKeyValueChangeNewKey]!.boolValue
-    
-    dispatch_async(dispatch_get_main_queue(), {
-    
-    if isRecording {
-    self.recordButton.titleLabel!.text = "Stop"
-    self.recordButton.enabled = true
-    //                    self.snapButton.enabled = false
-    self.cameraButton.enabled = false
-    
-    }else{
-    //                    self.snapButton.enabled = true
-    
-    self.recordButton.titleLabel!.text = "Record"
-    self.recordButton.enabled = true
-    self.cameraButton.enabled = true
-    
-    }
-    
-    
-    })
-    
-    
-    }
-    
-    else{
-    return super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
-    }
-    
-    }
-    */
     
     // MARK: Selector
     func subjectAreaDidChange(notification: NSNotification){
         let devicePoint: CGPoint = CGPoint(x: 0.5, y: 0.5)
         self.focusWithMode(AVCaptureFocusMode.ContinuousAutoFocus, exposureMode: AVCaptureExposureMode.ContinuousAutoExposure, point: devicePoint, monitorSubjectAreaChange: false)
     }
-    
-    // MARK:  Custom Function
+
     
     func focusWithMode(focusMode:AVCaptureFocusMode, exposureMode:AVCaptureExposureMode, point:CGPoint, monitorSubjectAreaChange:Bool){
         
@@ -426,40 +303,7 @@ class CameraTwo: UIViewController, AVCaptureFileOutputRecordingDelegate {
         
         
     }
-    
-    // MARK: Actions
-    
-    /* @IBAction func toggleMovieRecord(sender: AnyObject) {
-    
-    self.recordButton.enabled = false
-    
-    dispatch_async(self.sessionQueue!, {
-    if !self.movieFileOutput!.recording{
-    self.lockInterfaceRotation = true
-    
-    if UIDevice.currentDevice().multitaskingSupported {
-    self.backgroundRecordId = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler({})
-    
-    }
-    
-    self.movieFileOutput!.connectionWithMediaType(AVMediaTypeVideo).videoOrientation =
-    AVCaptureVideoOrientation(rawValue: (self.previewView.layer as! AVCaptureVideoPreviewLayer).connection.videoOrientation.rawValue )!
-    
-    // Turning OFF flash for video recording
-    CameraTwo.setFlashMode(AVCaptureFlashMode.Off, device: self.videoDeviceInput!.device)
-    
-    let outputFilePath: String = NSTemporaryDirectory().stringByAppendingPathComponent( "movie".stringByAppendingPathExtension("mov")!)
-    
-    self.movieFileOutput!.startRecordingToOutputFileURL(NSURL.fileURLWithPath(outputFilePath), recordingDelegate: self)
-    
-    
-    }else{
-    self.movieFileOutput!.stopRecording()
-    }
-    })
-    
-    }*/
-    
+
     // Tie in interval time and total camera time with this function
     func setup(){
         loopCount++;
@@ -521,74 +365,7 @@ class CameraTwo: UIViewController, AVCaptureFileOutputRecordingDelegate {
             
         })
     }
-    /*@IBAction func changeCamera(sender: AnyObject) {
-    
-    
-    
-    print("change camera")
-    
-    self.cameraButton.enabled = false
-    self.recordButton.enabled = false
-    self.snapButton.enabled = false
-    
-    dispatch_async(self.sessionQueue!, {
-    
-    let currentVideoDevice:AVCaptureDevice = self.videoDeviceInput!.device
-    let currentPosition: AVCaptureDevicePosition = currentVideoDevice.position
-    var preferredPosition: AVCaptureDevicePosition = AVCaptureDevicePosition.Unspecified
-    
-    switch currentPosition{
-    case AVCaptureDevicePosition.Front:
-    preferredPosition = AVCaptureDevicePosition.Back
-    case AVCaptureDevicePosition.Back:
-    preferredPosition = AVCaptureDevicePosition.Front
-    case AVCaptureDevicePosition.Unspecified:
-    preferredPosition = AVCaptureDevicePosition.Back
-    
-    }
-    
-    
-    
-    let device:AVCaptureDevice = CameraTwo.deviceWithMediaType(AVMediaTypeVideo, preferringPosition: preferredPosition)
-    
-    let videoDeviceInput: AVCaptureDeviceInput = try AVCaptureDeviceInput(device: device)
-    
-    self.session!.beginConfiguration()
-    
-    self.session!.removeInput(self.videoDeviceInput)
-    
-    if self.session!.canAddInput(videoDeviceInput){
-    
-    NSNotificationCenter.defaultCenter().removeObserver(self, name:AVCaptureDeviceSubjectAreaDidChangeNotification, object:currentVideoDevice)
-    
-    CameraTwo.setFlashMode(AVCaptureFlashMode.Auto, device: device)
-    
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: "subjectAreaDidChange:", name: AVCaptureDeviceSubjectAreaDidChangeNotification, object: device)
-    
-    self.session!.addInput(videoDeviceInput)
-    self.videoDeviceInput = videoDeviceInput
-    
-    }else{
-    self.session!.addInput(self.videoDeviceInput)
-    }
-    
-    self.session!.commitConfiguration()
-    
-    
-    
-    dispatch_async(dispatch_get_main_queue(), {
-    self.recordButton.enabled = true
-    self.snapButton.enabled = true
-    self.cameraButton.enabled = true
-    })
-    
-    })
-    
-    
-    
-    
-    }*/
-    
+
     @IBAction func focusAndExposeTap(gestureRecognizer: UIGestureRecognizer) {
         
         print("focusAndExposeTap")

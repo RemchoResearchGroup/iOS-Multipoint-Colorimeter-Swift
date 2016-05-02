@@ -1,64 +1,54 @@
-/*import UIKit
-import AVFoundation
-import AssetsLibrary
-import Photos
-import CoreData
-
-
+import UIKit
 import Charts
 
-
 class test: UIViewController {
+ 
+    @IBOutlet weak var lineChartView: LineChartView!
+    @IBOutlet var scatterPlot: ScatterChartView!
     
-    @IBOutlet var barView: BarChartView!
+    @IBOutlet var comboChart: CombinedChartView!
     
-    @IBOutlet var scatterView: ScatterChartView!
-    
-    var months: [String]!
-    
-    func setChart(dataPoints: [String], values: [Double]) {
-        
-        //barView.noDataText = "You need to provide data for the chart."
-        var dataEntries: [BarChartDataEntry] = []
-        var scatEntries: [ChartDataEntry] = []
-        
-        for i in 0..<dataPoints.count
-        {
-            let dataEntry = BarChartDataEntry(value: values[i], xIndex: i)
-            dataEntries.append(dataEntry)
-            let scatterEntry = ChartDataEntry(value: values[i], xIndex: i)
-            scatEntries.append(scatterEntry)
-        }
-        
-        let chartDataSet = BarChartDataSet(yVals: dataEntries, label: "Units Sold")
-        let chartData = BarChartData(xVals: months, dataSet: chartDataSet)
-        
-        let scatDataSet = ScatterChartDataSet(yVals: scatEntries, label: "Units Sold")
-        let scatData = ScatterChartData(xVals: months, dataSet: scatDataSet)
-        scatterView.data = chartData
-        barView.data = scatData 
-        
-    }
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //barView.noDataText = "CHeck"
-        //barView.noDataText = "Date"
-        months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-        let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0, 4.0, 18.0, 2.0, 4.0, 5.0, 4.0]
+        
+        // Do any additional setup after loading the view.
+        
+        let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
+        let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0]
         
         setChart(months, values: unitsSold)
         
-       
+    }
+    
+    func setChart(dataPoints: [String], values: [Double]) {
         
+        var dataEntries: [ChartDataEntry] = []
+        
+        for i in 0..<dataPoints.count {
+            let dataEntry = ChartDataEntry(value: values[i], xIndex: i)
+            dataEntries.append(dataEntry)
+        }
+        
+    
+        
+        let scatterChartDataSet = ScatterChartDataSet(yVals: dataEntries, label: "test")
+        let scatterChartData = ScatterChartData(xVals: dataPoints, dataSet: scatterChartDataSet)
+        let lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "Units Sold")
+        let lineChartData = LineChartData(xVals: dataPoints, dataSet: lineChartDataSet)
+        
+        //comboChart.data = scatterChartData
+     
+        //var scatterDataEntries: [ChartDataSet] = [scatterChartDataSet, lineChartDataSet]
+        //var a  = ChartDataSet(yVals: dataEntries, label: "a")
+        
+        //let combineChartData = CombinedChartData(xVals: dataPoints, dataSet: lineChartDataSet)
+        let combineChartData = CombinedChartData(xVals: dataPoints, dataSet: lineChartDataSet)
+        combineChartData.scatterData = scatterChartData
+        combineChartData.lineData = lineChartData 
+        //lineChartView.data = lineChartData
+        scatterPlot.data = scatterChartData
+        comboChart.data = combineChartData
     }
     
-    
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-}*/
+}

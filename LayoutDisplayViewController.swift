@@ -91,19 +91,19 @@ class LayoutDisplayViewController: UIViewController {
             savedVariables.slopeArray = []
             savedVariables.interceptArray = []
             //savedVariables.testAreaNameArray = []
-            let totalTestArray = savedVariables.numberOfTestAreas * 9
+            let totalTestArray = savedVariables.numberOfTestAreas * 10
             //print("The totalTestArray is \(savedVariables.numberOfTestAreas)")
             for var k = 0; k < totalTestArray; k++ {
                 //print("numberOfTestAreas = \(savedVariables.numberOfTestAreas)")
                 //print("k = \(k)")
-                if (k % 9 == 0) {
+                if (k % 10 == 0) {
                     savedVariables.xCoordinateArray += [fullArray[k]]
                     print(savedVariables.xCoordinateArray)
                 }
-                if (k % 9 == 1) {
+                if (k % 10 == 1) {
                     savedVariables.yCoordinateArray += [fullArray[k]]
                 }
-                if (k % 9 == 2) {
+                if (k % 10 == 2) {
                     savedVariables.radiusArray += [fullArray[k]]
                 }
                 /*if (k % 5 == 3) {
@@ -203,7 +203,7 @@ class LayoutDisplayViewController: UIViewController {
             var videoDeviceInput: AVCaptureDeviceInput?
             do {
                 videoDeviceInput = try AVCaptureDeviceInput(device: videoDevice)
-            } catch let error1 as NSError {
+            } catch _ as NSError {
                 //error = error1
                 videoDeviceInput = nil
             } catch {
@@ -221,7 +221,7 @@ class LayoutDisplayViewController: UIViewController {
             }
             
             
-            var audioDevice: AVCaptureDevice = AVCaptureDevice.devicesWithMediaType(AVMediaTypeAudio).first as! AVCaptureDevice
+            //var audioDevice: AVCaptureDevice = AVCaptureDevice.devicesWithMediaType(AVMediaTypeAudio).first as! AVCaptureDevice
             let stillImageOutput: AVCaptureStillImageOutput = AVCaptureStillImageOutput()
             if session.canAddOutput(stillImageOutput){
                 stillImageOutput.outputSettings = [AVVideoCodecKey: AVVideoCodecJPEG]
@@ -239,7 +239,7 @@ class LayoutDisplayViewController: UIViewController {
         fetchOptions.predicate = NSPredicate(format: "title = %@", "iOS Colorimeter")
         let collection : PHFetchResult = PHAssetCollection.fetchAssetCollectionsWithType(.Album, subtype: .Any, options: fetchOptions)
         
-        if let first_obj: AnyObject = collection.firstObject {
+        if let first_Object = collection.firstObject {
             self.albumFound = true
             assetCollection = collection.firstObject as! PHAssetCollection
         } else {
@@ -353,8 +353,8 @@ class LayoutDisplayViewController: UIViewController {
             self.createAlbum()
             self.stillImageOutput?.captureStillImageAsynchronouslyFromConnection(self.stillImageOutput?.connectionWithMediaType(AVMediaTypeVideo), completionHandler: { (imageDataSampleBuffer, error) -> Void in
                 if ((imageDataSampleBuffer) != nil) {
-                    var imageData : NSData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataSampleBuffer)
-                    var image : UIImage = UIImage(data: imageData)!
+                    let imageData : NSData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataSampleBuffer)
+                    let image : UIImage = UIImage(data: imageData)!
                     //ALAssetsLibrary().writeImageToSavedPhotosAlbum(image.CGImage, orientation: ALAssetOrientation(rawValue: image.imageOrientation.rawValue)!, completionBlock: nil)
                     
                     var assetPlaceholder:PHObjectPlaceholder!
@@ -375,22 +375,6 @@ class LayoutDisplayViewController: UIViewController {
                         }, completionHandler: {(success:Bool, error:NSError?) in
                             
                             print("added image to album")})
-                    /*PHPhotoLibrary.sharedPhotoLibrary().performChanges({
-                    let assetRequest = PHAssetChangeRequest.creationRequestForAssetFromImage(image)
-                    let assetPlaceholder = assetRequest.placeholderForCreatedAsset
-                    let albumChangeRequest = PHAssetCollectionChangeRequest(forAssetCollection: self.assetCollection, assets: self.photosAsset)
-                    albumChangeRequest!.addAssets([assetPlaceholder])
-                    }, completionHandler: { success, error in
-                    print("added image to album")
-                    //println(error)
-                    
-                    
-                    
-                    //self.showImages()
-                    
-                    })*/
-                    
-                    
                 }
             })
             
@@ -444,18 +428,37 @@ class LayoutDisplayViewController: UIViewController {
         if(savedVariables.highestTotalTime >= currentTime){
             progressLabel.text = "\(currentTime) seconds of \(savedVariables.highestTotalTime) seconds"
         }
-        
+        print(currentTime)
+        print(savedVariables.timingArray)
+        print(savedVariables.timingArray.count)
         for var i = 0; i < savedVariables.timingArray.count; i++ {
-            if(currentTime % savedVariables.timingArray[i] == 0 && currentTime <= savedVariables.highestTotalTime){
-            //Needs to mark the photo
+            print(savedVariables.timingArray[i])
+            
+            
+            
+            
+            if((currentTime % savedVariables.timingArray[i] == 0 && currentTime <= savedVariables.highestTotalTime) || currentTime == 1 && (savedVariables.typeOfTestArray[i] as! String != "End-Point" || savedVariables.highestTotalTime == 1)){
+                
+                
+              
+                
+                
+                
+                //Needs to mark the photo
+                print("Take Picture : \(currentTime)")
                 takeStillImage()
                 let tempCurrentTime = currentTime
                 let tempPictureCounter = pictureCounter
                 pictureCounter += 1
                 for var j = 0; j < savedVariables.numberOfTestAreas; j++ {
+                    
+                    
+                    
+                    
+                    
                     let intervalTime = Int(savedVariables.intervalTestTimeArray[j] as! String)!
                     let totalTime = Int(savedVariables.totalTestTimeArray[j] as! String)!
-                    if(tempCurrentTime % intervalTime == 0 && totalTime >= tempCurrentTime){
+                    if((tempCurrentTime % intervalTime == 0 && totalTime >= tempCurrentTime) || currentTime == 1){
                         print("*****")
                         print(tempCurrentTime)
                         print(intervalTime)
@@ -466,12 +469,11 @@ class LayoutDisplayViewController: UIViewController {
                         print("match RECORDED")
                     }
                 }
+                //End loop to prevent addition pictures
+                i = savedVariables.timingArray.count - 1
             }
+           
         }
-        
-        
-        
-        
         if(currentTime == (savedVariables.highestTotalTime + 2)){
             timer.invalidate()
             
@@ -480,27 +482,12 @@ class LayoutDisplayViewController: UIViewController {
             savedVariables.numberOfPhotos = pictureCounter
             self.performSegueWithIdentifier("SegueToPerformTest", sender: nil)
         }
-        
-        /*loopCount++
-        //testNumberLabel.text = "Currently Taking Photo \(loopCount) of \(numberOfLoops)"
-        if (loopCount > numberOfLoops) {
-            timer.invalidate()
-            let alert = UIAlertController(title: "Alert", message: "Images Saved", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-            self.performSegueWithIdentifier("SegueToPerformTest", sender: nil)
-        }
-            
-        else {
-            takeStillImage()
-        }*/
     }
 
     func setup(index: Int){
         self.performSegueWithIdentifier("SegueToPerformTest", sender: nil)
     }
-    
-    
-    
+
     // Loads the necessary information for displayLayout
     func loadStuff() {
         

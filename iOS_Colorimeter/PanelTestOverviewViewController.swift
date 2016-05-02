@@ -34,7 +34,7 @@ class PanelTestOverviewViewController: UIViewController {
             let conName = UILabel(frame: CGRectMake(screenSize.width, 0, 200, 21))
             conName.center = CGPointMake((screenSize.width * 0.5), textPosition)
             conName.textAlignment = NSTextAlignment.Center
-            conName.text = "Units: \(savedVariables.concertationArray[x])"
+            conName.text = "Units: \(savedVariables.concentrationArray[x])"
             conName.textColor = UIColor.whiteColor()
             self.testInfoScrollView.addSubview(conName)
             textPosition += 20

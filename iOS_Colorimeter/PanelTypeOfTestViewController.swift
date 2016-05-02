@@ -10,7 +10,9 @@ class PanelTypeOfTestViewController: UIViewController {
     @IBOutlet weak var intervalTimeTextField: UITextField!
     @IBOutlet weak var intervalTimeLabel: UILabel!
     @IBOutlet weak var nextAreaButton: UIButton!
+    @IBOutlet var slopeSwitch: UISwitch!
     
+    @IBOutlet var useSlopeLabel: UILabel!
     
     
     
@@ -21,9 +23,6 @@ class PanelTypeOfTestViewController: UIViewController {
         self.performSegueWithIdentifier("cancelledSegue", sender: nil)
     }
 
-    
-    
-    
     @IBAction func switchTestType(sender: AnyObject) {
        switch typeOfTypeSegmentedControl.selectedSegmentIndex{
             //Kinetic selected.
@@ -31,6 +30,8 @@ class PanelTypeOfTestViewController: UIViewController {
                 //print("Kinetic Selected")
                 currentTypeOfTest = 0
                 self.intervalTimeView.hidden = false
+                self.slopeSwitch.hidden = false
+                self.useSlopeLabel.hidden = false
                 //intervalTimeLabel.text = "What is the interval time?"
                 //textLabel.text = "First selected";
             
@@ -39,6 +40,8 @@ class PanelTypeOfTestViewController: UIViewController {
                 //print("End-Point Selected")
                 currentTypeOfTest = 1
                 self.intervalTimeView.hidden = true
+                self.slopeSwitch.hidden = true
+                self.useSlopeLabel.hidden = true
                 //intervalTimeLabel.attributedText = attrString
                 //textLabel.text = "Second Segment selected";
             default: 
@@ -75,9 +78,20 @@ class PanelTypeOfTestViewController: UIViewController {
                         savedVariables.typeOfTestArray[savedVariables.currentTestArea-1] = "Kinetic"
                         savedVariables.totalTestTimeArray[savedVariables.currentTestArea-1] = totalTestTimeTextField.text!
                         savedVariables.intervalTestTimeArray[savedVariables.currentTestArea-1] = intervalTimeTextField.text!
+                 
+                        if(slopeSwitch.on == true){
+                            savedVariables.takeSlopeDataArray[savedVariables.currentTestArea-1] = "True"
+                            print("Taking slope data.")
+                        }
+                        else{
+                            savedVariables.takeSlopeDataArray[savedVariables.currentTestArea-1] = "False"
+                            print("Not taking slope data.")
+                        }
+                        
                         savedVariables.currentTestArea += 1
                         setHighestTotalTestTime()
                         setTiming(intervalTimeTextField.text!)
+                        
                         self.performSegueWithIdentifier("toTestOverviewSegue", sender: nil)
                     }
 
@@ -95,9 +109,12 @@ class PanelTypeOfTestViewController: UIViewController {
                     savedVariables.typeOfTestArray[savedVariables.currentTestArea-1] = "End-Point"
                     savedVariables.totalTestTimeArray[savedVariables.currentTestArea-1] = totalTestTimeTextField.text!
                     savedVariables.intervalTestTimeArray[savedVariables.currentTestArea-1] = totalTestTimeTextField.text!
+
+                  
                     savedVariables.currentTestArea += 1
                     setHighestTotalTestTime()
                     setTiming(totalTestTimeTextField.text!)
+                    
                     self.performSegueWithIdentifier("toTestOverviewSegue", sender: nil)
                 }
             }
@@ -128,6 +145,16 @@ class PanelTypeOfTestViewController: UIViewController {
                             savedVariables.typeOfTestArray[savedVariables.currentTestArea-1] = "Kinetic"
                             savedVariables.totalTestTimeArray[savedVariables.currentTestArea-1] = totalTestTimeTextField.text!
                             savedVariables.intervalTestTimeArray[savedVariables.currentTestArea-1] = intervalTimeTextField.text!
+                
+                            if(slopeSwitch.on == true){
+                                savedVariables.takeSlopeDataArray[savedVariables.currentTestArea-1] = "True"
+                                print("Taking slope data.")
+                            }
+                            else{
+                                savedVariables.takeSlopeDataArray[savedVariables.currentTestArea-1] = "False"
+                                print("Not taking slope data.")
+                            }
+                            
                             savedVariables.currentTestArea += 1
                             setHighestTotalTestTime()
                             setTiming(intervalTimeTextField.text!)
@@ -149,6 +176,9 @@ class PanelTypeOfTestViewController: UIViewController {
                         savedVariables.typeOfTestArray[savedVariables.currentTestArea-1] = "End-Point"
                         savedVariables.totalTestTimeArray[savedVariables.currentTestArea-1] = totalTestTimeTextField.text!
                         savedVariables.intervalTestTimeArray[savedVariables.currentTestArea-1] = totalTestTimeTextField.text!
+                 
+                      
+                        
                         savedVariables.currentTestArea += 1
                         setHighestTotalTestTime()
                         setTiming(totalTestTimeTextField.text!)
@@ -181,7 +211,6 @@ class PanelTypeOfTestViewController: UIViewController {
         //savedVariables.timingArray += [tempInt]
         addToTimingArray(tempInt)
     }
-    
     
     
     override func viewDidLoad() {

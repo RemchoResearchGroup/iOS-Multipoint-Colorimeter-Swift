@@ -7,11 +7,8 @@ import AssetsLibrary
 
 class PerformTestViewController: UIViewController {
     @IBOutlet weak var photoBeingTested: UILabel!
-    @IBOutlet weak var testBeingTested: UILabel!
-    
-    
+    @IBOutlet weak var testBeingTested: UILabel! 
     @IBOutlet var progressLabel: UILabel!
-    
     
     @IBOutlet var labelOne: UILabel!
     @IBOutlet var labelTwo: UILabel!
@@ -27,15 +24,16 @@ class PerformTestViewController: UIViewController {
         var images : [UIImage] = []
         var stopped = false
         
-        library.enumerateGroupsWithTypes(ALAssetsGroupSavedPhotos, usingBlock: { (group,var stop) -> Void in
+        library.enumerateGroupsWithTypes(ALAssetsGroupSavedPhotos, usingBlock: { (group, stop) -> Void in
             
             group?.setAssetsFilter(ALAssetsFilter.allPhotos())
             
             group?.enumerateAssetsWithOptions(NSEnumerationOptions.Reverse, usingBlock: {
-                (asset : ALAsset!, index, var stopEnumeration) -> Void in
+                (asset : ALAsset!, index, stopEnumeration) -> Void in
                 
                 if (!stopped)
                 {
+                    print(savedVariables.numberOfPhotos)
                     
                     if count >= savedVariables.numberOfPhotos
                     {
@@ -47,56 +45,8 @@ class PerformTestViewController: UIViewController {
                         completionBlock(images)
                         stopped = true
                         if(savedVariables.performingTest == true){
-                            
-                            
-                            
-                            
                             self.findAverage()
-                            
                             self.performSegueWithIdentifier("SegueToTestResults", sender: nil)
-                            /*
-                            //savedVariables.instanceCount = savedVariables.instanceCount + 1
-                            //self.performSegueWithIdentifier("SegueToResults1", sender: nil)
-                            savedVariables.currentTestArea = 0
-                            var averageColor = 1.1
-                            var channel = savedVariables.channelUsed[savedVariables.currentTestArea]
-     
-                            if(channel == "0"){
-                                averageColor = savedVariables.calibrationRedArray[0][0]
-                            }
-                            if(channel == "1"){
-                                averageColor = savedVariables.calibrationGreenArray[0][0]
-                            }
-                            if(channel == "2"){
-                                averageColor = savedVariables.calibrationBlueArray[0][0]
-                            }
-                            
-                            var slope = (savedVariables.slopeArray[0] as NSString).doubleValue
-                            var intercept = (savedVariables.interceptArray[0] as NSString).doubleValue
-                            var concertationNumber =  intercept + slope * averageColor
-    
-                            self.labelOne.text = "1: \(concertationNumber) \(savedVariables.concertationArray[0])"
-                            
-                            savedVariables.currentTestArea = 1
-                            averageColor = 1.1
-                            channel = savedVariables.channelUsed[savedVariables.currentTestArea]
-
-                            if(channel == "0"){
-                                averageColor = savedVariables.calibrationRedArray[1][0]
-                            }
-                            if(channel == "1"){
-                                averageColor = savedVariables.calibrationGreenArray[1][0]
-                            }
-                            if(channel == "2"){
-                                averageColor = savedVariables.calibrationBlueArray[1][0]
-                            }
-                            
-                            
-                            slope = (savedVariables.slopeArray[1] as NSString).doubleValue
-                            intercept = (savedVariables.interceptArray[1] as NSString).doubleValue
-                            concertationNumber =  intercept + slope * averageColor
-                            print(concertationNumber)
-                            self.labelOne.text = "2: \(concertationNumber) \(savedVariables.concertationArray[1])"*/
                         }
                         else{
                             //savedVariables.photoCount = 0
@@ -107,30 +57,30 @@ class PerformTestViewController: UIViewController {
                     else
                     {
                         // Use the following line for the full image.
+                   
                         let cgImage = asset.defaultRepresentation().fullScreenImage().takeUnretainedValue()
-                        var a = UIImage(CGImage: cgImage)
+                        _ = UIImage(CGImage: cgImage)
                         let image = UIImage(CGImage: cgImage)
-                                                print("***********")
+                        print("***********")
                         print("The number of testAreas: \(savedVariables.numberOfTestAreas)")
                         print("***********")
-                        
-                        for var subIndex = 0; subIndex < savedVariables.numberOfTestAreas; subIndex++ {
-                            var x      = savedVariables.xCoordinateArray[subIndex]
-                            var y      = savedVariables.yCoordinateArray[subIndex]
-                            var radius = savedVariables.radiusArray[subIndex]
-                            var xLoc   = (x as NSString).integerValue
-                            var yLoc   = (y as NSString).integerValue
-                            print("Testing \(xLoc) \(yLoc) \n")
-                            var rad    = (radius as NSString).integerValue
-                            self.analyze(xLoc,y: yLoc,radius: rad,optimization: 5, testImagine: image, testArea: subIndex, photoUsed: count)
-                        }
                         images.append(image)
+                        for var subIndex = 0; subIndex < savedVariables.numberOfTestAreas; subIndex++ {
+                            let x      = savedVariables.xCoordinateArray[subIndex]
+                            let y      = savedVariables.yCoordinateArray[subIndex]
+                            let radius = savedVariables.radiusArray[subIndex]
+                            let xLoc   = (x as NSString).integerValue
+                            let yLoc   = (y as NSString).integerValue
+                            print("Testing \(xLoc) \(yLoc) \n")
+                            let rad    = (radius as NSString).integerValue
+                            self.analyze(xLoc,y: yLoc,radius: rad,optimization: 5, testImagine: images[count], testArea: subIndex, photoUsed: count)
+                        }
+                        
+                        print(images)
                         /*if(count == savedVariables.numberOfPhotos){
                         self.performSegueWithIdentifier("SegueToSelectAreaViewController", sender: nil)
                         }*/
                         count += 1
-                        
-                        
                         //}
                     }
                 }
@@ -164,9 +114,15 @@ class PerformTestViewController: UIViewController {
         print("The testArea is \(testArea)")
         print("**************************")
         
-        let x = x * 2
-        let y = y * 2
-        var position = CGPoint(x: x, y: y)
+        
+        let tempX = ((x) - (radius/2))*2
+        let tempY = ((y) - (radius/2))*2
+
+        
+        
+        var position = CGPoint(x: tempX, y: tempY)
+        print(position)
+        print(radius*2)
         // Dump RGBA values
         var redval:   CGFloat = 0
         var greenval: CGFloat = 0
@@ -179,30 +135,23 @@ class PerformTestViewController: UIViewController {
         var alphaSum:   CGFloat = 0
         var totalLoops: CGFloat = 0
         //If Flag
-        var flag = false
+        //var flag = false
         
         
-        for var xIndex = 0; xIndex < radius; xIndex++ {
-            for var yIndex = 0; yIndex < radius; yIndex++ {
-                position = CGPoint(x: x + xIndex, y: y + yIndex)
+        for var xIndex = 0; xIndex < radius*2; xIndex++ {
+            for var yIndex = 0; yIndex < radius*2; yIndex++ {
+                position = CGPoint(x: tempX + xIndex, y: tempY + yIndex)
                 //println(position)
                 // Use your extension
                 let colour = testImagine.getPixelColor(position)
                 
-                //println("x=\(xIndex), y=\(yIndex)")
                 colour.getRed(&redval, green: &greenval, blue: &blueval, alpha:&alphaval)
-                
+                //print("x=\(tempX + xIndex), y=\(tempY + yIndex) .. red: \(redval*255), green: \(greenval*255), blue: \(blueval*255)")
                 redSum = redSum + redval
                 greenSum = greenSum + greenval
                 blueSum = blueSum + blueval
                 alphaSum = alphaSum + alphaval
                 totalLoops = totalLoops + 1
-                
-                //println("Green is r: \(redval) g: \(greenval) b: \(blueval) a: \(alphaval)")
-                /*if(xIndex == radius - 1 /*- optimization*/ && yIndex == radius - 1/* - optimization*/){
-                    //println("index if statement hit")
-                    flag = true
-                }*/
             }
         }
         //if(flag == true){
@@ -222,24 +171,12 @@ class PerformTestViewController: UIViewController {
             print("Gray Scale is: \(grayScale)")
             print("hue is \(hsv.hue), sat is \(hsv.saturation), value is \(hsv.value)")
             
-            /*
-            savedVariables.redArray += [CGFloat(avgRed*255.0)]
-            savedVariables.greenArray += [avgGreen*255]
-            savedVariables.blueArray += [avgBlue*255]
-            savedVariables.hueArray += [hsv.hue]
-            savedVariables.saturationArray += [hsv.saturation]
-            savedVariables.valueArray += [hsv.value]*/
-            
-            //Needs to save the photodata in the reserve order on the order of the photo being loaded
-            
-            savedVariables.redArray[testArea][photoUsed]       = Double(avgRed*255.0)
-            savedVariables.greenArray[testArea][photoUsed]     = Double(avgGreen*255.0)
-            savedVariables.blueArray[testArea][photoUsed]      = Double(avgBlue*255.0)
-            /*savedVariables.hueArray[testArea][photoUsed]        = Double(hsv.hue)
-            savedVariables.saturationArray[testArea][photoUsed] = Double(hsv.saturation)
-            savedVariables.valueArray[testArea][photoUsed]      = Double(hsv.value)*/
-
-            
+            //Note pictures are being pulled in the reverse order.
+            let tempInstance = (savedVariables.numberOfPhotos - 1) - photoUsed
+            savedVariables.redArray[testArea][tempInstance]       = Double(avgRed*255.0)
+            savedVariables.greenArray[testArea][tempInstance]     = Double(avgGreen*255.0)
+            savedVariables.blueArray[testArea][tempInstance]      = Double(avgBlue*255.0)
+        
             /*
             print("**************************")
             print("The photo is \(photoUsed)")
@@ -266,28 +203,25 @@ class PerformTestViewController: UIViewController {
         var blueSum  = 0.0
         //var alphaSum = 0.0
 
+        var redSlopeSum = 0.0
+        var greenSlopeSum = 0.0
+        var blueSlopeSum = 0.0
         
+        //xIndex is the test area.
+        //yIndex is the test instance.
         for var xIndex = 0; xIndex < savedVariables.numberOfTestAreas; xIndex++ {
-            //for var yIndex = 0; yIndex < savedVariables.numberOfPhotos; yIndex++ {
-                //If(savedVariables.markPhotoArray[i][j] == 1){
-                
-            
-                //}
-            //}
-            
-            
-            
+        
             redSum   = 0.0
             greenSum = 0.0
             blueSum  = 0.0
             
-            var perviousRed = 0.0
-            var perviousGreen = 0.0
-            var perviousBlue = 0.0
+            redSlopeSum = 0.0
+            greenSlopeSum = 0.0
+            blueSlopeSum = 0.0
             
-            //var alphaSum = 0.0
-
+            //Note this decreases (yIndex--) since the photos are being pulled in reverse.
             for var yIndex = 0; yIndex < savedVariables.numberOfPhotos; yIndex++ {
+                print(yIndex)
                 if(savedVariables.markPhotosArray[xIndex][yIndex] == 1){
                     print("Test Area: \(savedVariables.numberOfTestAreas)")
                     print(yIndex)
@@ -297,28 +231,121 @@ class PerformTestViewController: UIViewController {
                     
                     
                     //print("The type of test for \(yIndex): \(savedVariables.typeOfTestArray[xIndex])")
-                    /*if(savedVariables.typeOfTestArray[xIndex] as! String == "Kinetic"){
-                        print("Kinetic Hit")
-                    }*/
+                    //if(savedVariables.performingTest == false){
+                    if(savedVariables.takeSlopeDataArray[xIndex] as! String == "True"){
+                        
+                        let doubleIntervalTime = (savedVariables.intervalTestTimeArray[xIndex] as! NSString).doubleValue
+                        let doubleEndTime = (savedVariables.totalTestTimeArray[xIndex] as! NSString).doubleValue
+                        
+                        
+                        
+                        //No previous slopes exist.
+                        if(yIndex == 0){
+                            savedVariables.previousRedValue = savedVariables.redArray[xIndex][yIndex]
+                            savedVariables.previousGreenValue = savedVariables.greenArray[xIndex][yIndex]
+                            savedVariables.previousBlueValue = savedVariables.blueArray[xIndex][yIndex]
+                        }
+                        
+                        
+                        //Have to factor in the first photo into the slope and is not == 1.
+                        else if(yIndex == 1 && doubleIntervalTime != 1){
+                            //Note: since I taking the slope in the format (a-b/c-d).  I reduce the yIndex by 1 since yIndex == 0 data is invalid.
+                            savedVariables.slopeRedArray[xIndex][yIndex-1] = (savedVariables.redArray[xIndex][yIndex] - savedVariables.previousRedValue) / (doubleIntervalTime - 1)
+                            savedVariables.slopeGreenArray[xIndex][yIndex-1] = (savedVariables.greenArray[xIndex][yIndex] - savedVariables.previousGreenValue) / (doubleIntervalTime - 1)
+                            savedVariables.slopeBlueArray[xIndex][yIndex-1] = (savedVariables.blueArray[xIndex][yIndex] - savedVariables.previousBlueValue) / (doubleIntervalTime - 1)
+                            
+                            redSlopeSum = redSlopeSum + savedVariables.slopeRedArray[xIndex][yIndex-1]
+                            greenSlopeSum = greenSlopeSum + savedVariables.slopeGreenArray[xIndex][yIndex-1]
+                            blueSlopeSum = blueSlopeSum + savedVariables.slopeBlueArray[xIndex][yIndex-1]
+                            
+                            savedVariables.previousRedValue = savedVariables.redArray[xIndex][yIndex]
+                            savedVariables.previousGreenValue = savedVariables.greenArray[xIndex][yIndex]
+                            savedVariables.previousBlueValue = savedVariables.blueArray[xIndex][yIndex]
+                        
+                        }
+                        
+                        else{
+                            savedVariables.slopeRedArray[xIndex][yIndex-1] = (savedVariables.redArray[xIndex][yIndex] - savedVariables.previousRedValue) / doubleIntervalTime
+                            savedVariables.slopeGreenArray[xIndex][yIndex-1] = (savedVariables.greenArray[xIndex][yIndex] - savedVariables.previousGreenValue) / doubleIntervalTime
+                            savedVariables.slopeBlueArray[xIndex][yIndex-1] = (savedVariables.blueArray[xIndex][yIndex] - savedVariables.previousBlueValue) / doubleIntervalTime
+                            
+                            redSlopeSum = redSlopeSum + savedVariables.slopeRedArray[xIndex][yIndex-1]
+                            greenSlopeSum = greenSlopeSum + savedVariables.slopeGreenArray[xIndex][yIndex-1]
+                            blueSlopeSum = blueSlopeSum + savedVariables.slopeBlueArray[xIndex][yIndex-1]
+                            
+                            savedVariables.previousRedValue = savedVariables.redArray[xIndex][yIndex]
+                            savedVariables.previousGreenValue = savedVariables.greenArray[xIndex][yIndex]
+                            savedVariables.previousBlueValue = savedVariables.blueArray[xIndex][yIndex]
+                        }
+                        
+                        //Without if statement prints will cause array out of index error, specifally yIndex - 1 = -1.
+                        if(yIndex != 0){
+                            print("*********")
+                            print("Red Slope: \(savedVariables.slopeRedArray[xIndex][yIndex-1])")
+                            print("Green Slope: \(savedVariables.slopeGreenArray[xIndex][yIndex-1])")
+                            print("Blue Slope: \(savedVariables.slopeBlueArray[xIndex][yIndex-1])")
+                            print("*********")
+                        }
+                    }
+                    //}
                     
                     
                     
                 }
-            }
+                }
             print("The redSum is \(redSum)")
             print("The greenSum is \(greenSum)")
             print("The blueSum is \(blueSum)")
             
             let totalTime:Int = Int(savedVariables.totalTestTimeArray[xIndex] as! String)!
             let intervalTime:Int = Int(savedVariables.intervalTestTimeArray[xIndex] as! String)!
+            print(totalTime)
+            print(intervalTime)
             
+            //The plus 1.0 is because of the first photo taken.
+            /*The reason for the else statement is that there is always a photo taken at 1 second.  Because the interval time 
+            does not factor in this first photo if the intervalTime > 1, 1.0 must be added to the divisor.*/
+            var divisor = 1.0
+            var slopeDivisor = 1.0
+
+            if(intervalTime == 1){
+               divisor = Double(totalTime/intervalTime)
+               //Edge Case; total time == 1 && interval time == 1
+                if(divisor == 1){
+                    slopeDivisor = divisor
+                }
+                else{
+                    slopeDivisor = (divisor - 1)
+                }
+               print("The divisor is \(divisor)")
+            }
+            else{
+                divisor = Double(totalTime/intervalTime) + 1.0
+                slopeDivisor = Double(totalTime/intervalTime)
+                print("The divisor is \(divisor)")
+            }
             
-            let divisor = Double(totalTime/intervalTime)
-            print("The divisor is \(divisor)")
-            
-            savedVariables.calibrationRedArray[xIndex][savedVariables.instanceCount] = redSum/divisor
-            savedVariables.calibrationGreenArray[xIndex][savedVariables.instanceCount] = greenSum/divisor
-            savedVariables.calibrationBlueArray[xIndex][savedVariables.instanceCount] = blueSum/divisor
+            if(savedVariables.takeSlopeDataArray[xIndex] as! String == "True"){
+                print("Success")
+                savedVariables.calibrationRedArray[xIndex][savedVariables.instanceCount] = redSlopeSum/slopeDivisor
+                savedVariables.calibrationGreenArray[xIndex][savedVariables.instanceCount] = greenSlopeSum/slopeDivisor
+                savedVariables.calibrationBlueArray[xIndex][savedVariables.instanceCount] = blueSlopeSum/slopeDivisor
+            }
+            else if(savedVariables.typeOfTestArray[xIndex] as! String == "End-Point"){
+                savedVariables.calibrationRedArray[xIndex][savedVariables.instanceCount] = redSum
+                savedVariables.calibrationGreenArray[xIndex][savedVariables.instanceCount] = greenSum
+                savedVariables.calibrationBlueArray[xIndex][savedVariables.instanceCount] = blueSum
+            }
+            else{
+                print(xIndex)
+                print(savedVariables.typeOfTestArray[xIndex])
+                print(savedVariables.takeSlopeDataArray[xIndex])
+                print(savedVariables.takeSlopeDataArray)
+                
+                savedVariables.calibrationRedArray[xIndex][savedVariables.instanceCount] = redSum/divisor
+                savedVariables.calibrationGreenArray[xIndex][savedVariables.instanceCount] = greenSum/divisor
+                savedVariables.calibrationBlueArray[xIndex][savedVariables.instanceCount] = blueSum/divisor
+            }
             
             print("**************************")
             //print("The instance is \(savedVariables.instanceCount)")

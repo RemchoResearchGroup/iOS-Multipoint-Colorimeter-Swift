@@ -6,20 +6,12 @@ struct modelStored {
     
 }
 
-
-
-
 struct savedVariables {
-    
-    
     
     /*****************
     For Creating Panels
     ******************/
-    
-    
-    
-    
+     
     //Maintains progress for creating panel and manages containers
     //0 = Name Panel Stage
     static var createPanelProgress = 0
@@ -29,11 +21,12 @@ struct savedVariables {
     //1 is first time, 0 is not the first time.
     static var firstTestAreaFlag = 0
     static var testAreaNameArray = [AnyObject] ()
-    static var concertationArray = [AnyObject] ()
-    static var concertationValueArray = [AnyObject] ()
+    static var concentrationArray = [AnyObject] ()
+    static var concentrationValueArray = [AnyObject] ()
     static var typeOfTestArray = [AnyObject] ()
     static var totalTestTimeArray = [AnyObject] ()
     static var intervalTestTimeArray = [AnyObject] ()
+    static var takeSlopeDataArray = [AnyObject] ()
     static var initalCalibrationTesting = false
     
     static var timingArray = [Int] ()
@@ -67,14 +60,9 @@ struct savedVariables {
     static var interceptArray = [String] ()
     
     
-    static var channelUsed = [String] ()
-    
+    static var channelUsed = [String] ()    
     static var performingTest = false
-    
-    //static var concentrationArray = [[Int]]()
-    //static var photoCount = 0
-    //static var concentrationArray = Array<Array<Double>>()
-    
+
     static var markPhotosArray = Array<Array<Double>>()
     
     static var instanceCount = 0
@@ -86,13 +74,17 @@ struct savedVariables {
     static var saturationArray = Array<Array<Double>>()
     static var valueArray      = Array<Array<Double>>()
 
-    static var concentrationArray         = Array<Array<Double>>()
+    static var concentrationMultipleArray         = Array<Array<Double>>()
     static var calibrationRedArray        = Array<Array<Double>>()
     static var calibrationGreenArray      = Array<Array<Double>>()
     static var calibrationBlueArray       = Array<Array<Double>>()
     static var calibrationHueArray        = Array<Array<Double>>()
     static var calibrationSaturationArray = Array<Array<Double>>()
     static var calibrationValueArray      = Array<Array<Double>>()
+    
+    static var calibrationSlopeRedArray        = Array<Array<Double>>()
+    static var calibrationSlopeGreenArray      = Array<Array<Double>>()
+    static var calibrationSlopeBlueArray       = Array<Array<Double>>()
     
     static var slopeRedArray        = Array<Array<Double>>()
     static var slopeGreenArray      = Array<Array<Double>>()
@@ -101,17 +93,19 @@ struct savedVariables {
     static var slopeSaturationArray = Array<Array<Double>>()
     static var slopeValueArray      = Array<Array<Double>>()
     
-    /*static var xCord  = Array<Array<Double>>()
-    static var yCord  = Array<Array<Double>>()
-    static var radius = Array<Array<Double>>()
-    static var slope       = Array<Array<Double>>()
-    static var intercept   = Array<Array<Double>>()*/
+    static var conRedArray          = Array<Array<Double>>()
+    static var conGreenArray        = Array<Array<Double>>()
+    static var conBlueArray         = Array<Array<Double>>()
+
   
     static var countTracker = 0
     static var firstCal = true
     
-
+    static var previousRedValue = 0.0
+    static var previousGreenValue = 0.0
+    static var previousBlueValue = 0.0
     
+
 }
 
 

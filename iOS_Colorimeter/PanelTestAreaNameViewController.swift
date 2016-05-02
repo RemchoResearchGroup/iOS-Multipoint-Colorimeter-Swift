@@ -1,56 +1,45 @@
+//Code for saving test panel name.
 import UIKit
 
 class PanelTestAreaNameViewController: UIViewController {
     
-    
     @IBOutlet weak var nameTestAreaLabel: UILabel!
     @IBOutlet weak var nameTestAreaTextField: UITextField!
-    @IBOutlet weak var concertationTextField: UITextField!
+    @IBOutlet weak var concentrationTextField: UITextField!
     
-    
-    @IBAction func cancel(sender: AnyObject) {
-        self.performSegueWithIdentifier("cancelledSegue", sender: nil)
-    }
-
     
     @IBAction func toTypeOfTest(sender: AnyObject) {
         savedVariables.testAreaNameArray[savedVariables.numberOfTestAreas] = nameTestAreaLabel.text!
-        savedVariables.concertationArray[savedVariables.numberOfTestAreas] = nameTestAreaLabel.text!
+        savedVariables.concentrationArray[savedVariables.numberOfTestAreas] = nameTestAreaLabel.text!
     }
     
+    
     @IBAction func saveAreaName(sender: AnyObject) {
-        /*if(nameTestAreaTextField.text! == "" && concertationTextField.text! == ""){
-            let alert = UIAlertController(title: "Error", message: "Please add a test name.", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
-        }*/
+        //Test area name blank.  Throw alert.
         if(nameTestAreaTextField.text! == ""){
             let alert = UIAlertController(title: "Error", message: "Please add a test name.", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
-        }
-        else if(concertationTextField.text! == ""){
-            let alert = UIAlertController(title: "Error", message: "Please add a concertation name.", preferredStyle: UIAlertControllerStyle.Alert)
+        }        //Concentation area name blank.  Throw alert.
+        else if(concentrationTextField.text! == ""){
+            let alert = UIAlertController(title: "Error", message: "Please add a concentration name.", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
         }
+        //No errors.  Save data. 
         else{
             savedVariables.testAreaNameArray[savedVariables.currentTestArea - 1] = nameTestAreaTextField.text!
-            savedVariables.concertationArray [savedVariables.currentTestArea - 1] = concertationTextField.text!
-            
-            
-            //savedVariables.panelName = panelNameTextField.text!
+            savedVariables.concentrationArray [savedVariables.currentTestArea - 1] = concentrationTextField.text!
             self.performSegueWithIdentifier("toTypeOfTestSegue", sender: nil)
         }
     }
 
-    
-    
-    
+    //Cancel test send back to main menu.
+    @IBAction func cancel(sender: AnyObject) {
+        self.performSegueWithIdentifier("cancelledSegue", sender: nil)
+    }
 
-    //Calls this function when the tap is recognized.
     func DismissKeyboard(){
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
     
@@ -60,24 +49,18 @@ class PanelTestAreaNameViewController: UIViewController {
         nameTestAreaLabel.text = "What is the name of test area \(savedVariables.currentTestArea)."
         //Check if this is first time hitting the TestAreaName VC. 
         if(savedVariables.firstTestAreaFlag == 1){
-             //Fill test area name and concertation array.
+             //Fill test arrays with black data for the number of tests.
              for _ in 0...savedVariables.numberOfTestAreas {
+                savedVariables.takeSlopeDataArray.append("")
                 savedVariables.testAreaNameArray.append("")
-                savedVariables.concertationArray.append("")
-                savedVariables.concertationValueArray.append("")
+                savedVariables.concentrationArray.append("")
+                savedVariables.concentrationValueArray.append("")
                 savedVariables.typeOfTestArray.append("")
                 savedVariables.totalTestTimeArray.append("")
                 savedVariables.intervalTestTimeArray.append("")
             }
             savedVariables.firstTestAreaFlag = 0
         }
-        
-        
-        
-        
-        
-        
-        
         
         //Hides back button
         navigationItem.hidesBackButton = true

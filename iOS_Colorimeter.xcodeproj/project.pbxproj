@@ -23,8 +23,6 @@
 		CA307E2D1BF43E62002F2101 /* LayoutDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA307E2C1BF43E62002F2101 /* LayoutDisplayViewController.swift */; };
 		CA34F3741C28C998009A9B9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA34F3721C28C998009A9B9A /* Main.storyboard */; };
 		CA4465BC1C1E8CF200B9D70A /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4465BB1C1E8CF200B9D70A /* test.swift */; };
-		CA4466151C1E9D1D00B9D70A /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA4466101C1E9CBB00B9D70A /* Charts.framework */; };
-		CA4466161C1E9D1D00B9D70A /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA4466101C1E9CBB00B9D70A /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CA4466201C1FCCC400B9D70A /* CalibrationSelectColorChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA44661F1C1FCCC400B9D70A /* CalibrationSelectColorChannelViewController.swift */; };
 		CA4466281C20B3DF00B9D70A /* TestResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4466271C20B3DF00B9D70A /* TestResultsViewController.swift */; };
 		CA469F941C1D0C3D00067E1E /* CalibrationAddConcentrationValueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA469F931C1D0C3D00067E1E /* CalibrationAddConcentrationValueViewController.swift */; };
@@ -33,6 +31,8 @@
 		CA81752B1BFD360000890436 /* RGBA.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA81752A1BFD360000890436 /* RGBA.swift */; };
 		CA81752D1BFD362F00890436 /* HSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA81752C1BFD362F00890436 /* HSV.swift */; };
 		CA81752F1BFD366000890436 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA81752E1BFD366000890436 /* ModelData.swift */; };
+		CA91834C1C71258700322C73 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA9183341C71201100322C73 /* Charts.framework */; };
+		CA91834D1C71258700322C73 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA9183341C71201100322C73 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CA96E30C1BF1BB86005CAD5A /* PanelTestOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA96E30B1BF1BB86005CAD5A /* PanelTestOverviewViewController.swift */; };
 		CA96E30F1BF1BE6B005CAD5A /* LayoutCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA96E30E1BF1BE6B005CAD5A /* LayoutCreateViewController.swift */; };
 		CA96E3141BF43287005CAD5A /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA96E3131BF43287005CAD5A /* PreviewView.swift */; };
@@ -60,30 +60,30 @@
 			remoteGlobalIDString = CA0B964B1BEC4C0900E97070;
 			remoteInfo = iOS_Colorimeter;
 		};
-		CA44660F1C1E9CBB00B9D70A /* PBXContainerItemProxy */ = {
+		CA9183331C71201100322C73 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = CA4466061C1E9CBB00B9D70A /* Charts.xcodeproj */;
+			containerPortal = CA91832D1C71201100322C73 /* Charts.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 5BA8EC401A9D14DC00CE82E1;
 			remoteInfo = "Charts-iOS";
 		};
-		CA4466111C1E9CBB00B9D70A /* PBXContainerItemProxy */ = {
+		CA9183351C71201100322C73 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = CA4466061C1E9CBB00B9D70A /* Charts.xcodeproj */;
+			containerPortal = CA91832D1C71201100322C73 /* Charts.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = A52C5C371BAC5CA400594CDD;
 			remoteInfo = "Charts-TV";
 		};
-		CA4466131C1E9CBB00B9D70A /* PBXContainerItemProxy */ = {
+		CA9183371C71201100322C73 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = CA4466061C1E9CBB00B9D70A /* Charts.xcodeproj */;
+			containerPortal = CA91832D1C71201100322C73 /* Charts.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 06AEE7A21BDC3F8B009875AE;
 			remoteInfo = ChartsTests;
 		};
-		CA4466171C1E9D1D00B9D70A /* PBXContainerItemProxy */ = {
+		CA91834E1C71258700322C73 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = CA4466061C1E9CBB00B9D70A /* Charts.xcodeproj */;
+			containerPortal = CA91832D1C71201100322C73 /* Charts.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 5BA8EC3F1A9D14DC00CE82E1;
 			remoteInfo = "Charts-iOS";
@@ -91,13 +91,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		CA4466191C1E9D1D00B9D70A /* Embed Frameworks */ = {
+		CA9183501C71258700322C73 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				CA4466161C1E9D1D00B9D70A /* Charts.framework in Embed Frameworks */,
+				CA91834D1C71258700322C73 /* Charts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -127,7 +127,6 @@
 		CA307E2C1BF43E62002F2101 /* LayoutDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LayoutDisplayViewController.swift; path = ../LayoutDisplayViewController.swift; sourceTree = "<group>"; };
 		CA34F3731C28C998009A9B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CA4465BB1C1E8CF200B9D70A /* test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
-		CA4466061C1E9CBB00B9D70A /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts/Charts.xcodeproj; sourceTree = SOURCE_ROOT; };
 		CA44661F1C1FCCC400B9D70A /* CalibrationSelectColorChannelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalibrationSelectColorChannelViewController.swift; sourceTree = "<group>"; };
 		CA4466271C20B3DF00B9D70A /* TestResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestResultsViewController.swift; sourceTree = "<group>"; };
 		CA469F931C1D0C3D00067E1E /* CalibrationAddConcentrationValueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalibrationAddConcentrationValueViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +135,7 @@
 		CA81752A1BFD360000890436 /* RGBA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGBA.swift; sourceTree = "<group>"; };
 		CA81752C1BFD362F00890436 /* HSV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSV.swift; sourceTree = "<group>"; };
 		CA81752E1BFD366000890436 /* ModelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		CA91832D1C71201100322C73 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts/Charts.xcodeproj; sourceTree = "<group>"; };
 		CA96E30B1BF1BB86005CAD5A /* PanelTestOverviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelTestOverviewViewController.swift; sourceTree = "<group>"; };
 		CA96E30E1BF1BE6B005CAD5A /* LayoutCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutCreateViewController.swift; sourceTree = "<group>"; };
 		CA96E3131BF43287005CAD5A /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreviewView.swift; path = ../PreviewView.swift; sourceTree = "<group>"; };
@@ -153,7 +153,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA4466151C1E9D1D00B9D70A /* Charts.framework in Frameworks */,
+				CA91834C1C71258700322C73 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,14 +174,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F0E145A0D8F82E07C040A37 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		33B684C1F6D93C7587DE6350 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CA0B96431BEC4C0900E97070 = {
 			isa = PBXGroup;
 			children = (
-				CAA4BF1E1C43812400E7E1DE /* InfoViewController.swift */,
+				CA91832D1C71201100322C73 /* Charts.xcodeproj */,
 				CA0B964E1BEC4C0900E97070 /* iOS_Colorimeter */,
+				CAA4BF1E1C43812400E7E1DE /* InfoViewController.swift */,
 				CA0B96661BEC4C0A00E97070 /* iOS_ColorimeterTests */,
 				CA0B96711BEC4C0A00E97070 /* iOS_ColorimeterUITests */,
 				CA0B964D1BEC4C0900E97070 /* Products */,
+				33B684C1F6D93C7587DE6350 /* Frameworks */,
+				1F0E145A0D8F82E07C040A37 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -206,7 +223,6 @@
 				CA96E3101BF43227005CAD5A /* CameraFiles */,
 				CA96E30D1BF1BE46005CAD5A /* LayoutViewControlers */,
 				CA0B96931BEC6DB200E97070 /* PanelViewControllers */,
-				CA4466061C1E9CBB00B9D70A /* Charts.xcodeproj */,
 				CA0B96591BEC4C0A00E97070 /* Assets.xcassets */,
 				CA0B965B1BEC4C0A00E97070 /* LaunchScreen.storyboard */,
 				CA0B965E1BEC4C0A00E97070 /* Info.plist */,
@@ -260,16 +276,6 @@
 			name = StatisticFunctions;
 			sourceTree = "<group>";
 		};
-		CA4466071C1E9CBB00B9D70A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				CA4466101C1E9CBB00B9D70A /* Charts.framework */,
-				CA4466121C1E9CBB00B9D70A /* Charts.framework */,
-				CA4466141C1E9CBB00B9D70A /* ChartsTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		CA469F921C1D0BE600067E1E /* CalibrationFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -307,6 +313,16 @@
 			name = ColorFunctions;
 			sourceTree = "<group>";
 		};
+		CA91832E1C71201100322C73 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CA9183341C71201100322C73 /* Charts.framework */,
+				CA9183361C71201100322C73 /* Charts.framework */,
+				CA9183381C71201100322C73 /* ChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		CA96E30D1BF1BE46005CAD5A /* LayoutViewControlers */ = {
 			isa = PBXGroup;
 			children = (
@@ -337,12 +353,12 @@
 				CA0B96481BEC4C0900E97070 /* Sources */,
 				CA0B96491BEC4C0900E97070 /* Frameworks */,
 				CA0B964A1BEC4C0900E97070 /* Resources */,
-				CA4466191C1E9D1D00B9D70A /* Embed Frameworks */,
+				CA9183501C71258700322C73 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				CA4466181C1E9D1D00B9D70A /* PBXTargetDependency */,
+				CA91834F1C71258700322C73 /* PBXTargetDependency */,
 			);
 			name = iOS_Colorimeter;
 			productName = iOS_Colorimeter;
@@ -422,8 +438,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = CA4466071C1E9CBB00B9D70A /* Products */;
-					ProjectRef = CA4466061C1E9CBB00B9D70A /* Charts.xcodeproj */;
+					ProductGroup = CA91832E1C71201100322C73 /* Products */;
+					ProjectRef = CA91832D1C71201100322C73 /* Charts.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -436,25 +452,25 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		CA4466101C1E9CBB00B9D70A /* Charts.framework */ = {
+		CA9183341C71201100322C73 /* Charts.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Charts.framework;
-			remoteRef = CA44660F1C1E9CBB00B9D70A /* PBXContainerItemProxy */;
+			remoteRef = CA9183331C71201100322C73 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		CA4466121C1E9CBB00B9D70A /* Charts.framework */ = {
+		CA9183361C71201100322C73 /* Charts.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Charts.framework;
-			remoteRef = CA4466111C1E9CBB00B9D70A /* PBXContainerItemProxy */;
+			remoteRef = CA9183351C71201100322C73 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		CA4466141C1E9CBB00B9D70A /* ChartsTests.xctest */ = {
+		CA9183381C71201100322C73 /* ChartsTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = ChartsTests.xctest;
-			remoteRef = CA4466131C1E9CBB00B9D70A /* PBXContainerItemProxy */;
+			remoteRef = CA9183371C71201100322C73 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -552,10 +568,10 @@
 			target = CA0B964B1BEC4C0900E97070 /* iOS_Colorimeter */;
 			targetProxy = CA0B966F1BEC4C0A00E97070 /* PBXContainerItemProxy */;
 		};
-		CA4466181C1E9D1D00B9D70A /* PBXTargetDependency */ = {
+		CA91834F1C71258700322C73 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Charts-iOS";
-			targetProxy = CA4466171C1E9D1D00B9D70A /* PBXContainerItemProxy */;
+			targetProxy = CA91834E1C71258700322C73 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -617,7 +633,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -668,8 +684,14 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/build/Release-iphoneos",
+				);
 				INFOPLIST_FILE = iOS_Colorimeter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "RemchoResearch.iOS-Colorimeter";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -684,8 +706,14 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/build/Release-iphoneos",
+				);
 				INFOPLIST_FILE = iOS_Colorimeter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "RemchoResearch.iOS-Colorimeter";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

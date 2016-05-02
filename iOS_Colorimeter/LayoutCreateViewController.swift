@@ -3,7 +3,6 @@ import AVFoundation
 import AssetsLibrary
 import CoreData
 
-
 var SessionRunningAndDeviceAuthorizedContext = "SessionRunningAndDeviceAuthorizedContext"
 var CapturingStillImageContext = "CapturingStillImageContext"
 var RecordingContext = "RecordingContext"
@@ -11,49 +10,48 @@ var RecordingContext = "RecordingContext"
 
 class LayoutCreateViewController: UIViewController {
     
+    @IBOutlet var addCircleButton: UIButton!
+    @IBOutlet weak var previewView: AVCamPreviewView!
+    
     var sessionQueue: dispatch_queue_t?
     var session: AVCaptureSession?
     var videoDeviceInput: AVCaptureDeviceInput?
     var movieFileOutput: AVCaptureMovieFileOutput?
     var stillImageOutput: AVCaptureStillImageOutput?
-    
-    @IBOutlet var addCircleButton: UIButton!
-    
     var deviceAuthorized: Bool  = false
     var backgroundRecordId: UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
+    var runtimeErrorHandlingObserver: AnyObject?
+    var lockInterfaceRotation: Bool = false
+    
+    
     var sessionRunningAndDeviceAuthorized: Bool {
         get {
             return (self.session?.running != nil && self.deviceAuthorized )
         }
     }
-    
-    var runtimeErrorHandlingObserver: AnyObject?
-    var lockInterfaceRotation: Bool = false
+
     
     @IBAction func cancel(sender: AnyObject) {
         self.performSegueWithIdentifier("cancelledSegue", sender: nil)
     }
 
     
-    @IBOutlet weak var previewView: AVCamPreviewView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Set title of the addCircleButton to the current test area name.
         addCircleButton.setTitle(savedVariables.testAreaNameArray[circleCount] as! String, forState:.Normal)
-        
-        
-        //savedVariables.performingCal = true
-        //savedVariables.initalCalibrationTesting = true
-        
         
         //Hides back button
         navigationItem.hidesBackButton = true
         
+        
         let value = UIInterfaceOrientation.LandscapeLeft.rawValue
         UIDevice.currentDevice().setValue(value, forKey: "orientation")
         let session: AVCaptureSession = AVCaptureSession()
-        self.session = session
         
+        self.session = session
         self.previewView.session = session
         
         self.checkDeviceAuthorizationStatus()
@@ -93,12 +91,10 @@ class LayoutCreateViewController: UIViewController {
                 
                 self.stillImageOutput = stillImageOutput
             }
-            
-            
         })
-        
-        
     }
+    
+    
     override func viewWillAppear(animated: Bool) {
         dispatch_async(self.sessionQueue!, {
             self.addObserver(self, forKeyPath: "sessionRunningAndDeviceAuthorized", options: [NSKeyValueObservingOptions.Old, NSKeyValueObservingOptions.New], context: &SessionRunningAndDeviceAuthorizedContext)
@@ -215,7 +211,7 @@ class LayoutCreateViewController: UIViewController {
     @IBAction func addNewCircle(sender:UIButton!){
         circleCount += 1
         if(circleCount == savedVariables.numberOfTestAreas || circleCount < savedVariables.numberOfTestAreas){
-            addCircleButton.setTitle(savedVariables.testAreaNameArray[circleCount] as! String, forState:.Normal)
+            addCircleButton.setTitle(savedVariables.testAreaNameArray[circleCount] as? String, forState:.Normal)
             if(occurredOnce == true){
                 xString = "\(location.x)"
                 yString = "\(location.y)"
@@ -283,7 +279,6 @@ class LayoutCreateViewController: UIViewController {
                 yString = "\(location.y)"
                 xcoordinateList += [xString]
                 ycoordinateList += [yString]
-              
                 radiusList += [testAreaRadius]
 
                 // savedVariables.testAreaNames += [""]
@@ -291,31 +286,18 @@ class LayoutCreateViewController: UIViewController {
                 savedVariables.numberOfTestAreas = numberOfTestAreas
                 //Clear testAreaInfo
                 savedVariables.testAreaInfo = ""
-                //print(savedVariables.numberOfTestAreas)
-                
-                //print(xcoordinateList)
-                //print(ycoordinateList)
-            
-                print(xcoordinateList)
-                print(ycoordinateList)
-            
-                
-                
                 
                 for var i = 0; i < numberOfTestAreas; i++ {
-                    print("***********")
-                    print("i: \(i)")
-                    print("numberOfTestAreas: \(numberOfTestAreas)")
-                    
-                    savedVariables.testAreaInfo += "\(xcoordinateList[i]),\(ycoordinateList[i]),\(radiusList[i]),\(testAreaNameList[i]),\(unitsNameList[i]), , , , ,"
-                    
-                    print("***********")
+                    //print("***********")
+                    //print("i: \(i)")
+                    //print("numberOfTestAreas: \(numberOfTestAreas)")
+                    //print("***********")
+                    savedVariables.testAreaInfo += "\(xcoordinateList[i]),\(ycoordinateList[i]),\(radiusList[i]),\(testAreaNameList[i]),\(unitsNameList[i]), , , , , ,"
                 }
                 print("Info: \(savedVariables.testAreaInfo)")
             }
 
             self.performSegueWithIdentifier("toLayoutDisplaySegue", sender: nil)
-            
         }
         
     }
@@ -323,7 +305,6 @@ class LayoutCreateViewController: UIViewController {
     @IBAction func makeTestingAreaLarger(sender: UIButton!){
         if(atLeastOneTestHasBeenCreated == true){
             if(areYouModifyingCalbrationMark == false){
-                //println("Modify Cal Mark?")
                 adjustableHeight =  adjustableHeight + 10
                 adjustableWidth = adjustableWidth + 10
                 let a = CGFloat(adjustableHeight)
@@ -331,11 +312,10 @@ class LayoutCreateViewController: UIViewController {
                 previewView.addSubview(imageView)
                 //saved to model
                 testAreaRadius = testAreaRadius + 10
-                print("\(testAreaRadius) px")
+                //print("\(testAreaRadius) px")
             }
         }
         if(areYouModifyingCalbrationMark == true){
-            //println("Modify Cal Mark?")
             adjustableHeight =  adjustableHeight + 5
             adjustableWidth = adjustableWidth + 5
             let a = CGFloat(adjustableHeight)
